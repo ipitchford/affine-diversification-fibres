@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "controls": [
+    {
+      "id": "M1_wrong_cone_sign",
+      "detected": true
+    },
+    {
+      "id": "M2_missing_branching_time_factorial",
+      "detected": true
+    },
+    {
+      "id": "M3_supercritical_finite_bound",
+      "detected": true
+    },
+    {
+      "id": "N1_infeasible_constraints",
+      "detected": true
+    },
+    {
+      "id": "N2_barrier_violation",
+      "detected": true
+    }
+  ],
+  "detected": 5,
+  "total": 5
+}

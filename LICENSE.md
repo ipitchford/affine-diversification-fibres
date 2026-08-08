@@ -1,0 +1,12 @@
+# Licence and reuse boundary
+
+All original content in this candidate release—including original code, manuscript text, documentation, figures and machine-readable metadata—is dedicated to the public domain under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/). The complete legal code is in `LICENSE`.
+
+CC0 is a waiver/dedication, not a warranty or an assurance that the research claims are correct. Citation is appreciated for scholarly provenance but is not a condition of reuse.
+
+## Exceptions
+
+- `data/mammalia_tree1_psr.csv`, `data/mammalia_fossil_excerpt.csv` and `data/PSR_tree1.Rda.sha256` derive from the declared upstream `n8upham/MamDiv-fossil-vs-timetree` repository. That repository declares GPL-3.0; this release does not purport to relicense those source-derived values.
+- `docs/review_received_20260806.md` is user-supplied audit material included for provenance under `NOASSERTION`; this release does not purport to relicense it.
+
+`LICENSE_MAP.json` is the machine-readable component authority and `DATA_PROVENANCE.md` records the upstream data boundary.

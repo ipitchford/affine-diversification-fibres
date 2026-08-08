@@ -1,0 +1,8 @@
+# Core runtime dependencies
+numpy>=2.0,<2.7
+scipy>=1.13,<1.18
+matplotlib>=3.8,<3.11
+
+# Release verification dependencies
+jsonschema>=4.26,<5
+pypdf>=5.9,<6

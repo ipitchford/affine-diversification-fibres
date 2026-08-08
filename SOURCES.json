@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0",
+  "release": "0.2.1",
+  "search_freeze": "2026-08-08",
+  "corpus_boundary": "Targeted rather than systematic; see docs/novelty_gate.md.",
+  "verification_summary": "All bibliography entries and manuscript citation contexts were checked on 8 August 2026 through publisher, DOI, arXiv or library-catalogue routes. This verifies source identity and contextual support, not the candidate theorem claims.",
+  "sources": [
+    {
+      "id": "louca2020",
+      "authors": "Louca, Stilianos; Pennell, Matthew W.",
+      "year": 2020,
+      "title": "Extant timetrees are consistent with a myriad of diversification histories",
+      "doi": "10.1038/s41586-020-2176-1",
+      "url": "https://doi.org/10.1038/s41586-020-2176-1",
+      "role": "Foundational congruence and pulled variables"
+    },
+    {
+      "id": "lambert2013",
+      "authors": "Lambert, Amaury; Stadler, Tanja",
+      "year": 2013,
+      "title": "Birth-death models and coalescent point processes: The shape and probability of reconstructed phylogenies",
+      "doi": "10.1016/j.tpb.2013.10.002",
+      "url": "https://doi.org/10.1016/j.tpb.2013.10.002",
+      "role": "Coalescent point-process and inverse-tail antecedent"
+    },
+    {
+      "id": "hohna2015",
+      "authors": "Höhna, Sebastian",
+      "year": 2015,
+      "title": "The time-dependent reconstructed evolutionary process with a key-role for mass-extinction events",
+      "doi": "10.1016/j.jtbi.2015.06.005",
+      "url": "https://doi.org/10.1016/j.jtbi.2015.06.005",
+      "role": "Event-aware reconstructed-process antecedent"
+    },
+    {
+      "id": "helmstetter2022",
+      "authors": "Helmstetter, Andrew J. et al.",
+      "year": 2022,
+      "title": "Pulled diversification rates, lineages-through-time plots, and modern macroevolutionary modeling",
+      "doi": "10.1093/sysbio/syab083",
+      "url": "https://doi.org/10.1093/sysbio/syab083",
+      "role": "Interpretation of pulled rates and deterministic trajectories"
+    },
+    {
+      "id": "hohna2022",
+      "authors": "Höhna, Sebastian; Kopperud, Bjørn T.; Magee, Andrew F.",
+      "year": 2022,
+      "title": "CRABS: Congruent rate analyses in birth-death scenarios",
+      "doi": "10.1111/2041-210X.13997",
+      "url": "https://doi.org/10.1111/2041-210X.13997",
+      "role": "Congruence-class exploration comparator"
+    },
+    {
+      "id": "andreoletti2023",
+      "authors": "Andréoletti, Jérémy; Morlon, Hélène",
+      "year": 2023,
+      "title": "Exploring congruent diversification histories with flexibility and parsimony",
+      "doi": "10.1111/2041-210X.14240",
+      "url": "https://doi.org/10.1111/2041-210X.14240",
+      "role": "Flexible congruence-class exploration comparator"
+    },
+    {
+      "id": "kopperud2023",
+      "authors": "Kopperud, Bjørn T.; Magee, Andrew F.; Höhna, Sebastian",
+      "year": 2023,
+      "title": "Rapidly changing speciation and extinction rates can be inferred in spite of nonidentifiability",
+      "doi": "10.1073/pnas.2208851120",
+      "url": "https://doi.org/10.1073/pnas.2208851120",
+      "role": "Qualitative robustness comparator"
+    },
+    {
+      "id": "legried2022",
+      "authors": "Legried, Brandon; Terhorst, Jonathan",
+      "year": 2022,
+      "title": "A class of identifiable phylogenetic birth-death models",
+      "doi": "10.1073/pnas.2119513119",
+      "url": "https://doi.org/10.1073/pnas.2119513119",
+      "role": "Identifiable restricted classes"
+    },
+    {
+      "id": "legried2023",
+      "authors": "Legried, Brandon; Terhorst, Jonathan",
+      "year": 2023,
+      "title": "Identifiability and inference of phylogenetic birth-death models",
+      "doi": "10.1016/j.jtbi.2023.111520",
+      "url": "https://doi.org/10.1016/j.jtbi.2023.111520",
+      "role": "Piecewise-polynomial identifiability and inference"
+    },
+    {
+      "id": "truman2025",
+      "authors": "Truman, Kate et al.",
+      "year": 2025,
+      "title": "The fossilized birth-death model is identifiable",
+      "doi": "10.1093/sysbio/syae058",
+      "url": "https://doi.org/10.1093/sysbio/syae058",
+      "role": "Richer-observation identifiability comparator"
+    },
+    {
+      "id": "truman2026correction",
+      "authors": "Truman, Kate; Vaughan, Timothy G.; Gavryushkin, Alex; Gavryushkina, Alexandra",
+      "year": 2026,
+      "title": "Correction to: The fossilized birth-death model is identifiable",
+      "doi": "10.1093/sysbio/syaf074",
+      "url": "https://doi.org/10.1093/sysbio/syaf074",
+      "role": "Publisher correction restoring omitted supplementary data; no substantive claim correction reported"
+    },
+    {
+      "id": "dieselhorst2026",
+      "authors": "Dieselhorst, Tobias; Stadler, Tanja",
+      "year": 2026,
+      "title": "Information on hidden birth events restores identifiability in phylodynamic inference",
+      "doi": "10.48550/arXiv.2604.17926",
+      "url": "https://doi.org/10.48550/arXiv.2604.17926",
+      "role": "Hidden-event identifiability comparator"
+    },
+    {
+      "id": "upham2021",
+      "authors": "Upham, Nathan S.; Esselstyn, Jacob A.; Jetz, Walter",
+      "year": 2021,
+      "title": "Molecules and fossils tell distinct yet complementary stories of mammal diversification",
+      "doi": "10.1016/j.cub.2021.07.012",
+      "url": "https://doi.org/10.1016/j.cub.2021.07.012",
+      "role": "Public mammal sensitivity source"
+    },
+    {
+      "id": "manski2003",
+      "authors": "Manski, Charles F.",
+      "year": 2003,
+      "title": "Partial Identification of Probability Distributions",
+      "doi": "10.1007/b97478",
+      "url": "https://doi.org/10.1007/b97478",
+      "role": "Partial-identification framing"
+    },
+    {
+      "id": "mcshane1934",
+      "authors": "McShane, Edward J.",
+      "year": 1934,
+      "title": "Extension of range of functions",
+      "doi": "10.1090/S0002-9904-1934-05978-0",
+      "url": "https://doi.org/10.1090/S0002-9904-1934-05978-0",
+      "role": "Lipschitz-extension antecedent"
+    },
+    {
+      "id": "whitney1934",
+      "authors": "Whitney, Hassler",
+      "year": 1934,
+      "title": "Analytic extensions of differentiable functions defined in closed sets",
+      "doi": "10.1090/S0002-9947-1934-1501735-3",
+      "url": "https://doi.org/10.1090/S0002-9947-1934-1501735-3",
+      "role": "Extension-theory antecedent"
+    },
+    {
+      "id": "macpherson2022",
+      "authors": "MacPherson, Ailene et al.",
+      "year": 2022,
+      "title": "Unifying phylogenetic birth-death models in epidemiology and macroevolution",
+      "doi": "10.1093/sysbio/syab049",
+      "url": "https://doi.org/10.1093/sysbio/syab049",
+      "role": "Unified reconstructed-process and pulled-variable antecedent"
+    },
+    {
+      "id": "anderson1987",
+      "authors": "Anderson, Edward J.; Nash, Peter",
+      "year": 1987,
+      "title": "Linear Programming in Infinite-Dimensional Spaces: Theory and Applications",
+      "isbn": "9780471915969",
+      "url": "https://search.worldcat.org/title/15590671",
+      "role": "Infinite-dimensional linear-programming antecedent"
+    }
+  ],
+  "data_sources": [
+    {
+      "id": "upham_repo",
+      "title": "MamDiv-fossil-vs-timetree",
+      "url": "https://github.com/n8upham/MamDiv-fossil-vs-timetree",
+      "role": "Upstream public code and data for the mammal sensitivity illustration",
+      "license_note": "Repository declares GPL-3.0; extracted values are not relicensed by this package."
+    }
+  ]
+}

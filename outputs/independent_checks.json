@@ -1,0 +1,18 @@
+{
+  "envelopes": {
+    "random_cases": 180,
+    "target_extrema": 720,
+    "maximum_reference_formula_discrepancy": 0.0,
+    "maximum_linear_programme_discrepancy": 2.220446049250313e-16
+  },
+  "finite_event_simulation": {
+    "replicates": 160000,
+    "analytic_survival": 0.27130776048589994,
+    "simulated_survival": 0.27221875,
+    "survival_z": 0.8195400633341842,
+    "F_stem": 2.030723691473104,
+    "maximum_conditional_count_absolute_z": 1.6185713487006341,
+    "smooth_event_limit_max_absolute_error": 0.0
+  },
+  "status": "passed"
+}

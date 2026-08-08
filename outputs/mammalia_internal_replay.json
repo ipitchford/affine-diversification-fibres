@@ -1,0 +1,39 @@
+{
+  "internal_software_replay": "passed",
+  "date": "2026-08-08",
+  "public_curve_reconstruction_max_relative_error": 9.992007221626409e-16,
+  "random_construction_control": {
+    "histories": 20000,
+    "intervals_per_history": 80,
+    "turnover_cap": 0.5,
+    "maximum_sampled_turnover": 0.49999968070831075,
+    "turnover_violations": 0,
+    "envelope_violations": 0,
+    "minimum_q": 1.0,
+    "maximum_n_over_x": 0.4309387072722428
+  },
+  "maximum_minimum_caps_by_proxy": {
+    "tThrough": {
+      "maximum_c_min": 0.877965736814416,
+      "age_ma": 43.5
+    },
+    "divBC": {
+      "maximum_c_min": 0.923799178898021,
+      "age_ma": 48.5
+    },
+    "divSIB": {
+      "maximum_c_min": 0.9538578737095935,
+      "age_ma": 48.5
+    },
+    "divRT": {
+      "maximum_c_min": 0.9538578737095935,
+      "age_ma": 48.5
+    }
+  },
+  "input_hashes": {
+    "mammalia_tree1_psr.csv": "f17931a9befcf5a75959b5a613d5d3d33ed2a739c054d985b208ba24a8484c41",
+    "mammalia_fossil_excerpt.csv": "c4ef633cfb33719cacf052f21f4edef6d43041d1e9109c99fdcb8c4fcf6ee5d0",
+    "PSR_tree1_RData_upstream_sha256": "2af4ece2ffb13a0b9c852c906072bc585c97e8291d5c1915bb7178d027b114fc"
+  },
+  "interpretive_warning": "The fossil calculations are a mathematical sensitivity analysis. Binned fossil-genus summaries are not automatically pointwise lower bounds on the deterministic species-diversity trajectory."
+}

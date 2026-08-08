@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0",
+  "release": "0.2.1",
+  "scope": "frozen package integrity and shipped-output checks",
+  "explicit_nonclaims": [
+    "external peer review",
+    "formal proof verification",
+    "statistical confidence coverage",
+    "fossil observation validation",
+    "exhaustive novelty",
+    "actual CRABS comparison"
+  ],
+  "status": "passed",
+  "checks_passed": 22,
+  "checks_total": 22,
+  "checks": [
+    {
+      "id": "schema:STATUS.json",
+      "status": "passed",
+      "detail": "JSON Schema validation passed",
+      "evidence": [
+        "STATUS.json",
+        "schemas/status.schema.json"
+      ]
+    },
+    {
+      "id": "schema:ASSURANCE.json",
+      "status": "passed",
+      "detail": "JSON Schema validation passed",
+      "evidence": [
+        "ASSURANCE.json",
+        "schemas/assurance.schema.json"
+      ]
+    },
+    {
+      "id": "schema:CLAIM_EVIDENCE.json",
+      "status": "passed",
+      "detail": "JSON Schema validation passed",
+      "evidence": [
+        "CLAIM_EVIDENCE.json",
+        "schemas/claim_evidence.schema.json"
+      ]
+    },
+    {
+      "id": "json:AI_INDEX.json",
+      "status": "passed",
+      "detail": "JSON parsed",
+      "evidence": [
+        "AI_INDEX.json"
+      ]
+    },
+    {
+      "id": "json:PROVENANCE.json",
+      "status": "passed",
+      "detail": "JSON parsed",
+      "evidence": [
+        "PROVENANCE.json"
+      ]
+    },
+    {
+      "id": "json:SOURCES.json",
+      "status": "passed",
+      "detail": "JSON parsed",
+      "evidence": [
+        "SOURCES.json"
+      ]
+    },
+    {
+      "id": "json:LICENSE_MAP.json",
+      "status": "passed",
+      "detail": "JSON parsed",
+      "evidence": [
+        "LICENSE_MAP.json"
+      ]
+    },
+    {
+      "id": "json:environment.json",
+      "status": "passed",
+      "detail": "JSON parsed",
+      "evidence": [
+        "environment.json"
+      ]
+    },
+    {
+      "id": "json:release_status.json",
+      "status": "passed",
+      "detail": "JSON parsed",
+      "evidence": [
+        "release_status.json"
+      ]
+    },
+    {
+      "id": "versions",
+      "status": "passed",
+      "detail": "Recorded versions: {'pyproject': '0.2.1', 'module': '0.2.1', 'status': '0.2.1'}",
+      "evidence": [
+        "pyproject.toml",
+        "affine_diversification/affine_fibre.py",
+        "STATUS.json"
+      ]
+    },
+    {
+      "id": "claim_evidence_paths",
+      "status": "passed",
+      "detail": "All evidence paths resolve",
+      "evidence": [
+        "CLAIM_EVIDENCE.json"
+      ]
+    },
+    {
+      "id": "unit_tests",
+      "status": "passed",
+      "detail": "test_17_mammal_worked_value (affine_diversification.test_affine_fibre.AffineFibreTests.test_17_mammal_worked_value) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.013s\n\nOK",
+      "evidence": [
+        "affine_diversification/test_affine_fibre.py"
+      ]
+    },
+    {
+      "id": "independent_numeric_checks",
+      "status": "passed",
+      "detail": "LP max error=2.220446049250313e-16; survival |z|=0.820; count max |z|=1.619",
+      "evidence": [
+        "outputs/independent_checks.json",
+        "verification/reference_envelopes.py"
+      ]
+    },
+    {
+      "id": "negative_controls",
+      "status": "passed",
+      "detail": "Detected 5/5 controls",
+      "evidence": [
+        "outputs/negative_controls.json"
+      ]
+    },
+    {
+      "id": "sampling_benchmark",
+      "status": "passed",
+      "detail": "Exact/Monte Carlo CDF max gap=0.007205150554726425; scope warning retained",
+      "evidence": [
+        "outputs/sampling_comparison_summary.json"
+      ]
+    },
+    {
+      "id": "mammal_internal_replay",
+      "status": "passed",
+      "detail": "Curve error=9.992007221626409e-16; 20,000 histories; zero violations; interpretation warning retained",
+      "evidence": [
+        "outputs/mammalia_internal_replay.json"
+      ]
+    },
+    {
+      "id": "figures_data_alt_text",
+      "status": "passed",
+      "detail": "Seven figures have source data and substantive alt text",
+      "evidence": [
+        "figures/",
+        "figure_data/ALT_TEXT.json"
+      ]
+    },
+    {
+      "id": "pdf",
+      "status": "passed",
+      "detail": "pages=16; title='Conditional Sharp Partial Identification of Diversification Histories'; bytes=1144745; sha256=ba7c66264e0815dd15a1b414bcad466609c309bc29908d9ffbb30aa6b8b8a750",
+      "evidence": [
+        "manuscript.pdf",
+        "outputs/pdf_inspection.txt"
+      ]
+    },
+    {
+      "id": "wheel",
+      "status": "passed",
+      "detail": "wheel=affine_diversification_fibres-0.2.1-py3-none-any.whl; bytes=22297; sha256=2c40eacfc5cfe29b1daebd9e36a8bb31fc4306cb3884dd939b349e943de04bde; imported_version=0.2.1",
+      "evidence": [
+        "dist/affine_diversification_fibres-0.2.1-py3-none-any.whl"
+      ]
+    },
+    {
+      "id": "assurance_scope",
+      "status": "passed",
+      "detail": "No generic verification_report.json; state remains candidate; publication_ready is scoped to public candidate dissemination only",
+      "evidence": [
+        "STATUS.json",
+        "ASSURANCE.json"
+      ]
+    },
+    {
+      "id": "manifest",
+      "status": "passed",
+      "detail": "listed=89; bad_hashes=[]; missing=[]; extra=[]",
+      "evidence": [
+        "MANIFEST.sha256"
+      ]
+    },
+    {
+      "id": "replay_receipt",
+      "status": "passed",
+      "detail": "status=passed; manifest_sha256_match=True; receipt is archive-bound rather than self-listed",
+      "evidence": [
+        "REPLAY_RECEIPT.json",
+        "MANIFEST.sha256"
+      ]
+    }
+  ]
+}

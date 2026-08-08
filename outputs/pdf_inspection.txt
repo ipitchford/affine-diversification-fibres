@@ -1,0 +1,29 @@
+PDF structural and visual inspection - candidate 0.2.1
+Date: 2026-08-08
+
+File: manuscript.pdf
+SHA-256: ba7c66264e0815dd15a1b414bcad466609c309bc29908d9ffbb30aa6b8b8a750
+Size: 1,144,745 bytes
+Pages: 16
+Page size: A4 (595.276 x 841.89 points)
+Title: Conditional Sharp Partial Identification of Diversification Histories
+Author: Anonymous agentic research candidate
+Producer: pdfTeX-1.40.29
+
+Compilation:
+- latexmk/pdflatex completed successfully with biber 2.21.
+- No undefined citations or cross-references were present in the final log.
+- Text extraction found the 0.2.1 release date, specific-version DOI, References section and Truman et al. correction record.
+
+Fonts:
+- All listed Latin Modern and AMS fonts are embedded and subset.
+- Unicode mappings are present for all listed fonts.
+
+Visual inspection:
+- All 16 pages were rendered at 72 dpi and inspected as a 4 x 4 contact sheet.
+- Title page, mathematical displays, seven figures, comparison table, reproduction commands and bibliography are legible.
+- No clipping, overlap, off-page text or broken figure placement was observed.
+
+Accessibility boundary:
+- The PDF is not tagged.
+- manuscript.md supplies an accessible text rendering; figure_data/ALT_TEXT.json and the figure CSV files supply figure descriptions and source data.

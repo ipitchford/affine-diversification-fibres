@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/status.schema.json",
+  "title": "Evidence Press candidate status",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "release",
+    "decision",
+    "safe_claim",
+    "open_gates"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "release": {
+      "type": "object",
+      "required": [
+        "name",
+        "version",
+        "date",
+        "state",
+        "publication_ready"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "candidate",
+            "released",
+            "withdrawn"
+          ]
+        },
+        "publication_ready": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "decision": {
+      "type": "string"
+    },
+    "safe_claim": {
+      "type": "string"
+    },
+    "headline_assessment": {
+      "type": "object"
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_gates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "severity",
+          "item"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "passed",
+              "partial",
+              "failed",
+              "not_assessed",
+              "not_applicable"
+            ]
+          },
+          "severity": {
+            "type": "string"
+          },
+          "item": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

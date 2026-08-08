@@ -1,0 +1,80 @@
+{
+  "worked_case": {
+    "age_ma": 58.5,
+    "tau_after_1Ma_trim_ma": 57.5,
+    "lambda_p_per_ma": 0.04388094859609794,
+    "F": 119.7090495340761,
+    "analysis_origin_lineages_M0": 4790.0,
+    "rho_at_analysis_origin": 1.0,
+    "c_0_5_no_fossil": {
+      "feasible": true,
+      "q_min": 60.35452476703805,
+      "q_max": 119.7090495340761,
+      "lambda_min": 0.04388094859609794,
+      "lambda_max": 0.08703484402152684,
+      "width_factor": 1.9834312339653093
+    },
+    "c_0_5_cross_bin_D44": {
+      "feasible": true,
+      "q_min": 60.35452476703805,
+      "q_max": 108.86363636363636,
+      "lambda_min": 0.04825253706890847,
+      "lambda_max": 0.08703484402152684,
+      "width_factor": 1.8037361205947398
+    },
+    "c_0_5_boundary_D398": {
+      "feasible": false,
+      "q_min": 60.35452476703805,
+      "q_max": 12.035175879396984,
+      "lambda_min": null,
+      "lambda_max": null,
+      "width_factor": null
+    },
+    "c_0_5_range_through_D577": {
+      "feasible": false,
+      "q_min": 60.35452476703805,
+      "q_max": 8.30155979202773,
+      "lambda_min": null,
+      "lambda_max": null,
+      "width_factor": null
+    },
+    "minimum_cap_D44": 0.09136130070122839,
+    "minimum_cap_D398": 0.9070401462844728,
+    "minimum_cap_D577": 0.9384919698987921,
+    "c_0_94_range_through_D577": {
+      "feasible": true,
+      "q_min": 8.122542972044572,
+      "q_max": 8.30155979202773,
+      "lambda_min": 0.6327662247445496,
+      "lambda_max": 0.6467120786152376,
+      "width_factor": 1.0220395042044446
+    },
+    "c_0_95_range_through_D577": {
+      "feasible": true,
+      "q_min": 6.93545247670381,
+      "q_max": 8.30155979202773,
+      "lambda_min": 0.6327662247445496,
+      "lambda_max": 0.7574050383500119,
+      "width_factor": 1.1969745045348772
+    }
+  },
+  "maxima": {
+    "tThrough": {
+      "maximum_c_min": 0.877965736814416,
+      "age_ma": 43.5
+    },
+    "divBC": {
+      "maximum_c_min": 0.923799178898021,
+      "age_ma": 48.5
+    },
+    "divSIB": {
+      "maximum_c_min": 0.9538578737095935,
+      "age_ma": 48.5
+    },
+    "divRT": {
+      "maximum_c_min": 0.9538578737095935,
+      "age_ma": 48.5
+    }
+  },
+  "internal_replay": "passed"
+}

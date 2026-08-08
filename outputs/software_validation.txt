@@ -1,0 +1,37 @@
+Software and release validation - candidate 0.2.1
+Date: 2026-08-08
+Environment: pinned Python 3.13.5 container recorded in environment.json
+
+Frozen package verifier
+- status: passed
+- checks: 22/22
+- JSON schemas: STATUS, ASSURANCE and CLAIM_EVIDENCE passed
+- versions: pyproject, module and STATUS all 0.2.1
+- claim evidence paths: all resolved
+- manifest: 89 listed payload files, no bad hashes, missing files or extra files
+- replay receipt: passed and bound to the current manifest SHA-256
+
+Executable checks
+- deterministic unit tests: 17/17 passed
+- independent envelope checks: 720 extrema over 180 random feasible cases
+- maximum LP discrepancy: 2.220446049250313e-16
+- finite-event simulation: 160,000 replicates
+- survival absolute z: 0.820
+- maximum conditional-count absolute z: 1.619
+- negative controls: 5/5 detected
+- sampling exact/empirical maximum CDF gap: 0.007205150554726425
+- mammal replay: 20,000 constructed histories, zero turnover or envelope violations
+
+Scratch replay
+- normal Python: six regeneration commands passed; semantic verifier 20/20
+- optimized Python (-O): three core commands passed; semantic verifier 20/20
+- receipt: REPLAY_RECEIPT.json
+
+Build artefacts
+- wheel: affine_diversification_fibres-0.2.1-py3-none-any.whl
+- wheel SHA-256: 2c40eacfc5cfe29b1daebd9e36a8bb31fc4306cb3884dd939b349e943de04bde
+- imported version: 0.2.1
+- PDF: 16 pages; SHA-256 ba7c66264e0815dd15a1b414bcad466609c309bc29908d9ffbb30aa6b8b8a750
+
+Assurance boundary
+These results establish frozen-package integrity and internal deterministic/numerical replay. They do not establish external peer review, formal proof verification, statistical confidence coverage, biological validation, exhaustive novelty, an actual CRABS comparison or independent external reproduction.

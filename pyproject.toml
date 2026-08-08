@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "affine-diversification-fibres"
+version = "0.2.1"
+description = "Conditional sharp partial identification in phylogenetic birth-death congruence classes"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "CC0-1.0 for original content; see LICENSE_MAP.json for source-derived exceptions"}
+authors = [{name = "Anonymous agentic research candidate"}]
+keywords = ["phylogenetics", "birth-death process", "partial identification", "congruence class"]
+dependencies = [
+  "numpy>=2.0,<2.7",
+  "scipy>=1.13,<1.18",
+  "matplotlib>=3.8,<3.11",
+]
+
+[project.urls]
+Documentation = "https://evidence-press.pages.dev"
+Repository = "https://github.com/ipitchford/affine-diversification-fibres"
+Publication = "https://doi.org/10.5281/zenodo.21851319"
+
+[tool.setuptools]
+packages = ["affine_diversification"]

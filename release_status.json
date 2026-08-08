@@ -1,0 +1,67 @@
+{
+  "release": "0.2.1",
+  "date": "2026-08-08",
+  "doi": "10.5281/zenodo.21851319",
+  "status": "candidate",
+  "decision": "RETAIN_CANDIDATE_AFTER_MAJOR_REVISION",
+  "publication_ready": true,
+  "publication_readiness_scope": "public_candidate_dissemination_only",
+  "publication_readiness_note": "Ready for public scrutiny as an unrefereed candidate; not a correctness, novelty, independent-reproduction or peer-review status.",
+  "internal_checks": [
+    "17 deterministic unit tests",
+    "720 independent LP endpoint checks across 180 random cases",
+    "160000-replicate finite-event branching-process simulation",
+    "5 deliberate negative controls",
+    "7 figure-data and alt-text sets",
+    "16-page PDF render inspection"
+    ,"normal and optimized scratch-copy replay in a pinned Python 3.13.5 container"
+    ,"citation metadata and upstream mammal-data provenance audit"
+  ],
+  "open_gates": [
+    {
+      "id": "G1",
+      "status": "not_assessed",
+      "severity": "load_bearing_theorem",
+      "item": "External specialist audit of the fixed-stem finite-event theorem and event conventions."
+    },
+    {
+      "id": "G2",
+      "status": "not_assessed",
+      "severity": "novelty",
+      "item": "Recognition search across books, theses, adjacent mathematical fields and non-English literature."
+    },
+    {
+      "id": "G3",
+      "status": "not_assessed",
+      "severity": "statistical",
+      "item": "Construction and propagation of an honest simultaneous uncertainty set for the pulled signal."
+    },
+    {
+      "id": "G4",
+      "status": "not_assessed",
+      "severity": "empirical",
+      "item": "Fossil preservation, observation and taxonomic-scale model."
+    },
+    {
+      "id": "G5",
+      "status": "not_assessed",
+      "severity": "comparative",
+      "item": "Actual matched CRABS or equivalent software comparison under identical restrictions."
+    },
+    {
+      "id": "G6",
+      "status": "not_assessed",
+      "severity": "extension",
+      "item": "Crown and random-origin conditioning derivations."
+    },
+    {
+      "id": "G7",
+      "status": "passed",
+      "severity": "reproducibility",
+      "item": "Clean recreation with the pinned container image has passed locally under normal and optimized Python; independent external replay remains not assessed."
+    }
+  ],
+  "safe_claim": "Conditional on a fixed pulled speciation signal, a stated class of homogeneous time-dependent birth-death histories admits a cumulative-loss measure coordinate. Continuous turnover caps and finite interval constraints then yield sharp pointwise projections, endpoint-attaining histories where stated, finite incompatibility certificates, a positive-survival test and a minimum compatible cap. Finitely many independent deterministic survival events preserve the reconstructed-tree law only under the fixed-stem conditioning conventions proved in the manuscript.",
+  "empirical_status": "single-tree fixed-signal deterministic sensitivity only",
+  "authoritative_status_record": "STATUS.json"
+}

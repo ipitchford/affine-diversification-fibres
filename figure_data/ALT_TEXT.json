@@ -1,0 +1,9 @@
+{
+  "figure1_affine_geometry.png": "Pulled-scale cumulative-loss plot showing the least and greatest feasible non-decreasing 0.6-Lipschitz trajectories through three interval constraints. A dashed midpoint trajectory lies inside the pointwise band; the caption warns that arbitrary curves inside the shading need not be feasible.",
+  "figure2_mammalia_turnover_audit.png": "Line chart of minimum compatible turnover caps across mammal fossil bins for four genus-level proxy series. Values vary sharply by proxy; a horizontal line marks the illustrative cap c=0.5. This is a single-tree deterministic sensitivity analysis.",
+  "figure3_worked_sensitivity.png": "At 58.5 Ma, multiplicative speciation-rate width versus assumed turnover cap for no external constraint and three illustrative fossil-derived values. Stronger values are infeasible below high caps and become narrow near their feasibility boundary.",
+  "figure4_mammalia_lambda_bounds.png": "One fixed mammal pulled-rate curve with sharp lower and upper speciation-rate endpoints under c=0.5 from 1 to 71 Ma. The shaded interval contains no pulled-signal uncertainty.",
+  "figure5_sampling_endpoint_cost.png": "Log-log chart of the exact number of independent uniform-turnover histories required for a 95 percent probability of approaching the sharp endpoint, for 2, 4, 8 and 16 intervals. Required samples rise factorially as tolerance tightens and dimension increases.",
+  "figure6_sampling_best_deficit.png": "Exact and simulated cumulative distributions of the best endpoint deficit among 100 sampled histories with four intervals. The curves closely overlap across 30,000 simulated experiments.",
+  "figure7_turnover_cap_phase.png": "Pointwise identification width versus pulled scale for c=0.5, c=1 and c=1.2 at rho=0.8. The c=1.2 curve diverges at the marked critical scale x=5; displayed widths are capped at 30."
+}

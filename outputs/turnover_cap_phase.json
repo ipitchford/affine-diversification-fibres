@@ -1,0 +1,6 @@
+{
+  "rho": 0.8,
+  "supercritical_cap": 1.2,
+  "critical_pulled_scale": 5.000000000000001,
+  "interpretation": "For c>1 the speciation supremum becomes infinite at and beyond xcrit; the zero survival-scale endpoint is an infimum, not an attained history."
+}

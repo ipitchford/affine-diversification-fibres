@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "release": "0.2.1",
+  "default_rule": "No file is relicensed by implication; the most specific matching entry applies.",
+  "components": [
+    {
+      "paths": [
+        "**"
+      ],
+      "license": "CC0-1.0",
+      "copyright": "Original content dedicated to the public domain by its rights holders",
+      "note": "Default for all original content; the source-derived and user-supplied exceptions below take precedence."
+    },
+    {
+      "paths": [
+        "data/mammalia_tree1_psr.csv",
+        "data/mammalia_fossil_excerpt.csv",
+        "data/PSR_tree1.Rda.sha256"
+      ],
+      "license": "NOASSERTION",
+      "source_declared_license": "GPL-3.0-only",
+      "note": "Derived from an upstream repository declaring GPL-3.0; retained for reproducibility and not relicensed."
+    },
+    {
+      "paths": [
+        "docs/review_received_20260806.md"
+      ],
+      "license": "NOASSERTION",
+      "note": "User-supplied review included as revision provenance."
+    }
+  ]
+}

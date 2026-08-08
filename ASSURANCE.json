@@ -1,0 +1,289 @@
+{
+  "schema_version": "1.0",
+  "$schema": "schemas/assurance.schema.json",
+  "release": "0.2.1",
+  "scale": [
+    "passed",
+    "partial",
+    "failed",
+    "not_assessed",
+    "not_applicable"
+  ],
+  "interpretation": "A passed item is scoped to the stated check; it is not a global truth or peer-review status.",
+  "items": [
+    {
+      "id": "A1",
+      "category": "mathematical_internal",
+      "status": "passed",
+      "claim_ids": [
+        "C1",
+        "C3",
+        "C4"
+      ],
+      "scope": "Internal derivations plus independently written numerical reference checks.",
+      "evidence": [
+        "manuscript.pdf",
+        "docs/theorem_audit.md",
+        "outputs/independent_checks.json",
+        "affine_diversification/test_affine_fibre.py"
+      ],
+      "limitations": [
+        "Not formalised in a proof assistant.",
+        "Priority under alternative notation remains open."
+      ]
+    },
+    {
+      "id": "A2",
+      "category": "finite_event_theorem_internal",
+      "status": "passed",
+      "claim_ids": [
+        "C2"
+      ],
+      "scope": "Fixed stem age; oriented ranked tree; stem-survival and observed-tip-count conditioning.",
+      "evidence": [
+        "manuscript.pdf#Theorem-4",
+        "outputs/independent_checks.json",
+        "outputs/negative_controls.json"
+      ],
+      "limitations": [
+        "External stochastic-process specialist review not assessed.",
+        "Crown and random-origin conditioning excluded."
+      ]
+    },
+    {
+      "id": "A3",
+      "category": "finite_event_theorem_external",
+      "status": "not_assessed",
+      "claim_ids": [
+        "C2"
+      ],
+      "scope": "Independent domain-specialist theorem review.",
+      "evidence": [],
+      "limitations": [
+        "Open gate G1."
+      ]
+    },
+    {
+      "id": "A4",
+      "category": "software_unit_tests",
+      "status": "passed",
+      "claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "scope": "Seventeen deterministic tests in the recorded environment.",
+      "evidence": [
+        "outputs/software_validation.txt",
+        "affine_diversification/test_affine_fibre.py"
+      ],
+      "limitations": [
+        "Tests share some conceptual provenance with the implementation."
+      ]
+    },
+    {
+      "id": "A5",
+      "category": "independent_numerical_checks",
+      "status": "passed",
+      "claim_ids": [
+        "C2",
+        "C4"
+      ],
+      "scope": "Independent loop-based envelopes, 720 linear-programming extrema and direct branching-process simulation.",
+      "evidence": [
+        "verification/reference_envelopes.py",
+        "verification/run_independent_checks.py",
+        "outputs/independent_checks.json"
+      ],
+      "limitations": [
+        "Numerical agreement is not a proof of process-law generality."
+      ]
+    },
+    {
+      "id": "A6",
+      "category": "negative_controls",
+      "status": "passed",
+      "claim_ids": [
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "scope": "Five deliberately broken or infeasible controls are detected.",
+      "evidence": [
+        "verification/run_negative_controls.py",
+        "outputs/negative_controls.json"
+      ],
+      "limitations": [
+        "Mutation set is finite."
+      ]
+    },
+    {
+      "id": "A7",
+      "category": "sampling_comparison",
+      "status": "passed",
+      "claim_ids": [
+        "C5"
+      ],
+      "scope": "Exact theorem and Monte Carlo benchmark for a transparent matched independent Uniform(0,c) sampler.",
+      "evidence": [
+        "experiments/run_sampling_comparison.py",
+        "outputs/sampling_comparison_summary.json",
+        "figures/figure5_sampling_endpoint_cost.png",
+        "figures/figure6_sampling_best_deficit.png"
+      ],
+      "limitations": [
+        "Actual CRABS was not run.",
+        "The theorem does not characterise adaptive or targeted samplers."
+      ]
+    },
+    {
+      "id": "A8",
+      "category": "mammal_replay",
+      "status": "passed",
+      "claim_ids": [
+        "C6"
+      ],
+      "scope": "Internal numerical replay of the packaged extracted single-tree inputs.",
+      "evidence": [
+        "outputs/mammalia_internal_replay.json",
+        "outputs/mammalia_worked_case.json",
+        "outputs/mammalia_minimum_turnover.csv"
+      ],
+      "limitations": [
+        "Upstream fit not rerun.",
+        "No biological inference or confidence coverage."
+      ]
+    },
+    {
+      "id": "A9",
+      "category": "empirical_observation_bridge",
+      "status": "not_assessed",
+      "claim_ids": [
+        "C6"
+      ],
+      "scope": "Fossil preservation, latent richness and taxonomic-scale mapping.",
+      "evidence": [
+        "docs/empirical_mammalia_note.md"
+      ],
+      "limitations": [
+        "Open gate G4."
+      ]
+    },
+    {
+      "id": "A10",
+      "category": "pulled_signal_uncertainty",
+      "status": "not_assessed",
+      "claim_ids": [
+        "C7"
+      ],
+      "scope": "Simultaneous uncertainty set and coverage propagation.",
+      "evidence": [
+        "manuscript.pdf#Uncertainty-architecture"
+      ],
+      "limitations": [
+        "Only a logical union construction is supplied."
+      ]
+    },
+    {
+      "id": "A11",
+      "category": "novelty_search",
+      "status": "partial",
+      "claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "scope": "Targeted proposition-level search and prior-art ledger frozen 6 August 2026.",
+      "evidence": [
+        "docs/novelty_gate.md",
+        "docs/novelty_gate.json",
+        "docs/prior_art_ledger.csv"
+      ],
+      "limitations": [
+        "Not systematic.",
+        "Books, theses and non-English literatures incomplete.",
+        "Specialist recognition pending."
+      ]
+    },
+    {
+      "id": "A12",
+      "category": "pdf_render",
+      "status": "passed",
+      "claim_ids": [],
+      "scope": "Sixteen-page PDF metadata, embedded fonts and rendered-page visual inspection.",
+      "evidence": [
+        "outputs/pdf_inspection.txt",
+        "manuscript.pdf"
+      ],
+      "limitations": [
+        "PDF is not tagged for accessibility; alt text and source data are supplied separately."
+      ]
+    },
+    {
+      "id": "A13",
+      "category": "environment_recreation",
+      "status": "partial",
+      "claim_ids": [],
+      "scope": "Exact direct and transitive package versions recorded; wheel built and import-tested; full normal and optimized replay passed in the pinned Python 3.13.5 container.",
+      "evidence": [
+        "environment.json",
+        "requirements-lock.txt",
+        "Containerfile",
+        "dist/",
+        "verification/replay_release.py",
+        "REPLAY_RECEIPT.json"
+      ],
+      "limitations": [
+        "The recreation was performed by the release-preparing agent, not an unaffiliated reproducer."
+      ]
+    },
+    {
+      "id": "A14",
+      "category": "external_peer_review",
+      "status": "not_assessed",
+      "claim_ids": [],
+      "scope": "Journal peer review or named external review.",
+      "evidence": [],
+      "limitations": [
+        "Candidate release is explicitly unrefereed."
+      ]
+    },
+    {
+      "id": "A15",
+      "category": "citation_integrity",
+      "status": "passed",
+      "claim_ids": [],
+      "scope": "Bibliographic metadata and cited-source existence checked through publisher, DOI, arXiv or catalogue records; manuscript citation contexts inspected.",
+      "evidence": [
+        "SOURCES.json",
+        "references.bib",
+        "docs/final_integrity_report_20260808.md"
+      ],
+      "limitations": [
+        "Metadata and context verification does not independently validate the candidate's mathematical deductions."
+      ]
+    },
+    {
+      "id": "A16",
+      "category": "upstream_data_provenance",
+      "status": "passed",
+      "claim_ids": [
+        "C6"
+      ],
+      "scope": "Packaged PSR values and the 14-row fossil excerpt were compared with the declared upstream repository and R data object.",
+      "evidence": [
+        "DATA_PROVENANCE.md",
+        "data/PSR_tree1.Rda.sha256",
+        "docs/final_integrity_report_20260808.md"
+      ],
+      "limitations": [
+        "The upstream model fit itself was not rerun or biologically validated."
+      ]
+    }
+  ]
+}

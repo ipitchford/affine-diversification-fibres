@@ -1,0 +1,14 @@
+{
+  "sampler": "independent Uniform(0,c) turnover on an equal pulled-scale grid",
+  "scope_warning": "Matched transparent sampler only; actual CRABS was not run in this environment.",
+  "turnover_cap": 0.5,
+  "interval_width": 1.0,
+  "simulation_intervals": 4,
+  "histories_per_experiment": 100,
+  "simulation_experiments": 30000,
+  "maximum_exact_empirical_cdf_gap": 0.007205150554726425,
+  "illustrative_required_samples": {
+    "m8_eta_over_cdelta_0.2": 47182783307,
+    "m16_eta_over_cdelta_0.2": 9564068133586213858705408
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "$schema": "schemas/status.schema.json",
+  "release": {
+    "name": "affine-diversification-fibres",
+    "version": "0.2.1",
+    "date": "2026-08-08",
+    "doi": "10.5281/zenodo.21851319",
+    "state": "candidate",
+    "publication_ready": true,
+    "publication_readiness_scope": "public_candidate_dissemination_only",
+    "publication_readiness_note": "Ready to be made public for scrutiny as an unrefereed candidate; this field does not assert theorem truth, novelty, independent reproduction or peer review.",
+    "review_basis": "docs/review_received_20260806.md"
+  },
+  "decision": "RETAIN_CANDIDATE_AFTER_MAJOR_REVISION",
+  "safe_claim": "Conditional on a fixed pulled speciation signal, a stated class of homogeneous time-dependent birth-death histories admits a cumulative-loss measure coordinate. Continuous turnover caps and finite interval constraints then yield sharp pointwise projections, endpoint-attaining histories where stated, finite incompatibility certificates, a positive-survival test and a minimum compatible cap. Finitely many independent deterministic survival events preserve the reconstructed-tree law only under the fixed-stem conditioning conventions proved in the manuscript.",
+  "headline_assessment": {
+    "originality": {
+      "score_12": 8.0,
+      "calibration": "3* Medium",
+      "confidence": 0.72
+    },
+    "significance": {
+      "score_12": 8.0,
+      "calibration": "3* Medium",
+      "confidence": 0.69
+    },
+    "rigour": {
+      "score_12": 8.5,
+      "calibration": "3* Medium-High",
+      "confidence": 0.81
+    },
+    "overall": {
+      "score_12": 8.0,
+      "calibration": "3* Medium",
+      "confidence": 0.72
+    },
+    "note": "Indicative reviewer calibration, not an official REF judgement."
+  },
+  "exclusions": [
+    "No crown-conditioned or random-origin finite-event equivalence claim.",
+    "No posterior-equality claim for likelihood-equivalent histories.",
+    "No simultaneous confidence coverage for the pulled signal.",
+    "No validated fossil preservation, observation or genus-to-species bridge.",
+    "No performance claim against the actual CRABS implementation.",
+    "No exhaustive novelty or priority claim."
+  ],
+  "open_gates": [
+    {
+      "id": "G1",
+      "status": "not_assessed",
+      "severity": "load_bearing_theorem",
+      "item": "External specialist audit of the fixed-stem finite-event theorem and event conventions."
+    },
+    {
+      "id": "G2",
+      "status": "not_assessed",
+      "severity": "novelty",
+      "item": "Recognition search across books, theses, adjacent mathematical fields and non-English literature."
+    },
+    {
+      "id": "G3",
+      "status": "not_assessed",
+      "severity": "statistical",
+      "item": "Construction and propagation of an honest simultaneous uncertainty set for the pulled signal."
+    },
+    {
+      "id": "G4",
+      "status": "not_assessed",
+      "severity": "empirical",
+      "item": "Fossil preservation, observation and taxonomic-scale model."
+    },
+    {
+      "id": "G5",
+      "status": "not_assessed",
+      "severity": "comparative",
+      "item": "Actual matched CRABS or equivalent software comparison under identical restrictions."
+    },
+    {
+      "id": "G6",
+      "status": "not_assessed",
+      "severity": "extension",
+      "item": "Crown and random-origin conditioning derivations."
+    },
+    {
+      "id": "G7",
+      "status": "passed",
+      "severity": "reproducibility",
+      "item": "Clean recreation with the pinned container image has passed locally under normal and optimized Python; independent external replay remains not assessed."
+    }
+  ]
+}

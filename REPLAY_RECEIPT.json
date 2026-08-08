@@ -1,0 +1,303 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-08-08T13:31:03.678535+00:00",
+  "scope": "frozen-payload integrity followed by fresh-copy semantic replay",
+  "assurance_boundary": "This is an internal deterministic replay. It is not formal verification, external specialist review, empirical validation, or an exhaustive novelty audit.",
+  "python": "3.13.5 (main, Jul 23 2025, 17:44:45) [GCC 12.2.0]",
+  "manifest_sha256": "6c50d82213472a29eae71a22839f8addf023ad37238232473198f33d4ddb0f77",
+  "preflight": {
+    "command": [
+      "/usr/local/bin/python",
+      "verification/verify_release.py",
+      "--check-only"
+    ],
+    "exit_code": 0,
+    "stdout_sha256": "242b6ba489de50dbffdee0a3817aea79401c6edaf8b3f13839a8f79ef9840f76",
+    "stdout_tail": [
+      "    },",
+      "    {",
+      "      \"id\": \"replay_receipt\",",
+      "      \"status\": \"passed\",",
+      "      \"detail\": \"status=passed; manifest_sha256_match=True; receipt is archive-bound rather than self-listed\",",
+      "      \"evidence\": [",
+      "        \"REPLAY_RECEIPT.json\",",
+      "        \"MANIFEST.sha256\"",
+      "      ]",
+      "    }",
+      "  ]",
+      "}"
+    ],
+    "status": "passed",
+    "checks_passed": 22,
+    "checks_total": 22
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "commands": [
+        {
+          "command": [
+            "/usr/local/bin/python",
+            "-m",
+            "unittest",
+            "affine_diversification.test_affine_fibre",
+            "-v"
+          ],
+          "exit_code": 0,
+          "stdout_sha256": "69814dd4fef19404fe900856929b5521f702cc607f9c5da5a398843a0f09d59b",
+          "stdout_tail": [
+            "test_11_positive_survival_barrier (affine_diversification.test_affine_fibre.AffineFibreTests.test_11_positive_survival_barrier) ... ok",
+            "test_12_minimum_cap_formula (affine_diversification.test_affine_fibre.AffineFibreTests.test_12_minimum_cap_formula) ... ok",
+            "test_13_closed_form_envelopes_match_grid_linear_programmes (affine_diversification.test_affine_fibre.AffineFibreTests.test_13_closed_form_envelopes_match_grid_linear_programmes) ... ok",
+            "test_14_unsorted_and_duplicate_constraints_are_rejected (affine_diversification.test_affine_fibre.AffineFibreTests.test_14_unsorted_and_duplicate_constraints_are_rejected) ... ok",
+            "test_15_endpoint_sampling_small_tail_formula (affine_diversification.test_affine_fibre.AffineFibreTests.test_15_endpoint_sampling_small_tail_formula) ... ok",
+            "test_16_best_of_n_sampling_probability (affine_diversification.test_affine_fibre.AffineFibreTests.test_16_best_of_n_sampling_probability) ... ok",
+            "test_17_mammal_worked_value (affine_diversification.test_affine_fibre.AffineFibreTests.test_17_mammal_worked_value) ... ok",
+            "",
+            "----------------------------------------------------------------------",
+            "Ran 17 tests in 0.011s",
+            "",
+            "OK"
+          ]
+        },
+        {
+          "command": [
+            "/usr/local/bin/python",
+            "affine_diversification/run_mammalia_demo.py"
+          ],
+          "exit_code": 0,
+          "stdout_sha256": "9345b0109d8a3415d33b5c6395877859d23f7ca5e5ade0f1f0e0510f32f36a9e",
+          "stdout_tail": [
+            "    },",
+            "    \"divSIB\": {",
+            "      \"maximum_c_min\": 0.9538578737095935,",
+            "      \"age_ma\": 48.5",
+            "    },",
+            "    \"divRT\": {",
+            "      \"maximum_c_min\": 0.9538578737095935,",
+            "      \"age_ma\": 48.5",
+            "    }",
+            "  },",
+            "  \"internal_replay\": \"passed\"",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "/usr/local/bin/python",
+            "experiments/run_sampling_comparison.py"
+          ],
+          "exit_code": 0,
+          "stdout_sha256": "2b977a9f6758f78c6c1df37fdfb14037f9c21a2920c834710b5b5b69aa0145e1",
+          "stdout_tail": [
+            "  \"scope_warning\": \"Matched transparent sampler only; actual CRABS was not run in this environment.\",",
+            "  \"turnover_cap\": 0.5,",
+            "  \"interval_width\": 1.0,",
+            "  \"simulation_intervals\": 4,",
+            "  \"histories_per_experiment\": 100,",
+            "  \"simulation_experiments\": 30000,",
+            "  \"maximum_exact_empirical_cdf_gap\": 0.007205150554726425,",
+            "  \"illustrative_required_samples\": {",
+            "    \"m8_eta_over_cdelta_0.2\": 47182783307,",
+            "    \"m16_eta_over_cdelta_0.2\": 9564068133586213858705408",
+            "  }",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "/usr/local/bin/python",
+            "experiments/run_cap_phase_diagram.py"
+          ],
+          "exit_code": 0,
+          "stdout_sha256": "50961c03627a391970038e23590dac09f22a4879905902221f0a26bcb1300200",
+          "stdout_tail": [
+            "{",
+            "  \"rho\": 0.8,",
+            "  \"supercritical_cap\": 1.2,",
+            "  \"critical_pulled_scale\": 5.000000000000001,",
+            "  \"interpretation\": \"For c>1 the speciation supremum becomes infinite at and beyond xcrit; the zero survival-scale endpoint is an infimum, not an attained history.\"",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "/usr/local/bin/python",
+            "verification/run_independent_checks.py"
+          ],
+          "exit_code": 0,
+          "stdout_sha256": "38846419396a62dbb6b63a6f735e488b484faef5789425f665f5aba0f38001c5",
+          "stdout_tail": [
+            "  },",
+            "  \"finite_event_simulation\": {",
+            "    \"replicates\": 160000,",
+            "    \"analytic_survival\": 0.27130776048589994,",
+            "    \"simulated_survival\": 0.27221875,",
+            "    \"survival_z\": 0.8195400633341842,",
+            "    \"F_stem\": 2.030723691473104,",
+            "    \"maximum_conditional_count_absolute_z\": 1.6185713487006341,",
+            "    \"smooth_event_limit_max_absolute_error\": 0.0",
+            "  },",
+            "  \"status\": \"passed\"",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "/usr/local/bin/python",
+            "verification/run_negative_controls.py"
+          ],
+          "exit_code": 0,
+          "stdout_sha256": "1db2419e6dccc89a226c6fdd75d3c211a4aa494ca5b9f8f2bf55da632857011f",
+          "stdout_tail": [
+            "    {",
+            "      \"id\": \"N1_infeasible_constraints\",",
+            "      \"detected\": true",
+            "    },",
+            "    {",
+            "      \"id\": \"N2_barrier_violation\",",
+            "      \"detected\": true",
+            "    }",
+            "  ],",
+            "  \"detected\": 5,",
+            "  \"total\": 5",
+            "}"
+          ]
+        }
+      ],
+      "verification": {
+        "command": [
+          "/usr/local/bin/python",
+          "verification/verify_release.py",
+          "--check-only",
+          "--replay-scratch"
+        ],
+        "exit_code": 0,
+        "stdout_sha256": "39b9603c0f839e33c8053bad58f47c2c1b276de60771f89f9fb1b3c2c8b7efcc",
+        "stdout_tail": [
+          "    },",
+          "    {",
+          "      \"id\": \"assurance_scope\",",
+          "      \"status\": \"passed\",",
+          "      \"detail\": \"No generic verification_report.json; state remains candidate; publication_ready is scoped to public candidate dissemination only\",",
+          "      \"evidence\": [",
+          "        \"STATUS.json\",",
+          "        \"ASSURANCE.json\"",
+          "      ]",
+          "    }",
+          "  ]",
+          "}"
+        ],
+        "status": "passed",
+        "checks_passed": 20,
+        "checks_total": 20
+      }
+    },
+    {
+      "mode": "optimized",
+      "commands": [
+        {
+          "command": [
+            "/usr/local/bin/python",
+            "-O",
+            "-m",
+            "unittest",
+            "affine_diversification.test_affine_fibre",
+            "-v"
+          ],
+          "exit_code": 0,
+          "stdout_sha256": "e27089188cfd9ff2e1624c802f6e4f82f83eaf50fffc42f1c7c823870f065236",
+          "stdout_tail": [
+            "test_11_positive_survival_barrier (affine_diversification.test_affine_fibre.AffineFibreTests.test_11_positive_survival_barrier) ... ok",
+            "test_12_minimum_cap_formula (affine_diversification.test_affine_fibre.AffineFibreTests.test_12_minimum_cap_formula) ... ok",
+            "test_13_closed_form_envelopes_match_grid_linear_programmes (affine_diversification.test_affine_fibre.AffineFibreTests.test_13_closed_form_envelopes_match_grid_linear_programmes) ... ok",
+            "test_14_unsorted_and_duplicate_constraints_are_rejected (affine_diversification.test_affine_fibre.AffineFibreTests.test_14_unsorted_and_duplicate_constraints_are_rejected) ... ok",
+            "test_15_endpoint_sampling_small_tail_formula (affine_diversification.test_affine_fibre.AffineFibreTests.test_15_endpoint_sampling_small_tail_formula) ... ok",
+            "test_16_best_of_n_sampling_probability (affine_diversification.test_affine_fibre.AffineFibreTests.test_16_best_of_n_sampling_probability) ... ok",
+            "test_17_mammal_worked_value (affine_diversification.test_affine_fibre.AffineFibreTests.test_17_mammal_worked_value) ... ok",
+            "",
+            "----------------------------------------------------------------------",
+            "Ran 17 tests in 0.095s",
+            "",
+            "OK"
+          ]
+        },
+        {
+          "command": [
+            "/usr/local/bin/python",
+            "-O",
+            "verification/run_independent_checks.py"
+          ],
+          "exit_code": 0,
+          "stdout_sha256": "38846419396a62dbb6b63a6f735e488b484faef5789425f665f5aba0f38001c5",
+          "stdout_tail": [
+            "  },",
+            "  \"finite_event_simulation\": {",
+            "    \"replicates\": 160000,",
+            "    \"analytic_survival\": 0.27130776048589994,",
+            "    \"simulated_survival\": 0.27221875,",
+            "    \"survival_z\": 0.8195400633341842,",
+            "    \"F_stem\": 2.030723691473104,",
+            "    \"maximum_conditional_count_absolute_z\": 1.6185713487006341,",
+            "    \"smooth_event_limit_max_absolute_error\": 0.0",
+            "  },",
+            "  \"status\": \"passed\"",
+            "}"
+          ]
+        },
+        {
+          "command": [
+            "/usr/local/bin/python",
+            "-O",
+            "verification/run_negative_controls.py"
+          ],
+          "exit_code": 0,
+          "stdout_sha256": "1db2419e6dccc89a226c6fdd75d3c211a4aa494ca5b9f8f2bf55da632857011f",
+          "stdout_tail": [
+            "    {",
+            "      \"id\": \"N1_infeasible_constraints\",",
+            "      \"detected\": true",
+            "    },",
+            "    {",
+            "      \"id\": \"N2_barrier_violation\",",
+            "      \"detected\": true",
+            "    }",
+            "  ],",
+            "  \"detected\": 5,",
+            "  \"total\": 5",
+            "}"
+          ]
+        }
+      ],
+      "verification": {
+        "command": [
+          "/usr/local/bin/python",
+          "-O",
+          "verification/verify_release.py",
+          "--check-only",
+          "--replay-scratch"
+        ],
+        "exit_code": 0,
+        "stdout_sha256": "2abd2076206325ce730a3a00c57a73cf93ce17397d4923033d162bcb7f90f22c",
+        "stdout_tail": [
+          "    },",
+          "    {",
+          "      \"id\": \"assurance_scope\",",
+          "      \"status\": \"passed\",",
+          "      \"detail\": \"No generic verification_report.json; state remains candidate; publication_ready is scoped to public candidate dissemination only\",",
+          "      \"evidence\": [",
+          "        \"STATUS.json\",",
+          "        \"ASSURANCE.json\"",
+          "      ]",
+          "    }",
+          "  ]",
+          "}"
+        ],
+        "status": "passed",
+        "checks_passed": 20,
+        "checks_total": 20
+      }
+    }
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Please cite this candidate release by title, version and date; consult LICENSE_MAP.json for component-specific reuse terms."
+title: "Conditional Sharp Partial Identification of Diversification Histories: Affine Measure Geometry, Event Congruence and Certified Extremes"
+version: 0.2.1
+date-released: 2026-08-08
+type: software
+authors:
+  - name: "Anonymous agentic research candidate"
+abstract: "A theorem-led candidate release giving a cumulative-loss coordinate, fixed-stem finite-event congruence, all-cap phase theory, sharp conditional projections, finite certificates and an endpoint-sampling theorem for homogeneous time-varying birth-death congruence classes."
+keywords:
+  - phylogenetics
+  - birth-death process
+  - partial identification
+  - congruence class
+  - measure geometry
+  - deterministic survival event
+  - sharp bounds
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21851319"
+    description: "Specific-version DOI for candidate 0.2.1"
+  - type: other
+    value: "candidate-release-0.2.1"
+    description: "Local candidate identifier"

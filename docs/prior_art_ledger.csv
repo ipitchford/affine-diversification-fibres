@@ -1,0 +1,9 @@
+result,closest_prior_work,relationship,release_claim
+Smooth affine fibre,Louca and Pennell 2020 plus standard integrating factor,"model-specific reparameterisation; exact measure/order interpretation not located","Potentially original synthesis, not a new integrating factor"
+Stieltjes event completion,Lambert and Stadler 2013; Hohna 2015,"event concepts and process laws antecedent; single fibre coordinate is an extension/reformulation","New only in the coupled affine fibre"
+Fixed-stem finite-event law,linear birth-death descendant laws and event-aware reconstructed processes,"self-contained normalization and invariance statement under specified conditioning","Plausible extension; specialist audit required"
+All-cap phase theorem,elementary differential inequalities,"new consequence in this model coordinate; generic inequality technique antecedent","Exact sharpening for turnover-capped congruence fibres"
+Finite interval envelopes,McShane/Whitney extension and isotonic Lipschitz methods,"generic formula antecedent; biological coordinate and certificates are application-specific","Model-specific exact projection and diagnostic synthesis"
+Minimum compatible cap,directed Lipschitz slope requirement,"elementary corollary","Useful model-specific certificate rather than standalone mathematical novelty"
+Endpoint-sampling law,Irwin-Hall distribution and order statistics,"generic probability antecedent; endpoint application and sample-complexity consequence are new synthesis","Significance theorem for finite congruence-class exploration"
+Mammal illustration,Upham et al. 2021,"source data reused as fixed-signal sensitivity","No empirical novelty claim"
