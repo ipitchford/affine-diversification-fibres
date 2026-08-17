@@ -1,0 +1,98 @@
+{
+  "title": "Prospective matched comparison: affine sharp bounds versus CRABS finite clouds",
+  "status": "preregistered_before_execution",
+  "frozen_on": "2026-08-17",
+  "release_target": {
+    "repository": "ipitchford/affine-diversification-fibres",
+    "tag": "v0.2.1-candidate",
+    "doi": "10.5281/zenodo.21851319"
+  },
+  "comparator": {
+    "package": "CRABS",
+    "repository": "afmagee/CRABS",
+    "commit": "f2af9b6c8bb93f5512c2882d2e816060c9e07728",
+    "declared_version_at_commit": "1.2.0.9001"
+  },
+  "question": "When the pulled signal, turnover cap, grid, interpolation rule and floating-point tolerances are held fixed, how closely and how efficiently do finite CRABS clouds recover the sharp pointwise speciation-rate endpoints?",
+  "scope": {
+    "signal_file": "data/mammalia_tree1_psr.csv",
+    "time_variable": "tau_ma_after_1Ma_trim",
+    "signal_variable": "lambda_p_per_ma",
+    "time_window_ma": [0.0, 70.0],
+    "released_grid_step_ma": 5.0,
+    "interpolation": "piecewise linear between released knots",
+    "sampling_fraction_rho": 1.0,
+    "turnover_cap_c": 0.5,
+    "external_constraints": "none",
+    "conditioning": "fixed pulled signal only; this is a deterministic method comparison, not statistical coverage"
+  },
+  "common_numerical_conventions": {
+    "arithmetic": "IEEE-754 double precision",
+    "evaluation_grid": "the 15 released knots tau=0,5,...,70 Ma",
+    "pulled_scale": "cumulative trapezoidal integration of the common piecewise-linear lambda_p signal",
+    "CRABS_reference": "lambda_ref=lambda_p, mu_ref=0; create.model computes p.delta using CRABS' forward/backward pracma::fderiv convention",
+    "CRABS_rate_interpolation": "stats::approxfun linear interpolation",
+    "cap_acceptance_tolerance": 1e-12,
+    "congruence_residual_tolerance": 1e-10,
+    "endpoint_width_zero_tolerance": 1e-14,
+    "endpoint_accuracy_threshold_fraction_of_identified_width": 0.05,
+    "parallelism": "none"
+  },
+  "estimands": {
+    "continuous_affine_endpoints": "lambda_lower=lambda_p*x/(rho+x-1), lambda_upper=lambda_p*x/[rho+(1-c)(x-1)]",
+    "CRABS_discrete_endpoints": "recursive sharp endpoints under CRABS' backward-difference p.delta equation, obtained by setting epsilon_i=0 and epsilon_i=c at every step",
+    "finite_cloud_endpoints": "pointwise minimum and maximum lambda among accepted sampled histories",
+    "primary_endpoint": "upper speciation endpoint at tau=70 Ma",
+    "secondary_endpoints": "both endpoints at every non-zero-width released knot"
+  },
+  "proposals": [
+    {
+      "id": "cap_aware_uniform",
+      "role": "matched best-case transparent CRABS proposal",
+      "mechanism": "draw epsilon_i independently Uniform(0,c), solve CRABS' discrete congruence quadratic recursively for lambda_i, set mu_i=epsilon_i*lambda_i, and instantiate a CRABS joint congruent model for implementation checks"
+    },
+    {
+      "id": "native_hsmrf_rejection",
+      "role": "out-of-box CRABS proposal under the matched cap",
+      "mechanism": "CRABS::sample.basic.models.joint with HSMRF defaults beta.param=c(0.3,0.3), mrf.sd.scale=1, min.p=0, max.p=1; draw mu0 Uniform(0,c*lambda0); reject any trajectory whose knotwise mu/lambda exceeds c"
+    }
+  ],
+  "sample_sizes": [100, 1000, 10000],
+  "replicates": 10,
+  "seeds": [2026081701, 2026081702, 2026081703, 2026081704, 2026081705, 2026081706, 2026081707, 2026081708, 2026081709, 2026081710],
+  "native_sampler_proposal_ceiling_per_replicate": 500000,
+  "metrics": [
+    "accepted histories and attempted proposals",
+    "acceptance rate and wall-clock runtime",
+    "pointwise lower and upper endpoint deficits, normalised by exact CRABS-discrete identified width",
+    "fraction of non-zero-width knots recovered within 1%, 5% and 10% of width",
+    "maximum endpoint deficit over knots",
+    "CRABS p.delta recurrence residual",
+    "turnover-cap residual",
+    "continuous-affine versus CRABS-discrete endpoint discrepancy",
+    "exact affine endpoint runtime over 1000 repetitions"
+  ],
+  "decision_rules": {
+    "material_endpoint_miss": "At N=10000, a proposal materially misses if its cloud remains more than 5% of the CRABS-discrete identified width from either endpoint at any non-zero-width knot in at least 5 of 10 replicates.",
+    "native_practical_failure": "The native HSMRF route fails practicality if any replicate cannot produce 10000 accepted histories within 500000 proposals, or if its median acceptance rate is below 2%.",
+    "adoption_conclusion": "Recommend the affine routine for endpoint certification if either material_endpoint_miss or native_practical_failure occurs. Recommend CRABS for exploration where a finite cloud, rather than a certificate, is the target. If neither occurs, report that CRABS empirically approximates these endpoints at the preregistered scale but still does not certify them.",
+    "discretisation_warning": "No method-comparison claim will use a continuous-affine versus sampled-CRABS difference without separately reporting the CRABS-discrete endpoint; this prevents finite-difference error being mislabelled as sampling error."
+  },
+  "failure_and_missingness_policy": {
+    "all_replicates_retained": true,
+    "proposal_ceiling_hit": "record as censored/practical failure; do not replace the seed",
+    "nonfinite_or_invalid_history": "count as rejected and report reason",
+    "package_install_or_runtime_failure": "emit a machine-readable stop receipt with logs; do not substitute an unlabelled reimplementation",
+    "post_hoc_tuning": "forbidden in the primary analysis; any rescue run must be labelled exploratory"
+  },
+  "outputs": [
+    "protocol_realised.json",
+    "exact_endpoints.csv",
+    "replicate_summary.csv",
+    "endpoint_by_age.csv",
+    "runtime_summary.csv",
+    "validation_checks.json",
+    "matched_comparison_report.md",
+    "figures and complete session information"
+  ]
+}
