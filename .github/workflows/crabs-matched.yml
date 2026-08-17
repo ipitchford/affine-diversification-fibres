@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 300
     env:
-      CRABS_BENCHMARK_MODE: pilot
+      CRABS_BENCHMARK_MODE: full
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Check out frozen benchmark branch
