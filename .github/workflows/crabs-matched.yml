@@ -1,0 +1,52 @@
+name: Matched CRABS comparison
+
+on:
+  push:
+    branches:
+      - benchmark/crabs-matched-20260817
+    paths:
+      - experiments/crabs_matched/**
+      - .github/workflows/crabs-matched.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      CRABS_BENCHMARK_MODE: pilot
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Check out frozen benchmark branch
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Install pinned CRABS and reporting dependency
+        shell: Rscript {0}
+        run: |
+          install.packages(c("remotes", "jsonlite"))
+          remotes::install_github(
+            "afmagee/CRABS@f2af9b6c8bb93f5512c2882d2e816060c9e07728",
+            dependencies = TRUE,
+            upgrade = "never"
+          )
+
+      - name: Run matched comparison
+        run: Rscript experiments/crabs_matched/run_crabs_matched.R
+
+      - name: Upload complete benchmark record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crabs-matched-${{ env.CRABS_BENCHMARK_MODE }}-${{ github.run_id }}
+          path: experiments/crabs_matched/results
+          if-no-files-found: warn
+          retention-days: 30
