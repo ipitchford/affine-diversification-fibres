@@ -1,4 +1,4 @@
-name: Verify candidate package
+name: Verify candidate package and matched-comparison follow-up
 
 on:
   push:
@@ -8,11 +8,83 @@ permissions:
   contents: read
 
 jobs:
-  replay:
+  frozen-release-replay:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Build pinned replay image
+      - name: Check out immutable candidate tag
+        uses: actions/checkout@v4
+        with:
+          ref: v0.2.1-candidate
+          path: frozen-release
+
+      - name: Build pinned replay image from frozen release
+        working-directory: frozen-release
         run: docker build -f Containerfile -t affine-diversification-fibres:ci .
+
       - name: Run frozen-package and scratch replay checks
         run: docker run --rm affine-diversification-fibres:ci
+
+  additive-follow-up:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out follow-up branch with history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Confirm the follow-up does not alter frozen research payloads
+        shell: python
+        run: |
+          import subprocess
+
+          changed = subprocess.check_output(
+              ["git", "diff", "--name-only", "v0.2.1-candidate...HEAD"],
+              text=True,
+          ).splitlines()
+          allowed_prefixes = (
+              ".github/workflows/",
+              "experiments/crabs_matched/",
+              "exploratory/",
+              "adoption/",
+              "benchmark_results/",
+          )
+          forbidden = [p for p in changed if not p.startswith(allowed_prefixes)]
+          if forbidden:
+              raise SystemExit(f"Frozen release payload changed outside follow-up boundary: {forbidden}")
+          print(f"Checked {len(changed)} changed paths; all are inside the additive follow-up boundary.")
+
+      - name: Validate prospective and result records
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          prereg = json.loads(Path("experiments/crabs_matched/PREREGISTRATION.json").read_text())
+          result = json.loads(Path("benchmark_results/crabs_matched/summary.json").read_text())
+
+          assert prereg["status"] == "preregistered_before_execution"
+          assert prereg["release_target"]["tag"] == "v0.2.1-candidate"
+          assert prereg["comparator"]["commit"] == "f2af9b6c8bb93f5512c2882d2e816060c9e07728"
+          assert result["status"] == "completed"
+          assert result["validation"]["checks_pass"] is True
+          assert result["validation"]["independent_audit_status"] == "pass"
+          assert result["decision"]["material_endpoint_miss"] is True
+          assert result["decision"]["native_practical_failure"] is True
+          assert result["decision"]["recommend_affine_for_conditional_endpoint_certification"] is True
+          print("Prospective protocol and machine-readable result records passed.")
+
+      - name: Confirm preregistration precedes executable benchmark
+        run: |
+          git merge-base --is-ancestor 021537a4ffeeae9c6641f1526a7741dcb36d8491 b61a16cb2e18e23aed21bf20a577f0a66ad0c3c3
+          echo "Preregistration commit is an ancestor of the benchmark runner commit."
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Parse benchmark scripts and replay adoption adapter
+        run: |
+          Rscript -e 'parse(file="experiments/crabs_matched/run_crabs_matched.R"); parse(file="exploratory/crabs_grid_sensitivity.R")'
+          Rscript adoption/affine_bounds_adapter.R
