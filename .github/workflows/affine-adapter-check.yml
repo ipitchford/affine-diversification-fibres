@@ -1,0 +1,30 @@
+name: Affine endpoint adapter check
+
+on:
+  push:
+    branches:
+      - benchmark/crabs-matched-20260817
+    paths:
+      - adoption/affine_bounds_adapter.R
+      - .github/workflows/affine-adapter-check.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Run embedded Mammalia endpoint replay
+        run: Rscript adoption/affine_bounds_adapter.R
