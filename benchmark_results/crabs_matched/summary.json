@@ -1,0 +1,112 @@
+{
+  "schema": "affine-crabs-matched-result-1.0",
+  "status": "completed",
+  "completed_utc": "2026-08-17T18:57:53Z",
+  "scope": {
+    "signal": "data/mammalia_tree1_psr.csv",
+    "tau_window_ma": [0, 70],
+    "grid_step_ma": 5,
+    "knot_count": 15,
+    "interpolation": "piecewise_linear",
+    "rho": 1.0,
+    "turnover_cap": 0.5,
+    "external_constraints": "none"
+  },
+  "preregistration": {
+    "commit": "021537a4ffeeae9c6641f1526a7741dcb36d8491",
+    "frozen_before_pilot": true,
+    "sample_targets": [100, 1000, 10000],
+    "replicates": 10,
+    "native_proposal_ceiling_per_seed": 500000,
+    "material_miss_threshold_fraction_of_width": 0.05,
+    "material_miss_required_replicates": 5,
+    "native_acceptance_threshold": 0.02
+  },
+  "software": {
+    "release_tag": "v0.2.1-candidate",
+    "release_doi": "10.5281/zenodo.21851319",
+    "CRABS_commit": "f2af9b6c8bb93f5512c2882d2e816060c9e07728",
+    "CRABS_version": "1.2.0.9001",
+    "R_version": "4.6.1",
+    "runner_os": "Ubuntu 24.04.4"
+  },
+  "primary_N10000": {
+    "cap_aware_uniform": {
+      "median_accepted": 10000,
+      "median_attempted": 10000,
+      "median_acceptance_rate": 1.0,
+      "median_tau70_lower_gap_fraction": 0.06883799300362685,
+      "median_tau70_upper_gap_fraction": 0.2003456318840375,
+      "median_max_lower_gap_fraction": 0.0972894494548667,
+      "median_max_upper_gap_fraction": 0.261589280658175,
+      "material_miss_replicates": 10,
+      "median_runtime_sec": 0.006
+    },
+    "native_hsmrf_rejection": {
+      "median_accepted": 4384.5,
+      "accepted_range": [4299, 4499],
+      "attempted_per_seed": 500000,
+      "median_acceptance_rate": 0.008769,
+      "median_tau70_lower_gap_fraction": 0.004896359666882,
+      "median_tau70_upper_gap_fraction": 0.4945337822078155,
+      "median_max_lower_gap_fraction": 0.0067264157223444,
+      "median_max_upper_gap_fraction": 0.758130661377393,
+      "material_miss_replicates": 10,
+      "median_runtime_sec": 153.1865,
+      "all_seeds_incomplete": true,
+      "rejected_for_cap_total": 4956112,
+      "other_rejections_total": 0
+    }
+  },
+  "exact_endpoints_tau70": {
+    "units": "lineages_per_Ma",
+    "continuous_affine": {
+      "lower": 0.0778740782069533,
+      "upper": 0.155212330887834
+    },
+    "CRABS_discrete": {
+      "lower": 0.0892484780237986,
+      "upper": 0.177260751081809,
+      "width": 0.0880122730580106
+    }
+  },
+  "validation": {
+    "checks_pass": true,
+    "independent_audit_status": "pass",
+    "independent_check_count": 15,
+    "maximum_recurrence_residual": 3.191891195797325e-16,
+    "maximum_positive_cap_violation": 0.0,
+    "closest_cap_margin": 2.7008354608337726e-8,
+    "endpoint_CRABS_object_max_abs_error": 0.0,
+    "native_rejection_accounting_balances": true,
+    "saved_target_draw_boundaries_recompute": true,
+    "native_seed_stream_disclosure": "base_seed_plus_1000000"
+  },
+  "decision": {
+    "material_endpoint_miss": true,
+    "native_practical_failure": true,
+    "recommend_affine_for_conditional_endpoint_certification": true,
+    "retain_CRABS_for_exploration": true
+  },
+  "grid_sensitivity": {
+    "status": "post_preregistration_exploratory",
+    "max_upper_error_at_15_knots": 0.09853170579826911,
+    "max_upper_error_at_1401_knots": 0.002320341469572495,
+    "finite_clouds_rerun_at_1401_knots": false
+  },
+  "execution": {
+    "primary_run_id": 32055272262,
+    "primary_workflow_head": "081b96cc6605f4b68950748cdd764fe00ff51630",
+    "primary_artifact_sha256": "5bb9301835fa1880e0bf3351887ab07ec49a2293799a8fdcb847257772466dd7",
+    "grid_run_id": 32056209338,
+    "grid_artifact_sha256": "f238be1e3727997afd4e88d09e5e2aa80089e9fe6a229b32454cb87ee772fe71"
+  },
+  "limitations": [
+    "one fixed pulled-speciation signal",
+    "one cap and no external constraints",
+    "no uncertainty propagation for the signal",
+    "native N=10000 clouds censored at the proposal ceiling",
+    "no fine-grid finite-cloud rerun",
+    "affine theorem package remains unrefereed and lacks external specialist proof audit"
+  ]
+}
