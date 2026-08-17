@@ -1,0 +1,51 @@
+name: Exploratory CRABS grid sensitivity
+
+on:
+  push:
+    branches:
+      - benchmark/crabs-matched-20260817
+    paths:
+      - exploratory/crabs_grid_sensitivity.R
+      - .github/workflows/crabs-grid-sensitivity.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sensitivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Check out benchmark branch
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Install pinned CRABS and jsonlite
+        shell: Rscript {0}
+        run: |
+          install.packages(c("remotes", "jsonlite"))
+          remotes::install_github(
+            "afmagee/CRABS@f2af9b6c8bb93f5512c2882d2e816060c9e07728",
+            dependencies = TRUE,
+            upgrade = "never"
+          )
+
+      - name: Run grid sensitivity
+        run: Rscript exploratory/crabs_grid_sensitivity.R
+
+      - name: Upload sensitivity record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crabs-grid-sensitivity-${{ github.run_id }}
+          path: exploratory/results
+          if-no-files-found: warn
+          retention-days: 30
