@@ -45,11 +45,15 @@ bindings <- list(
   amendment_001_sha256 = sha256_file(file.path(protocol_dir, "AMENDMENT_001_PRE_EXECUTION.json")),
   amendment_002_sha256 = sha256_file(file.path(protocol_dir, "AMENDMENT_002_COMMIT_CORRECTION.json")),
   amendment_003_sha256 = sha256_file(file.path(protocol_dir, "AMENDMENT_003_STOCHASTIC_METRICS.json")),
+  amendment_004_sha256 = sha256_file(file.path(protocol_dir, "AMENDMENT_004_NONTERMINATION_REPAIR.json")),
   primates_qualification_receipt_sha256 = sha256_file(file.path(
     protocol_dir, "execution", "qualification", "PRIMATES_QUALIFICATION_RECEIPT.json"
   )),
   deterministic_execution_receipt_sha256 = sha256_file(file.path(
     protocol_dir, "execution", "DETERMINISTIC_EXECUTION_RECEIPT.json"
+  )),
+  stochastic_stage1_incident_sha256 = sha256_file(file.path(
+    protocol_dir, "execution", "STOCHASTIC_STAGE1_INCIDENT.json"
   )),
   execution_commit = execution_commit
 )
@@ -156,9 +160,10 @@ target <- max(prefixes)
 attempt_ceiling <- if (is.null(cell$proposal_ceiling)) 2000000L else as.integer(cell$proposal_ceiling)
 
 cap <- if (is.null(cell$turnover_cap)) NA_real_ else as.numeric(cell$turnover_cap)
+minimum_path <- make_discrete_path(0)
 exact <- NULL
 if (identical(cell$task, "cap_matched")) {
-  lower_path <- make_discrete_path(0)
+  lower_path <- minimum_path
   upper_path <- make_discrete_path(cap)
   F <- exp(cumtrap(lambda_p, times))
   continuous_lower <- lambda_p * F / F
@@ -178,6 +183,27 @@ if (identical(cell$task, "cap_matched")) {
 RNGkind(kind = "Mersenne-Twister", normal.kind = "Inversion", sample.kind = "Rejection")
 set.seed(as.integer(cell$seed))
 started <- proc.time()[["elapsed"]]
+
+uses_crabs_internal_sampler <- cell$explorer %in% c("crabs_hsmrf", "crabs_gmrf", "crabs_rejection")
+violating_indices <- which(minimum_path$lambda > 2 + 1e-12)
+structural_censor <- NULL
+if (uses_crabs_internal_sampler && length(violating_indices) > 0L) {
+  first_violation <- violating_indices[[1]]
+  stage1_incident <- jsonlite::fromJSON(file.path(
+    protocol_dir, "execution", "STOCHASTIC_STAGE1_INCIDENT.json"
+  ), simplifyVector = FALSE)
+  structural_censor <- list(
+    type = "minimum_required_lambda_exceeds_frozen_CRABS_max",
+    first_violating_index = first_violation,
+    time = times[[first_violation]],
+    required_minimum_lambda = minimum_path$lambda[[first_violation]],
+    frozen_max_lambda = 2.0,
+    excess = minimum_path$lambda[[first_violation]] - 2.0,
+    maximum_required_lambda = max(minimum_path$lambda),
+    crabs_source_sha256 = stage1_incident$proof$crabs_source_sha256,
+    stage1_incident_sha256 = bindings$stochastic_stage1_incident_sha256
+  )
+}
 
 sample_crabs <- function(mrf_type, reject_cap = NULL) {
   sampler <- getFromNamespace("sample.basic.models.joint", "CRABS")
@@ -281,7 +307,15 @@ sample_cap_aware <- function() {
   )
 }
 
-if (identical(cell$explorer, "crabs_hsmrf")) {
+if (!is.null(structural_censor)) {
+  samples <- list(
+    lambda = matrix(numeric(0), nrow = 0L, ncol = nt),
+    mu = matrix(numeric(0), nrow = 0L, ncol = nt),
+    accepted = 0L,
+    attempts = 0L,
+    rejected = list(structural_nontermination = 1L)
+  )
+} else if (identical(cell$explorer, "crabs_hsmrf")) {
   samples <- sample_crabs("HSMRF")
 } else if (identical(cell$explorer, "crabs_gmrf")) {
   samples <- sample_crabs("GMRF")
@@ -390,7 +424,7 @@ if (!identical(cell$explorer, "boundary_constructor")) {
     stop("atomic stochastic sample rename failed")
   }
   sidecar <- list(
-    path = file.path("execution", "results", "stochastic_samples", basename(sample_path)),
+    path = file.path("execution", "results", basename(sample_dir), basename(sample_path)),
     rows = nrow(values),
     sha256 = sha256_file(sample_path),
     decision_indices = decision_indices,
@@ -422,11 +456,12 @@ if (identical(cell$explorer, "boundary_constructor")) {
 integrity_pass <- accepted >= 0L && accepted <= target && samples$attempts <= attempt_ceiling &&
   (is.na(recurrence_max) || recurrence_max <= 1e-10 * max(1, max(abs(pdelta)))) &&
   (is.na(cap_excess) || cap_excess <= 1e-12) &&
-  (is.null(h3_pass) || h3_pass)
+  (is.null(h3_pass) || h3_pass) &&
+  (is.null(structural_censor) || structural_censor$required_minimum_lambda > structural_censor$frozen_max_lambda + 1e-12)
 
 result <- list(
   schema_version = "1.0.0",
-  status = if (integrity_pass) "PASS" else "FAIL",
+  status = if (!integrity_pass) "FAIL" else if (!is.null(structural_censor)) "CENSORED_STRUCTURAL_NONTERMINATION" else "PASS",
   layer = "stochastic",
   cell = cell,
   bindings = bindings,
@@ -454,6 +489,7 @@ result <- list(
     prefix_summaries = prefix_summaries,
     decision_value_sidecar = sidecar
   ),
+  structural_censor = structural_censor,
   confirmatory_metrics = list(
     H2_deficit_event = h2_event,
     H3_boundary_pass = h3_pass,

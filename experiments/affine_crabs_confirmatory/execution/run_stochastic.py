@@ -15,8 +15,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 PROTOCOL_DIR = ROOT / "experiments" / "affine_crabs_confirmatory"
 SCRIPT = PROTOCOL_DIR / "execution" / "run_stochastic_cell.R"
-RESULT_DIR = PROTOCOL_DIR / "execution" / "results" / "stochastic"
-SAMPLE_DIR = PROTOCOL_DIR / "execution" / "results" / "stochastic_samples"
+RESULT_DIR = PROTOCOL_DIR / "execution" / "results" / "stochastic_stage2"
+SAMPLE_DIR = PROTOCOL_DIR / "execution" / "results" / "stochastic_samples_stage2"
 
 
 def git(*args: str) -> str:
@@ -50,12 +50,12 @@ def load_existing(path: Path, cell: dict, commit: str) -> dict | None:
     }
 
 
-def run_cell(rscript: str, cell: dict, commit: str) -> dict:
-    existing = load_existing(RESULT_DIR / f"{cell['cell_id']}.json", cell, commit)
+def run_cell(rscript: str, cell: dict, commit: str, result_dir: Path, sample_dir: Path) -> dict:
+    existing = load_existing(result_dir / f"{cell['cell_id']}.json", cell, commit)
     if existing is not None:
         return existing
     process = subprocess.run(
-        [rscript, "--vanilla", str(SCRIPT), str(ROOT), cell["cell_id"], str(RESULT_DIR), str(SAMPLE_DIR)],
+        [rscript, "--vanilla", str(SCRIPT), str(ROOT), cell["cell_id"], str(result_dir), str(sample_dir)],
         cwd=ROOT,
         check=False,
         capture_output=True,
@@ -78,6 +78,8 @@ def main() -> None:
     parser.add_argument("--task", action="append", default=[])
     parser.add_argument("--cell-id", action="append", default=[])
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--result-dir", type=Path, default=RESULT_DIR)
+    parser.add_argument("--sample-dir", type=Path, default=SAMPLE_DIR)
     args = parser.parse_args()
 
     require_clean_sources()
@@ -100,8 +102,13 @@ def main() -> None:
 
     counts: Counter[str] = Counter()
     failures = []
+    result_dir = args.result_dir.resolve()
+    sample_dir = args.sample_dir.resolve()
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
-        futures = {pool.submit(run_cell, args.rscript, cell, commit): cell for cell in cells}
+        futures = {
+            pool.submit(run_cell, args.rscript, cell, commit, result_dir, sample_dir): cell
+            for cell in cells
+        }
         for completed, future in enumerate(concurrent.futures.as_completed(futures), start=1):
             cell = futures[future]
             try:
