@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "amendment_id": "AMENDMENT_002_COMMIT_CORRECTION",
+  "amendment_date": "2026-08-20",
+  "status": "FROZEN_BEFORE_CONFIRMATORY_OUTCOMES",
+  "parent_amendment_sha256": "c6112d16331cf2ac7f3e30a3ba898c10bd3692c92ed95b703f7f13f90a71d7e4",
+  "parent_protocol_sha256": "acc668e3e1eb73a04da78e99d00037e7cebddb972afe507a2db40875dbd5ccec",
+  "correction": {
+    "field": "environment_qualification.required_crabs_commit",
+    "incorrect_value_in_amendment_001": "f2af9b6c8bb93f551c2882d2e816060c9e07728",
+    "correct_value_from_parent_protocol_and_source": "f2af9b6c8bb93f5512c2882d2e816060c9e07728"
+  },
+  "scope": "This correction changes no hypothesis, threshold, cell, seed, sampler setting, or analysis rule.",
+  "outcome_blinding_declaration": {
+    "confirmatory_outcomes_seen": false,
+    "qualification_gate_result_seen": "commit_exact=false only; no empirical extract or confirmatory cell result was written"
+  }
+}
