@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0.0",
+  "amendment_id": "AMENDMENT_001_PRE_EXECUTION",
+  "amendment_date": "2026-08-20",
+  "status": "FROZEN_BEFORE_CONFIRMATORY_OUTCOMES",
+  "parent_protocol_sha256": "acc668e3e1eb73a04da78e99d00037e7cebddb972afe507a2db40875dbd5ccec",
+  "reason": "The frozen protocol names constraint regimes and stochastic explorers but does not fully specify their outcome-generating constructions. This amendment removes that residual analyst discretion before any confirmatory outcome is computed.",
+  "scientific_commitments_unchanged": {
+    "research_question": true,
+    "hypotheses": true,
+    "thresholds": true,
+    "cell_manifest": true,
+    "random_seeds": true,
+    "proposal_ceiling": true,
+    "publication_gates": true
+  },
+  "outcome_blinding_declaration": {
+    "confirmatory_outcomes_seen": false,
+    "pilot_results_used_for_parameter_tuning": false,
+    "permitted_information": [
+      "frozen protocol and cell manifest",
+      "published CRABS source code and documentation",
+      "existing pilot implementation solely to identify previously declared comparator defaults",
+      "software installation and input-shape diagnostics"
+    ]
+  },
+  "environment_qualification": {
+    "r_library": "isolated task-local library with CRABS installed from the frozen source commit",
+    "required_crabs_commit": "f2af9b6c8bb93f551c2882d2e816060c9e07728",
+    "required_crabs_version": "1.2.0.9001",
+    "package_lock": "execution/qualification/R_PACKAGE_LOCK.json",
+    "session_info": "execution/qualification/R_SESSION_INFO.txt",
+    "failure_rule": "No CRABS or primates cell is eligible unless commit, version, package loading, and source hashes pass exactly."
+  },
+  "primates_qualification": {
+    "upstream_object": "CRABS::primates_ebd",
+    "upstream_file": "data/primates_ebd.rda",
+    "required_source_sha256": "4bb7585641b3788e22e7b0859e967957c200cc497efe94495cbc7206d8a4dfc6",
+    "expected_columns": ["lambda", "mu", "time"],
+    "expected_rows": 100,
+    "reference_model": "piecewise-linear lambda and mu functions with constant endpoint extension, passed to CRABS::create.model on the native time grid",
+    "pulled_signal": "CRABS::model2df(reference_model, gather=FALSE, rho=1)$`Pulled speciation`",
+    "pulled_net_diversification": "reference_model$p.delta(time)",
+    "resampling": "piecewise-linear interpolation from the qualified native grid onto equally spaced grids of 25, 100, and 400 knots over the unchanged native domain",
+    "licence": "GPL-3 upstream component",
+    "redistribution_rule": "Any public package containing the extracted or derived primates table must retain GPL-3 component attribution and licence notices; qualification does not itself authorize redistribution."
+  },
+  "deterministic_constraint_construction": {
+    "none": "Evaluate no_external_point_bounds only; no external interval constraints are supplied.",
+    "constraint_locations": "The nearest evaluation-grid knots to domain fractions 0, 0.25, 0.5, 0.75, and 1, with duplicates removed while preserving order.",
+    "feasible_intervals": {
+      "witness_turnover": "On successive x intervals use turnover_cap multiplied by the cyclic fractions [0.2, 0.6, 0.4, 0.8].",
+      "anchor": "At x=1 set lower_n=upper_n=1-rho.",
+      "band_half_width": "0.02 times max(1, x_last-1). At non-anchor constraint knots, lower_n=max(1-rho, n_witness-half_width) and upper_n=n_witness+half_width.",
+      "expected_status": "feasible with positive survival"
+    },
+    "known_infeasible": {
+      "base": "Start from the feasible_intervals construction.",
+      "forced_witness": "At the final constraint knot set lower_n to upper_n at the preceding constraint knot plus turnover_cap times their x separation plus margin; set upper_n=lower_n.",
+      "margin": "0.01 times max(1, x_last-1).",
+      "expected_status": "infeasible by a finite directed-Lipschitz certificate; a positive-survival barrier may additionally be present"
+    },
+    "comparison": "Production float64 outputs are compared with the independent 80-digit Decimal oracle under the frozen endpoint tolerance, including matching signed infinity."
+  },
+  "crabs_reference_construction": {
+    "scope": "stochastic rho=1 cells only",
+    "reference_lambda": "piecewise-linear interpolation of lambda_p with constant endpoint extension",
+    "reference_mu": "identically zero",
+    "reference_model": "CRABS::create.model(reference_lambda, reference_mu, times=times)",
+    "lambda0": "lambda_p at the first time knot",
+    "equal_grid_check": "max absolute deviation of interval widths from the first width must not exceed 1e-12 times max(1, absolute first width)"
+  },
+  "stochastic_implementations": {
+    "rng": {
+      "kind": "Mersenne-Twister",
+      "normal_kind": "Inversion",
+      "sample_kind": "Rejection",
+      "seed_rule": "Use the registered cell seed exactly once at cell start; never replace or offset it."
+    },
+    "common_crabs_defaults": {
+      "beta_param": [0.3, 0.3],
+      "mrf_sd_scale": 1.0,
+      "min_lambda": 0.0,
+      "min_mu": 0.0,
+      "max_lambda": 2.0,
+      "max_mu": 2.0,
+      "min_p": 0.0,
+      "max_p": 1.0
+    },
+    "crabs_hsmrf": {
+      "sampler": "CRABS:::sample.basic.models.joint",
+      "MRF_type": "HSMRF",
+      "mu0": "Uniform(0, lambda0)",
+      "acceptance": "Every finite proposal with strictly positive lambda is retained; this is the native unconstrained task, so no turnover-cap rejection is applied.",
+      "target": 10000,
+      "attempt_ceiling": 2000000
+    },
+    "crabs_gmrf": {
+      "sampler": "CRABS:::sample.basic.models.joint",
+      "MRF_type": "GMRF",
+      "mu0": "Uniform(0, lambda0)",
+      "acceptance": "Every finite proposal with strictly positive lambda is retained; this is the native unconstrained task, so no turnover-cap rejection is applied.",
+      "target": 10000,
+      "attempt_ceiling": 2000000
+    },
+    "crabs_rejection": {
+      "sampler": "CRABS:::sample.basic.models.joint",
+      "MRF_type": "HSMRF",
+      "mu0": "Uniform(0, turnover_cap*lambda0)",
+      "acceptance": "Retain only finite proposals with lambda>0, mu>=-1e-12, and max(mu/lambda)<=turnover_cap+1e-12.",
+      "target": 10000,
+      "attempt_ceiling": 2000000
+    },
+    "cap_aware_uniform": {
+      "draw": "Independently draw one turnover value per time knot from Uniform(0, turnover_cap).",
+      "construction": "Use the registered equal-grid CRABS joint recurrence with lambda[1]=lambda0; invalid discriminants or nonpositive rates are retained as failed proposals.",
+      "target": 10000,
+      "attempt_ceiling": 2000000
+    },
+    "boundary_constructor": {
+      "construction": "Construct exactly two positive-control paths using constant turnover zero and constant turnover equal to the registered cap in the same CRABS recurrence.",
+      "accepted_cloud_prefixes": "not applicable to this deterministic positive control",
+      "success": "Both endpoint deficits are at most the frozen 1e-10 normalized tolerance and recurrence residuals pass."
+    }
+  },
+  "persistence_and_censoring": {
+    "cell_result": "One canonical JSON result per registered cell, written atomically and never overwritten with different bytes.",
+    "resumption": "A cell is skipped only when its existing result validates against the cell id, protocol hash, amendment hash, and implementation commit.",
+    "retained_samples": "For stochastic cells retain exact proposal/accept/rejection counts, cloud minima and maxima at every knot for each attained prefix, and accepted lambda values at the four registered decision ages. Registered seeds permit regeneration of full paths.",
+    "failures": "Sampler exceptions, nonfinite proposals, invalid recurrences, and proposal-ceiling censoring remain in the ledger. No seed replacement or rescue run is permitted.",
+    "wall_clock": "No unregistered per-cell wall-clock censor is introduced. Interruption of the overall job creates no outcome decision; the same cells resume from their deterministic seeds."
+  },
+  "interpretation_boundary": "This amendment makes the protocol executable. It supplies no evidence for any hypothesis and authorizes neither publication nor outreach."
+}
