@@ -1,0 +1,95 @@
+{
+  "confirmatory_outcomes_generated": false,
+  "control_count": 18,
+  "controls": [
+    {
+      "control": "constant_pulled_scale",
+      "status": "PASS"
+    },
+    {
+      "cases": 4,
+      "control": "point_bounds_cross_implementation",
+      "status": "PASS"
+    },
+    {
+      "control": "constraint_envelopes_cross_implementation",
+      "status": "PASS"
+    },
+    {
+      "control": "known_infeasible_case",
+      "status": "PASS"
+    },
+    {
+      "control": "minimum_cap_cross_implementation",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "lower endpoint exceeds upper endpoint",
+      "control": "swap_endpoints",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "lower endpoint disagreement",
+      "control": "perturb_endpoint",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "feasibility verdict mismatch",
+      "control": "flip_feasibility",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "time grid must be strictly increasing",
+      "control": "reverse_grid",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "grid is not equal-spaced",
+      "control": "unequal_grid_declared_equal",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "unit declaration mismatch",
+      "control": "change_units",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "recurrence residual exceeds tolerance",
+      "control": "flip_recurrence_sign",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "reference lambda does not equal lambda_p bridge",
+      "control": "substitute_pdelta_for_lambda_p",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "confirmatory CRABS matching is restricted to rho=1",
+      "control": "change_rho_without_conditioning",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "CRABS retained-reference count mismatch",
+      "control": "miscount_retained_reference",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "proposal accounting mismatch",
+      "control": "misreport_rejections",
+      "status": "PASS"
+    },
+    {
+      "caught_reason": "source hash mismatch",
+      "control": "alter_source_hash",
+      "status": "PASS"
+    },
+    {
+      "control": "frozen_asset_manifest",
+      "status": "PASS",
+      "total_cells": 3044
+    }
+  ],
+  "python_optimized": true,
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

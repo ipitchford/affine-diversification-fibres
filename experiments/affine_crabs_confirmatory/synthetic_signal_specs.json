@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "domain_tau": [0.0, 5.0],
+  "variable": "z=tau/5",
+  "units": "per_myr",
+  "families": [
+    {
+      "id": "constant",
+      "formula": "0.2",
+      "parameters": {"level": 0.2},
+      "strata": ["flat", "low_dynamic_range"]
+    },
+    {
+      "id": "monotone_increasing",
+      "formula": "0.05 + 0.30*z",
+      "parameters": {"intercept": 0.05, "slope": 0.3},
+      "strata": ["monotone", "increasing"]
+    },
+    {
+      "id": "monotone_decreasing",
+      "formula": "0.35 - 0.30*z",
+      "parameters": {"intercept": 0.35, "slope": -0.3},
+      "strata": ["monotone", "decreasing"]
+    },
+    {
+      "id": "unimodal",
+      "formula": "0.05 + 0.35*exp(-((z-0.5)/0.18)^2)",
+      "parameters": {"floor": 0.05, "amplitude": 0.35, "centre": 0.5, "scale": 0.18},
+      "strata": ["smooth", "single_peak"]
+    },
+    {
+      "id": "abrupt_change",
+      "formula": "0.08 if z < 0.5 else 0.33",
+      "parameters": {"left": 0.08, "right": 0.33, "change": 0.5},
+      "strata": ["nonsmooth", "change_point"]
+    },
+    {
+      "id": "oscillatory",
+      "formula": "0.20 + 0.12*sin(4*pi*z)",
+      "parameters": {"centre": 0.2, "amplitude": 0.12, "cycles": 2},
+      "strata": ["smooth", "multi_turn"]
+    },
+    {
+      "id": "near_zero_positive",
+      "formula": "0.005 + 0.15*z^2",
+      "parameters": {"floor": 0.005, "quadratic": 0.15},
+      "strata": ["near_zero", "increasing"]
+    },
+    {
+      "id": "high_dynamic_range",
+      "formula": "0.01*exp(log(50)*z)",
+      "parameters": {"minimum": 0.01, "maximum": 0.5},
+      "strata": ["smooth", "high_dynamic_range"]
+    }
+  ],
+  "stochastic_subset": [
+    "constant",
+    "abrupt_change",
+    "oscillatory",
+    "high_dynamic_range"
+  ],
+  "subset_rule": "One family from each prespecified morphology stratum: flat, nonsmooth, multi-turn smooth, and high-dynamic-range smooth. Selection was made before confirmatory execution."
+}

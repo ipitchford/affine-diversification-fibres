@@ -1,0 +1,225 @@
+{
+  "assuranceYield": {
+    "findings": [],
+    "newCriticalByReview": [],
+    "stoppingReason": null
+  },
+  "authorization": {
+    "basis": "User authorized the next local protocol-finalization phase; confirmatory execution and public actions remain unauthorized.",
+    "evidencePressDeploy": false,
+    "publicGitHub": false,
+    "zenodoDraft": false,
+    "zenodoPublish": false
+  },
+  "budget": {
+    "elapsedMinutes": 15.85,
+    "hardStopMinutes": 180,
+    "hardStopRawTokens": 600000,
+    "lastCheckedAt": "2026-08-20T12:34:38.515Z",
+    "profile": "prepare-only",
+    "rawTokensCurrent": null,
+    "rawTokensStart": null,
+    "rawTokensUsed": 0,
+    "startedAt": "2026-08-20T12:18:47.607Z",
+    "state": "within-budget",
+    "targetMinutes": 120,
+    "targetRawTokens": 300000,
+    "tokenAccountingMethod": "runtime-fork-aware-counter-or-unavailable",
+    "uncachedInputTokensUsed": null
+  },
+  "closeout": {
+    "backupAudit": null,
+    "durableNote": null,
+    "finalElapsedMinutes": null,
+    "finalRawTokensUsed": null,
+    "handoff": null,
+    "handoffRequired": null,
+    "modelReviews": null,
+    "modelTurns": null
+  },
+  "coordination": {
+    "currentPhaseModelTurns": 12,
+    "endingAgentAudit": {
+      "agrees": true,
+      "apiRunning": 0,
+      "at": "2026-08-20T12:34:38.449Z",
+      "uiRunning": 0
+    },
+    "latestHandoff": null,
+    "maxModelTurnsPerPhase": 50,
+    "maxSubagents": 2,
+    "orphanedUiAgents": [],
+    "phaseTaskIds": [],
+    "startingAgentAudit": {
+      "agrees": true,
+      "apiRunning": 0,
+      "at": "2026-08-20T12:18:54.308Z",
+      "uiRunning": 0
+    },
+    "subagentsUsed": 0
+  },
+  "evidencePress": {
+    "branch": "protocol/affine-crabs-freeze-20260820",
+    "browserQa": null,
+    "canonicalUrl": null,
+    "checkout": null,
+    "contentCommitA": null,
+    "deploymentUrl": null,
+    "ledgerCommitB": null,
+    "mergedMainCommit": null,
+    "pageStructure": {
+      "contract": "canonical",
+      "exceptions": [],
+      "reason": null
+    },
+    "paperJsonUrl": null,
+    "protocolReadback": null,
+    "publicationIntegrity": null,
+    "pullRequests": [],
+    "readbackCommitC": null,
+    "readbackLedgerCommitD": null,
+    "repository": "https://github.com/ipitchford/evidence-press-site"
+  },
+  "github": {
+    "assets": [],
+    "ciStatus": null,
+    "mainCommit": null,
+    "releaseUrl": null,
+    "repository": null,
+    "tag": null,
+    "tagPayloadCommit": null
+  },
+  "integrityGate": {
+    "citations": null,
+    "claimBoundary": "Conditional identified-set certification as a complement to CRABS; no replacement, posterior, confidence, theorem-validation, or acceptance claim.",
+    "decision": "PROTOCOL_FROZEN_AWAITING_EXECUTION_AUTHORIZATION",
+    "licensing": "CRABS primates component conditional on GPL-3 attribution; unlicensed companion-repository data excluded.",
+    "manifest": "Supplemental frozen bundle manifest sha256 04ce3931125756423bff7389f6cac7665934eb767f652f6d8c0bcc273cb8d4ba.",
+    "negativeControls": "18 controls pass under normal and optimized Python, including all 12 preregistered semantic mutations.",
+    "pdf": null,
+    "replay": "7 protocol-harness tests and 17 legacy tests pass under normal and optimized Python; no confirmatory outcomes generated.",
+    "unresolved": [
+      "External specialist theorem and conditioning review is absent.",
+      "CRABS is not installed locally; actual comparator execution awaits authorization and environment lock.",
+      "The crabs_primates_ebd extraction and component-attribution receipt must pass before its cells become eligible."
+    ]
+  },
+  "media": {
+    "art": null,
+    "audio": null,
+    "ogImage": null,
+    "transcript": null,
+    "youtubeThumbnail": null,
+    "youtubeVideo": null
+  },
+  "phases": [
+    {
+      "completedAt": "2026-08-20T12:32:54Z",
+      "evidence": [
+        "base commit fafc2af3678e1573c43ee2c6347d3abe80d50868",
+        "isolated branch protocol/affine-crabs-freeze-20260820",
+        "prepare-only route with zero public-action authorizations"
+      ],
+      "id": 0,
+      "name": "recover-and-isolate",
+      "startedAt": "2026-08-20T12:18:47Z",
+      "status": "passed"
+    },
+    {
+      "completedAt": null,
+      "evidence": [
+        "experiments/affine_crabs_confirmatory/FREEZE_RECEIPT.json",
+        "outputs/protocol_controls_normal.json",
+        "outputs/protocol_controls_optimized.json"
+      ],
+      "id": 1,
+      "name": "integrity-gate",
+      "startedAt": "2026-08-20T12:19:00Z",
+      "status": "in-progress"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 2,
+      "name": "public-research-repository",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 3,
+      "name": "github-zenodo-identity",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 4,
+      "name": "evidence-press-authoring",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 5,
+      "name": "communication-assets",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 6,
+      "name": "composite-seal-and-ci",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 7,
+      "name": "guarded-deploy-and-readback",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 8,
+      "name": "publication-ledger-and-closeout",
+      "startedAt": null,
+      "status": "pending"
+    }
+  ],
+  "project": {
+    "slug": "affine-diversification-crabs-complement",
+    "sourcePath": "/Users/admin/Documents/Codex/2026-08-20/n-the-0processed-folder-there-is/work/affine-publication-audit/repo",
+    "sourceSha256": null,
+    "status": "unrefereed-candidate",
+    "title": "Affine Endpoint Certification as a Complement to CRABS"
+  },
+  "reviewPolicy": {
+    "confirmationReviewsUsed": 0,
+    "entries": [],
+    "exceptions": [],
+    "maxConfirmationReviews": 1,
+    "maxSubstantiveReviews": 1,
+    "substantiveReviewsUsed": 0
+  },
+  "route": "prepare-only",
+  "schemaVersion": "2.0",
+  "updatedAt": "2026-08-20T12:34:38.515Z",
+  "zenodo": {
+    "assetsByteIdentical": null,
+    "conceptDoi": null,
+    "depositionId": null,
+    "instance": "https://zenodo.org",
+    "recordId": null,
+    "recordUrl": null,
+    "status": null,
+    "versionDoi": null
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidencepress.org/schemas/crabs-affine-adapter-1.0.0.json",
+  "title": "CRABS to affine certification adapter request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "mode",
+    "time_grid",
+    "equal_grid_declared",
+    "interpolation",
+    "units",
+    "rho",
+    "pulled_speciation",
+    "crabs",
+    "sampling_ledger"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "mode": {"enum": ["from_pulled_speciation", "from_reference_model", "verify_both"]},
+    "time_grid": {"type": "array", "minItems": 2, "items": {"type": "number"}},
+    "equal_grid_declared": {"const": true},
+    "interpolation": {"const": "piecewise_linear"},
+    "units": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["time", "rate"],
+      "properties": {"time": {"const": "myr"}, "rate": {"const": "per_myr"}}
+    },
+    "rho": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+    "pulled_speciation": {"$ref": "#/$defs/hashedVector"},
+    "pulled_net_diversification": {"$ref": "#/$defs/hashedVector"},
+    "reference_model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lambda", "mu"],
+      "properties": {
+        "lambda": {"type": "array", "items": {"type": "number"}},
+        "mu": {"type": "array", "items": {"type": "number"}}
+      }
+    },
+    "crabs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "commit"],
+      "properties": {"version": {"type": "string"}, "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"}}
+    },
+    "sampling_ledger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requested_samples", "returned_models", "attempts", "accepted", "rejected"],
+      "properties": {
+        "requested_samples": {"type": "integer", "minimum": 0},
+        "returned_models": {"type": "integer", "minimum": 1},
+        "attempts": {"type": "integer", "minimum": 0},
+        "accepted": {"type": "integer", "minimum": 0},
+        "rejected": {"type": "integer", "minimum": 0}
+      }
+    }
+  },
+  "$defs": {
+    "hashedVector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["values", "sha256"],
+      "properties": {
+        "values": {"type": "array", "minItems": 2, "items": {"type": "number", "minimum": 0}},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

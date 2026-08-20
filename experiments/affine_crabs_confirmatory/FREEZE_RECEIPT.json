@@ -1,0 +1,16 @@
+{
+  "assurance_boundary": "Local protocol and harness integrity only; no confirmatory result, theorem validation, independent reproduction, peer review, or publication.",
+  "base_git_commit": "fafc2af3678e1573c43ee2c6347d3abe80d50868",
+  "bundle_manifest_sha256": "04ce3931125756423bff7389f6cac7665934eb767f652f6d8c0bcc273cb8d4ba",
+  "cell_manifest_sha256": "f0fc7e1f2fe4728a5d832aae85ed33401a9a55b7bad59905591031b942a7a168",
+  "confirmatory_outcomes_generated": false,
+  "deterministic_cells": 1944,
+  "normal_controls_sha256": "cc3ee2d624bc73690a5fd7926b7e25651afec675a7dbc694c9dbcb25dd597a1e",
+  "optimized_controls_sha256": "bceb86ca288c30106295f5cc01698b37f3bfd945f520bb81b0043efc744564bd",
+  "protocol_date": "2026-08-20",
+  "protocol_sha256": "acc668e3e1eb73a04da78e99d00037e7cebddb972afe507a2db40875dbd5ccec",
+  "public_actions_taken": false,
+  "schema_version": "1.0.0",
+  "status": "FROZEN_AWAITING_EXECUTION_AUTHORIZATION",
+  "stochastic_cells": 1100
+}

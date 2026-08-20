@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0.0",
+  "title": "Prospective validation of affine endpoint certification as a complement to CRABS",
+  "protocol_date": "2026-08-20",
+  "status": "FROZEN_AWAITING_EXECUTION_AUTHORIZATION",
+  "registration": {
+    "external_registration": false,
+    "public_posting_authorized": false,
+    "confirmatory_execution_authorized": false,
+    "self_hash_policy": "The protocol hash is stored in PROTOCOL.sha256 to avoid a circular self-hash."
+  },
+  "research_question": "Under which stated signal, grid, conditioning, and turnover-cap regimes does exact affine endpoint certification add reproducible decision utility to CRABS exploration without mischaracterising CRABS' intended role?",
+  "claims_policy": {
+    "neutral_null": "The certificate adds no meaningful decision information beyond the prespecified exploration workflow.",
+    "pilot_exclusion": "All existing Mammalia benchmark results are pilot evidence and excluded from confirmatory decisions.",
+    "forbidden_before_all_publication_gates": [
+      "must-have",
+      "validated theorem",
+      "general solution to diversification non-identifiability",
+      "confidence interval",
+      "credible interval",
+      "community accepted"
+    ]
+  },
+  "software": {
+    "affine_candidate_commit": "fafc2af3678e1573c43ee2c6347d3abe80d50868",
+    "crabs_development_commit": "f2af9b6c8bb93f5512c2882d2e816060c9e07728",
+    "crabs_development_version": "1.2.0.9001",
+    "crabs_cran_tag_commit": "ea0654b7f4e9ae7f6c964e1328ad3e4f01c7fc61",
+    "crabs_cran_version": "1.2.0",
+    "independent_oracle": "verification/independent_affine_oracle.py",
+    "oracle_rule": "The oracle must import neither affine_diversification nor NumPy/SciPy and must use Decimal arithmetic."
+  },
+  "semantic_scope": {
+    "affine_input": "pulled speciation lambda_p",
+    "crabs_input": "pulled net diversification p.delta",
+    "matched_bridge": {
+      "rho": 1.0,
+      "reference_lambda": "lambda_p",
+      "reference_mu": 0.0,
+      "permitted_for_confirmatory_matching": true
+    },
+    "other_rho_levels": "affine-only deterministic validation",
+    "equal_grid_required_for_crabs_joint_recurrence": true,
+    "interpolation": "piecewise_linear",
+    "bound_meaning": "conditional identified-set endpoint, not a confidence or posterior interval"
+  },
+  "corpus": {
+    "synthetic_specification": "synthetic_signal_specs.json",
+    "synthetic_families": [
+      "constant",
+      "monotone_increasing",
+      "monotone_decreasing",
+      "unimodal",
+      "abrupt_change",
+      "oscillatory",
+      "near_zero_positive",
+      "high_dynamic_range"
+    ],
+    "empirical": [
+      {
+        "id": "crabs_primates_ebd",
+        "source_sha256": "4bb7585641b3788e22e7b0859e967957c200cc497efe94495cbc7206d8a4dfc6",
+        "licence": "GPL-3 upstream component",
+        "eligibility": "include only after extraction receipt and component attribution pass"
+      }
+    ],
+    "excluded_from_public_artifacts": [
+      {
+        "repository_commit": "0679fe2bd4d835dd77902227267c2f73a8886cf8",
+        "reason": "No redistribution licence was located for the companion repository."
+      }
+    ]
+  },
+  "deterministic_validation": {
+    "signal_ids": [
+      "constant",
+      "monotone_increasing",
+      "monotone_decreasing",
+      "unimodal",
+      "abrupt_change",
+      "oscillatory",
+      "near_zero_positive",
+      "high_dynamic_range",
+      "crabs_primates_ebd"
+    ],
+    "rho_levels": [0.25, 0.5, 0.75, 1.0],
+    "turnover_cap_levels": [0.0, 0.25, 0.5, 0.75, 0.9, 1.0],
+    "grid_knot_counts": [25, 100, 400],
+    "constraint_regimes": ["none", "feasible_intervals", "known_infeasible"],
+    "planned_cells": 1944,
+    "matching_rule": "Only rho=1 cells may be described as CRABS-matched."
+  },
+  "stochastic_benchmark": {
+    "signal_ids": [
+      "constant",
+      "abrupt_change",
+      "oscillatory",
+      "high_dynamic_range",
+      "crabs_primates_ebd"
+    ],
+    "grid_knot_counts": [25, 100],
+    "replicates": 10,
+    "accepted_cloud_prefixes": [100, 1000, 10000],
+    "native_unconstrained": {
+      "explorers": ["crabs_hsmrf", "crabs_gmrf"],
+      "planned_cells": 200
+    },
+    "cap_matched": {
+      "rho": 1.0,
+      "turnover_cap_levels": [0.25, 0.5, 0.9],
+      "explorers": ["crabs_rejection", "cap_aware_uniform", "boundary_constructor"],
+      "planned_cells": 900
+    },
+    "total_planned_cells": 1100,
+    "proposal_ceiling": {
+      "formula": "min(2000000, max(100000, 200*N_max))",
+      "N_max": 10000,
+      "resolved_value": 2000000,
+      "application": "per stochastic cell",
+      "censoring": "Retain cells that do not attain a requested prefix; never replace a seed."
+    }
+  },
+  "randomization": {
+    "base_seed_namespace": "affine-crabs-confirmatory-20260820",
+    "derivation": "Canonical JSON of the cell without seed is SHA-256 hashed; the first eight hexadecimal digits are mapped to 1..2147483646.",
+    "r_rng": "Set the derived seed immediately before every CRABS call and record the post-call .Random.seed hash.",
+    "pilot_offset_prohibited": "The historical seed+1000000 convention is pilot-only."
+  },
+  "thresholds": {
+    "decimal_precision_digits": 80,
+    "endpoint_agreement": "abs(a-b) <= 5e-12*max(1,abs(a),abs(b)); matching signed infinity required",
+    "recurrence_residual": "max_abs_residual <= 1e-10*max(1,max_abs_pdelta)",
+    "semantic_bridge": "max_abs_difference <= 1e-8*max(1,max_abs_pdelta)",
+    "boundary_constructor_normalized_deficit": 1e-10,
+    "non_negligible_normalized_deficit": 0.05,
+    "decision_ages_as_domain_fractions": [0.25, 0.5, 0.75, 1.0],
+    "decision_threshold_multipliers_of_signal_median": [0.5, 1.0, 2.0, 4.0],
+    "incremental_utility_minimum_fraction": 0.2,
+    "false_certificate_maximum_count": 0,
+    "certification_runtime": "median certification wall time <= max(2 seconds, 0.05*paired exploration wall time)"
+  },
+  "negative_controls": [
+    "swap_endpoints",
+    "perturb_endpoint",
+    "flip_feasibility",
+    "reverse_grid",
+    "unequal_grid_declared_equal",
+    "change_units",
+    "flip_recurrence_sign",
+    "substitute_pdelta_for_lambda_p",
+    "change_rho_without_conditioning",
+    "miscount_retained_reference",
+    "misreport_rejections",
+    "alter_source_hash"
+  ],
+  "hypotheses": {
+    "H1": "Production and independent exact calculations agree within the frozen endpoint tolerance in every supported confirmatory cell.",
+    "H2": "Finite standard exploration leaves a normalized deficit above 0.05 in at least 20% of prespecified nonzero-width cells at the largest attained prefix.",
+    "H3": "The boundary constructor reaches both endpoints with normalized deficit at most 1e-10 in every supported cell.",
+    "H4": "Certification changes at least 20% of prespecified decision-query statuses relative to finite-cloud-only reporting, with zero false certificates.",
+    "H5": "The adapter and certification layer pass clean-environment tasks and meet the frozen runtime rule."
+  },
+  "decision_rules": {
+    "H1_or_H3_failure": "Stop interpretation and repair; publication prohibited.",
+    "negative_control_failure": "Stop and version a repaired protocol/harness before any new run.",
+    "H2_or_H4_failure": "Report the negative result and prohibit must-have or essential-complement language.",
+    "H5_failure": "Repair interface/performance or narrow the adoption claim.",
+    "external_theorem_review_absent_or_failed": "No public scientific release claiming exactness.",
+    "empirical_licence_or_extraction_failure": "Mark empirical cells ineligible before execution; do not substitute another empirical signal after outcome inspection."
+  },
+  "analysis": {
+    "primary": "Complete cell ledger and prespecified stratified summaries with interval estimates across replicates; no significance test is primary.",
+    "reporting": "Report continuous and discrete endpoints, all censored cells, every deviation, and native versus cap-matched CRABS separately.",
+    "exploratory": "Any tuning, new signal, alternate semantic bridge, posterior propagation, fossil analysis, or rescue run is labelled exploratory and cannot repair a failed confirmatory gate."
+  },
+  "freeze_requirements": {
+    "required_files": [
+      "PREREGISTRATION.json",
+      "synthetic_signal_specs.json",
+      "synthetic_signals.json",
+      "CELL_MANIFEST.jsonl",
+      "CELL_MANIFEST.summary.json",
+      "PROTOCOL_MANIFEST.sha256",
+      "PROTOCOL.sha256"
+    ],
+    "controls_must_pass_normal_and_optimized": true,
+    "no_confirmatory_outcome_files_permitted": true,
+    "execution_requires_new_user_authorization": true
+  },
+  "publication_gates": [
+    "external mathematical and conditioning review",
+    "semantic validation",
+    "comparator fairness",
+    "prespecified generality",
+    "incremental decision utility",
+    "reproducibility",
+    "adapter usability",
+    "citation and licence verification",
+    "Evidence Press release-integrity checks"
+  ]
+}
