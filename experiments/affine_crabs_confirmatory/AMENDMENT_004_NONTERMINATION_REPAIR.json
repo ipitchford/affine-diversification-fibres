@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "amendment_id": "AMENDMENT_004_NONTERMINATION_REPAIR",
+  "amendment_date": "2026-08-20",
+  "status": "POST_OUTCOME_HARNESS_REPAIR_BEFORE_STAGE2",
+  "parent_protocol_sha256": "acc668e3e1eb73a04da78e99d00037e7cebddb972afe507a2db40875dbd5ccec",
+  "parent_amendment_003_sha256": "50edd0b1710e9d97725c8ed7df0495b7ba46082b5c7fd54e6d943bbc965450db",
+  "stage1_incident_sha256": "faee53563cc43dc626e5263ab1d575ea0931e01d9b98ce5da4f11c85dad0ae09",
+  "information_seen": {
+    "stage1_completed_results": 631,
+    "stage1_native_hsmrf_results": 31,
+    "stage1_cap_aware_results": 300,
+    "stage1_boundary_results": 300,
+    "hanging_cells_identified": "abrupt_change cells using CRABS internal HSMRF/GMRF sampler",
+    "primary_H2_crabs_rejection_results_seen": 0,
+    "primary_H4_query_results_seen": 0
+  },
+  "defect": "CRABS::sample.basic.models.joint has an internal unbounded while(!in_bounds) loop. For abrupt_change, the exact minimum zero-extinction recurrence requires lambda above the frozen max.lambda=2, so no proposal can return and the registered outer proposal ceiling is unreachable.",
+  "repair": {
+    "preflight_scope": "Before invoking sample.basic.models.joint for crabs_hsmrf, crabs_gmrf, or crabs_rejection, construct the zero-extinction CRABS-discrete recurrence on the registered cell grid.",
+    "structural_condition": "If any required zero-extinction lambda exceeds max.lambda+1e-12, do not invoke the provably nonterminating CRABS loop.",
+    "record": "Emit status=CENSORED_STRUCTURAL_NONTERMINATION with accepted=0, attempts=0, the first violating index, required lambda, max.lambda, CRABS source hash, and post-seed RNG hash.",
+    "H2_treatment": "For crabs_rejection, count this below-first-prefix structural censor as H2_deficit_event=true under Amendment 003.",
+    "H4_treatment": "Emit no finite-cloud status and no H4 queries; report the cell as censored and exclude it from evaluable-query fractions while retaining it in cell counts.",
+    "native_treatment": "Report native practical nonreturn under the frozen rate bound; do not treat it as a sampled-cloud result.",
+    "integrity": "A structurally censored result passes harness integrity only when the analytic witness and frozen CRABS source binding validate. It is not a PASS sampling outcome."
+  },
+  "stage2": {
+    "result_directories": [
+      "execution/results/stochastic_stage2",
+      "execution/results/stochastic_samples_stage2"
+    ],
+    "coverage": "Rerun or preflight all 1100 registered stochastic cells from their original seeds and retain Stage 1 unchanged.",
+    "decision_dataset": "Only the complete Stage-2 ledger may enter H2-H4 decisions. Stage 1 is an incident/reproducibility record.",
+    "sampler_parameters_unchanged": true,
+    "thresholds_unchanged": true,
+    "seeds_unchanged": true,
+    "proposal_ceiling_unchanged": true
+  },
+  "interpretation_boundary": "The repair prevents an impossible internal loop from blocking complete accounting. It does not convert structural censoring into evidence about the distribution of returned CRABS samples and does not authorize publication."
+}
