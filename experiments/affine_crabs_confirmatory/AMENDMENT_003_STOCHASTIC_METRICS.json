@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "amendment_id": "AMENDMENT_003_STOCHASTIC_METRICS",
+  "amendment_date": "2026-08-20",
+  "status": "FROZEN_BEFORE_STOCHASTIC_OUTCOMES",
+  "parent_protocol_sha256": "acc668e3e1eb73a04da78e99d00037e7cebddb972afe507a2db40875dbd5ccec",
+  "parent_amendment_002_sha256": "e5e0c42a8ab9e79c49c844fc70a2a0782e23fb18c299b51d518e305bf8d9f809",
+  "deterministic_execution_receipt_sha256": "e52ea0dd9bd1663f241675568394d283f184a1e163581a10dd876e21fcd1f301",
+  "information_seen": {
+    "deterministic_H1_result": "1944 PASS, 0 FAIL, 0 ERROR",
+    "stochastic_cell_outcomes_seen": false,
+    "stochastic_engineering_benchmarks_seen": false
+  },
+  "reason": "The frozen protocol requires continuous and discrete endpoints but did not designate which endpoint pair defines stochastic deficit, the primary H2 explorer, censored-cell handling, or the exact decision-status mapping for H4.",
+  "scientific_commitments_unchanged": {
+    "H2_threshold": true,
+    "H2_minimum_fraction": true,
+    "H3_threshold": true,
+    "H4_minimum_fraction": true,
+    "H4_false_certificate_maximum": true,
+    "cells_seeds_prefixes_and_ceiling": true,
+    "sampler_parameters": true
+  },
+  "endpoint_bookkeeping": {
+    "continuous_affine": "Compute F by exact integration of the piecewise-linear lambda_p grid, then lambda_lower=lambda_p*F/F and lambda_upper=lambda_p*F/(1+(1-c)*(F-1)) for rho=1.",
+    "crabs_discrete": "Construct constant-turnover zero and constant-turnover c paths with the registered equal-grid CRABS joint recurrence.",
+    "sampling_deficit_reference": "Use CRABS-discrete endpoints for H2 and H3, isolating finite exploration from grid discretisation.",
+    "decision_certificate_reference": "Use continuous affine endpoints for H4 and report the corresponding discrete-endpoint status separately; no method claim may attribute their difference to sampling."
+  },
+  "decision_ages": "For each registered domain fraction, use the nearest time-grid knot with half-up index rounding; the four indices must be distinct.",
+  "normalized_deficit": {
+    "per_age_lower": "max(0, cloud_min-discrete_lower)/identified_width",
+    "per_age_upper": "max(0, discrete_upper-cloud_max)/identified_width",
+    "cell_value": "maximum of lower and upper deficits across the four registered decision ages",
+    "nonzero_width": "identified_width greater than 1e-12 times max(1, abs(discrete_lower), abs(discrete_upper))",
+    "largest_attained_prefix": "The largest registered prefix not exceeding accepted samples. If no prefix is attained, the cell is censored and counted as deficit_above_threshold=true in the primary H2 denominator."
+  },
+  "H2_primary": {
+    "eligible_cells": "All 300 registered cap_matched cells with explorer=crabs_rejection and nonzero width at at least one decision age.",
+    "success_event": "normalized_deficit at the largest attained prefix is greater than 0.05, or the cell is censored below the first prefix.",
+    "decision": "Support H2 when success_event is true in at least 20% of eligible cells.",
+    "secondary_reporting": "Report cap_aware_uniform with the same metric, and native HSMRF/GMRF practicality separately; neither changes the primary decision."
+  },
+  "H3_primary": {
+    "eligible_cells": "All 300 boundary_constructor cells.",
+    "decision": "Support H3 only when both constructed discrete endpoints have normalized deficit at most 1e-10 and recurrence residual passes in every eligible cell."
+  },
+  "H4_primary": {
+    "eligible_cells": "The same 300 crabs_rejection cells used for H2, using their largest attained prefix; below-first-prefix cells remain censored and contribute no claimed finite-cloud status.",
+    "queries": "At each of four decision ages and each of four registered signal-median threshold multipliers, create one query.",
+    "finite_cloud_status": "BELOW if cloud_max<threshold, ABOVE if cloud_min>threshold, otherwise UNRESOLVED.",
+    "certificate_status": "BELOW if continuous_affine_upper<threshold, ABOVE if continuous_affine_lower>threshold, otherwise UNRESOLVED.",
+    "changed": "The finite-cloud and certificate status labels differ.",
+    "false_certificate": "A certificate is false if its BELOW or ABOVE label is contradicted by either analytic affine endpoint; by construction this check must be zero, and any nonzero count fails H4.",
+    "decision": "Support H4 when at least 20% of evaluable queries change and false_certificate_count is zero. Report censored cells and the discrete-status sensitivity separately."
+  },
+  "interval_estimates": "For replicate-level proportions report two-sided 95% Wilson intervals without continuity correction; these are descriptive and no significance test is primary.",
+  "interpretation_boundary": "This amendment is prospective for H2-H4 only. It does not reopen H1, alter H5, or authorize publication."
+}
