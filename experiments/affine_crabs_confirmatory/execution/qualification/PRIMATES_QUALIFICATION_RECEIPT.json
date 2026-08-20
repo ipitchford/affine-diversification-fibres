@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "status": "QUALIFIED_ELIGIBLE",
+  "confirmatory_outcomes_generated": false,
+  "amendment_sha256": "c6112d16331cf2ac7f3e30a3ba898c10bd3692c92ed95b703f7f13f90a71d7e4",
+  "correction_sha256": "e5e0c42a8ab9e79c49c844fc70a2a0782e23fb18c299b51d518e305bf8d9f809",
+  "crabs": {
+    "source_commit": "f2af9b6c8bb93f5512c2882d2e816060c9e07728",
+    "source_clean": true,
+    "installed_version": "1.2.0.9001",
+    "installed_library": "/Users/admin/Documents/Codex/2026-08-20/n-the-0processed-folder-there-is/work/affine-crabs-r-lib/CRABS",
+    "licence": "GPL-3"
+  },
+  "source": {
+    "upstream_object": "CRABS::primates_ebd",
+    "upstream_path": "data/primates_ebd.rda",
+    "sha256": "4bb7585641b3788e22e7b0859e967957c200cc497efe94495cbc7206d8a4dfc6",
+    "component_licence": "GPL-3",
+    "attribution_required_for_public_redistribution": true
+  },
+  "checks": {
+    "crabs_commit_exact": true,
+    "crabs_source_clean": true,
+    "crabs_version_exact": true,
+    "primates_source_hash_exact": true,
+    "amendment_present": true,
+    "correction_present": true,
+    "rows_exact": true,
+    "columns_exact": true,
+    "finite": true,
+    "time_starts_zero": true,
+    "time_strictly_increasing": true,
+    "lambda_positive": true,
+    "mu_nonnegative": true,
+    "rows_preserved": true,
+    "finite.1": true,
+    "lambda_p_nonnegative": true,
+    "p_delta_model2df_agreement": true
+  },
+  "native_extract": {
+    "path": "execution/qualification/crabs_primates_ebd_native.csv",
+    "rows": 100,
+    "columns": ["time", "lambda", "mu", "p_delta", "lambda_p"],
+    "sha256": "c2af6b0687b24112dd872f014125b48f97504b91f80bd25b7ef7a09c0cfd94cd",
+    "time_domain": [0, 65.091688000000005]
+  },
+  "resampled_grids": {
+    "25": {
+      "path": "execution/qualification/crabs_primates_ebd_025.csv",
+      "rows": 25,
+      "sha256": "5eea96a45fb5fb0823682fea29a5661d32a7f86ebcf7d1cc26b1452ea92cc154",
+      "domain": [0, 65.091688000000005],
+      "equally_spaced": true
+    },
+    "100": {
+      "path": "execution/qualification/crabs_primates_ebd_100.csv",
+      "rows": 100,
+      "sha256": "4f021ef05f0e5a9fbfc3a13ee6c896285b90c597a6137f8cacc4fd0f0263c38f",
+      "domain": [0, 65.091688000000005],
+      "equally_spaced": true
+    },
+    "400": {
+      "path": "execution/qualification/crabs_primates_ebd_400.csv",
+      "rows": 400,
+      "sha256": "1d834c20e8e168499c916bbb8dd0fe80c2468ecbede1f440ab9c347b9e588242",
+      "domain": [0, 65.091688000000005],
+      "equally_spaced": true
+    }
+  },
+  "package_lock_sha256": "16fba9b2c908dbfaab13d0ae74cb7848424e3755c40f785f580dbf7da2b4c03f",
+  "session_info_sha256": "dcc86b7ebb375be91e1263a98df096ff744990aeec88cf88a2f207f642cfaa09",
+  "public_release_authorized": false
+}

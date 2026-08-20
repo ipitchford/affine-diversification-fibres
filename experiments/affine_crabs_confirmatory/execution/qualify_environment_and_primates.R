@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-options(stringsAsFactors = FALSE, warn = 1)
+options(stringsAsFactors = FALSE, warn = 1, digits = 17)
 
 suppressPackageStartupMessages({
   library(CRABS)
@@ -44,7 +44,7 @@ write_json_atomic <- function(value, path) {
 
 write_csv_atomic <- function(value, path) {
   tmp <- paste0(path, ".tmp")
-  write.csv(value, tmp, row.names = FALSE, quote = TRUE, digits = 17)
+  write.csv(value, tmp, row.names = FALSE, quote = TRUE)
   if (file.exists(path) && sha256_file(path) != sha256_file(tmp)) {
     unlink(tmp)
     stop(sprintf("refusing to overwrite a different qualification artifact: %s", path))
@@ -171,7 +171,11 @@ if (file.exists(session_path) && sha256_file(session_path) != sha256_file(tmp_se
   unlink(tmp_session)
   stop("refusing to overwrite different R_SESSION_INFO.txt")
 }
-if (file.exists(session_path)) unlink(tmp_session) else file.rename(tmp_session, session_path)
+if (file.exists(session_path)) {
+  unlink(tmp_session)
+} else if (!file.rename(tmp_session, session_path)) {
+  stop("atomic session-info rename failed")
+}
 
 receipt <- list(
   schema_version = "1.0.0",
