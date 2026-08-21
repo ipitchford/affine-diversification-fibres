@@ -24,10 +24,10 @@
     "zenodoPublish": true
   },
   "budget": {
-    "elapsedMinutes": 74.45,
+    "elapsedMinutes": 19.48,
     "hardStopMinutes": 240,
     "hardStopRawTokens": 1000000,
-    "lastCheckedAt": "2026-08-21T08:15:17.868Z",
+    "lastCheckedAt": "2026-08-21T07:20:19.879Z",
     "profile": "full-candidate",
     "rawTokensCurrent": null,
     "rawTokensStart": null,
@@ -40,23 +40,18 @@
     "uncachedInputTokensUsed": null
   },
   "closeout": {
-    "backupAudit": "Immutable research tag v0.3.0-candidate-r2 and origin/main were verified at 05f1aa6bf4828fb5746d34dbd36e6175556ef815 before the additive closeout commit; Evidence Press origin/main and the clean deployment checkout were verified at 699a6871ad31632fdba3a4231b37c95ae8746292. No unrelated repositories or user data were modified.",
-    "durableNote": "PUBLICATION_STATE.json records the completed GitHub, Zenodo and Evidence Press workflow, including the cache-convergence retries and the preservation-gate correction. The immutable research tag was not moved.",
-    "finalElapsedMinutes": 74.45,
+    "backupAudit": null,
+    "durableNote": null,
+    "finalElapsedMinutes": null,
     "finalRawTokensUsed": null,
-    "handoff": "none",
-    "handoffRequired": false,
-    "modelReviews": 1,
-    "modelTurns": "completed-in-primary-task"
+    "handoff": null,
+    "handoffRequired": null,
+    "modelReviews": null,
+    "modelTurns": null
   },
   "coordination": {
     "currentPhaseModelTurns": 0,
-    "endingAgentAudit": {
-      "agrees": true,
-      "apiRunning": 0,
-      "at": "2026-08-21T08:12:37.811Z",
-      "uiRunning": 0
-    },
+    "endingAgentAudit": null,
     "latestHandoff": null,
     "maxModelTurnsPerPhase": 50,
     "maxSubagents": 0,
@@ -66,65 +61,35 @@
     "subagentsUsed": 0
   },
   "evidencePress": {
-    "branch": "main",
-    "browserQa": "passed-live-desktop-1440x1000-and-mobile-iPhone-13; canonical hierarchy, equations, tables, failed-H4 boundary, audio player, citation and download card rendered without observed overflow or missing media; automated accessibility also passed",
-    "canonicalUrl": "https://evidencepress.org/releases/finite-sample-affine-diversification/",
-    "checkout": "/Users/admin/Documents/Codex/2026-08-20/n-the-0processed-folder-there-is/work/evidence-press-site-route-a",
-    "contentCommitA": "57b4a4f0cf1c8d5b4531a87face3bd1584d52ad2",
-    "deploymentUrl": "https://2c85b456.evidence-press.pages.dev",
-    "ledgerCommitB": "b9103ed47d8291732c22f51a87a285ae952f802f",
-    "mergedMainCommit": "699a6871ad31632fdba3a4231b37c95ae8746292",
+    "branch": null,
+    "browserQa": null,
+    "canonicalUrl": null,
+    "checkout": null,
+    "contentCommitA": null,
+    "deploymentUrl": null,
+    "ledgerCommitB": null,
+    "mergedMainCommit": null,
     "pageStructure": {
       "contract": "canonical",
       "exceptions": [],
       "reason": null
     },
-    "paperJsonUrl": "https://evidencepress.org/releases/finite-sample-affine-diversification/paper.json",
-    "protocolReadback": "passed: immutable deployment and canonical /protocols/ exactly match corrected ledger revision 106 after bounded cache convergence",
-    "publicationIntegrity": "passed: 30/30 live release records, 22/22 institutional artifacts, versioned aliases, media, operating ledgers, Observatory and protocol surfaces match the final candidate",
-    "pullRequests": [
-      "https://github.com/ipitchford/evidence-press-site/pull/102",
-      "https://github.com/ipitchford/evidence-press-site/pull/103",
-      "https://github.com/ipitchford/evidence-press-site/pull/104"
-    ],
-    "readbackCommitC": "54404e1650d683953f289884f36263c3a135104a",
-    "readbackLedgerCommitD": "c18baae306da7c898ed9456bc95a289592404fae",
+    "paperJsonUrl": null,
+    "protocolReadback": null,
+    "publicationIntegrity": null,
+    "pullRequests": [],
+    "readbackCommitC": null,
+    "readbackLedgerCommitD": null,
     "repository": "https://github.com/ipitchford/evidence-press-site"
   },
   "github": {
-    "assets": [
-      {
-        "bytes": 1492791,
-        "name": "finite-sample-affine-diversification-0.3.0-candidate-r2.pdf",
-        "sha256": "4e263ac0c3195a41b10733d6c6e3c6f5c7d328cfe534e0d515d4e7991206a5bf"
-      },
-      {
-        "bytes": 324666304,
-        "name": "finite-sample-affine-diversification-0.3.0-candidate-r2.zip",
-        "sha256": "f336369d3af6a5a3c0b742682f664f63117257206afad65873d02cd45d050972"
-      },
-      {
-        "bytes": 834025,
-        "name": "RELEASE_MANIFEST.sha256",
-        "sha256": "cc06c1930de1e1517f3e5e0d3818bc7d643b2086b62748d233e938861600c3d7"
-      },
-      {
-        "bytes": 1533,
-        "name": "RELEASE_NOTES.md",
-        "sha256": "bf037be1eb42d7b78478bb8cc4406a2c44fd971ccd81f731cb1d24c1ca735a29"
-      },
-      {
-        "bytes": 425,
-        "name": "SHA256SUMS",
-        "sha256": "01e954a2dbfa44ce8a978c714cc4deaba1b655324ed3b5717ba6a6ca5861c3ee"
-      }
-    ],
-    "ciStatus": "Research main run 32458618950 and publication-branch run 32458618507 passed the final DOI-bearing commit; Evidence Press PRs 102, 103 and 104 passed Node 18/20/22, reproducible-build, protocol-integrity and accessibility jobs.",
-    "mainCommit": "05f1aa6bf4828fb5746d34dbd36e6175556ef815",
-    "releaseUrl": "https://github.com/ipitchford/affine-diversification-fibres/releases/tag/v0.3.0-candidate-r2",
+    "assets": [],
+    "ciStatus": "GitHub Actions run 32457758437 passed all three jobs at 3e50413d9122e90de4b66c25cfdd0602bbdfb484; final DOI-bearing commit CI pending.",
+    "mainCommit": "3e50413d9122e90de4b66c25cfdd0602bbdfb484",
+    "releaseUrl": null,
     "repository": "https://github.com/ipitchford/affine-diversification-fibres",
-    "tag": "v0.3.0-candidate-r2",
-    "tagPayloadCommit": "05f1aa6bf4828fb5746d34dbd36e6175556ef815"
+    "tag": null,
+    "tagPayloadCommit": null
   },
   "integrityGate": {
     "citations": "PASS_WITH_NOTES: identities and contexts audited; structured recognition is not exhaustive priority review.",
@@ -144,33 +109,11 @@
     ]
   },
   "media": {
-    "art": {
-      "bytes": 6271,
-      "path": "assets/art/finite-sample-affine-diversification.svg",
-      "sha256": "e9fc7a3944e875fd876987879a47f9b79d83ed2da37cd7830010d81efff70918"
-    },
-    "audio": {
-      "bytes": 3954432,
-      "durationSeconds": 247.152,
-      "path": "assets/audio/finite-sample-affine-diversification.mp3",
-      "sha256": "b380744762548d9fec718bcf67cf5920b2e6577bb4c4d48da3a267e7a49ee45c"
-    },
-    "ogImage": {
-      "bytes": 329498,
-      "path": "assets/og/finite-sample-affine-diversification.png",
-      "sha256": "fb3a34a03c0e0eb5d4fc5bc3a17faa1aa75b54583a7aeed43d12cf864e5e3288"
-    },
-    "transcript": {
-      "bytes": 3889,
-      "path": "assets/audio/finite-sample-affine-diversification.txt",
-      "sha256": "aac545aabaf174b3ea80f23e6a73126739acfa4b0f53a1af266fb27912392220",
-      "words": 554
-    },
-    "youtubeThumbnail": {
-      "bytes": 419483,
-      "path": "thumbs/finite-sample-affine-diversification.jpg",
-      "sha256": "ea34706cfc6adf0fa0e27474b5b5768788b17078fb346afb5b35207a9b34f558"
-    },
+    "art": null,
+    "audio": null,
+    "ogImage": null,
+    "transcript": null,
+    "youtubeThumbnail": null,
     "youtubeVideo": null
   },
   "phases": [
@@ -206,65 +149,54 @@
       "status": "passed"
     },
     {
-      "completedAt": "2026-08-21T08:12:37.422Z",
+      "completedAt": null,
       "evidence": [
-        "Zenodo successor draft 22041054 created in concept lineage 21851318; reserved DOI 10.5281/zenodo.22041054.",
-        "GitHub prerelease v0.3.0-candidate-r2 and Zenodo record 22041054 are public; all five files passed unauthenticated byte-for-byte readback."
+        "Zenodo successor draft 22041054 created in concept lineage 21851318; reserved DOI 10.5281/zenodo.22041054."
       ],
       "id": 3,
       "name": "github-zenodo-identity",
       "startedAt": "2026-08-21T07:20:19.880Z",
-      "status": "passed"
+      "status": "in-progress"
     },
     {
-      "completedAt": "2026-08-21T08:12:37.488Z",
-      "evidence": [
-        "Canonical Evidence Press release page, operating-model record, method lineage, IBE observation and prospective work attempt authored with failed-H4 and unrefereed boundaries."
-      ],
+      "completedAt": null,
+      "evidence": [],
       "id": 4,
       "name": "evidence-press-authoring",
-      "startedAt": "2026-08-21T08:12:37.488Z",
-      "status": "passed"
+      "startedAt": null,
+      "status": "pending"
     },
     {
-      "completedAt": "2026-08-21T08:12:37.554Z",
-      "evidence": [
-        "Deterministic art, OG card, thumbnail and OpenAI fable audio with transcript and byte-binding provenance validated; live desktop and mobile visual QA passed."
-      ],
+      "completedAt": null,
+      "evidence": [],
       "id": 5,
       "name": "communication-assets",
-      "startedAt": "2026-08-21T08:12:37.554Z",
-      "status": "passed"
+      "startedAt": null,
+      "status": "pending"
     },
     {
-      "completedAt": "2026-08-21T08:12:37.617Z",
-      "evidence": [
-        "A/B, C/D and corrective E/F two-commit protocol seals passed local gates and GitHub CI across Node 18/20/22 plus accessibility."
-      ],
+      "completedAt": null,
+      "evidence": [],
       "id": 6,
       "name": "composite-seal-and-ci",
-      "startedAt": "2026-08-21T08:12:37.617Z",
-      "status": "passed"
+      "startedAt": null,
+      "status": "pending"
     },
     {
-      "completedAt": "2026-08-21T08:12:37.683Z",
-      "evidence": [
-        "Guarded Cloudflare deploy completed; exact protocol, 30/30 release, 22/22 institutional, versioned-alias and full publication-integrity readback passed after cache convergence."
-      ],
+      "completedAt": null,
+      "evidence": [],
       "id": 7,
       "name": "guarded-deploy-and-readback",
-      "startedAt": "2026-08-21T08:12:37.683Z",
-      "status": "passed"
+      "startedAt": null,
+      "status": "pending"
     },
     {
-      "completedAt": "2026-08-21T08:12:37.747Z",
-      "evidence": [
-        "Append-only public-release receipt published through corrected E/F seal; IndexNow accepted all 50 sitemap URLs."
-      ],
+      "completedAt": null,
+      "evidence": [],
       "id": 8,
       "name": "publication-ledger-and-closeout",
-      "startedAt": "2026-08-21T08:12:37.747Z",
-      "status": "passed"
+      "startedAt": null,
+      "status": "pending"
     }
   ],
   "project": {
@@ -292,15 +224,15 @@
   },
   "route": "full-candidate",
   "schemaVersion": "2.0",
-  "updatedAt": "2026-08-21T08:15:17.868Z",
+  "updatedAt": "2026-08-21T07:20:19.880Z",
   "zenodo": {
-    "assetsByteIdentical": true,
+    "assetsByteIdentical": null,
     "conceptDoi": "10.5281/zenodo.21851318",
     "depositionId": 22041054,
     "instance": "https://zenodo.org",
-    "recordId": 22041054,
-    "recordUrl": "https://zenodo.org/records/22041054",
-    "status": "published",
+    "recordId": null,
+    "recordUrl": null,
+    "status": "draft-doi-reserved",
     "versionDoi": "10.5281/zenodo.22041054"
   }
 }

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "post-publication-closeout",
+  "project": {
+    "slug": "finite-sample-affine-diversification",
+    "title": "Finite-Sample Signal Uncertainty and Sharp Partial Identification of Diversification Histories",
+    "creator": "Anonymous",
+    "publisherMaintainer": "Ian Pitchford",
+    "status": "unrefereed-candidate",
+    "disposition": "PASS_WITH_NOTES"
+  },
+  "recordedAt": "2026-08-21T08:19:49.794Z",
+  "publication": {
+    "githubRelease": "https://github.com/ipitchford/affine-diversification-fibres/releases/tag/v0.3.0-candidate-r2",
+    "tag": "v0.3.0-candidate-r2",
+    "annotatedTagObject": "b8e66add58006f1711402bce5ab28c11f14e2063",
+    "tagPayloadCommit": "05f1aa6bf4828fb5746d34dbd36e6175556ef815",
+    "versionDoi": "10.5281/zenodo.22041054",
+    "conceptDoi": "10.5281/zenodo.21851318",
+    "zenodoRecord": "https://zenodo.org/records/22041054",
+    "fiveAssetReadbackByteIdentical": true
+  },
+  "evidencePress": {
+    "canonicalUrl": "https://evidencepress.org/releases/finite-sample-affine-diversification/",
+    "paperJsonUrl": "https://evidencepress.org/releases/finite-sample-affine-diversification/paper.json",
+    "immutableDeploymentUrl": "https://2c85b456.evidence-press.pages.dev",
+    "mergedMainCommit": "699a6871ad31632fdba3a4231b37c95ae8746292",
+    "protocolLedgerRevision": 106,
+    "pullRequests": [
+      "https://github.com/ipitchford/evidence-press-site/pull/102",
+      "https://github.com/ipitchford/evidence-press-site/pull/103",
+      "https://github.com/ipitchford/evidence-press-site/pull/104"
+    ],
+    "checks": {
+      "liveReleaseRecords": "30/30",
+      "liveInstitutionalArtifacts": "22/22",
+      "exactProtocolReadback": "passed",
+      "publicationIntegrity": "passed",
+      "desktopAndMobileVisualQa": "passed",
+      "accessibilityCi": "passed",
+      "indexNow": "50 URLs accepted with HTTP 200"
+    }
+  },
+  "scientificFindings": {
+    "h2": "All 240 returned primary CRABS clouds missed at least one sharp endpoint beyond tolerance; 60 additional primary cases were structural censors.",
+    "h4": "FAILED: exact certification changed 532 of 3,840 clustered decision statuses (13.854%), below the preregistered 20% gate.",
+    "claimCeiling": "Conditional finite-sample and partial-identification candidate; no broad CRABS utility, superiority, essential-complement or must-have claim."
+  },
+  "assuranceBoundary": {
+    "internalReplay": "passed locally and in producer-controlled public Linux CI",
+    "independentRerun": "not-assessed",
+    "independentReimplementation": "not-assessed",
+    "formalVerification": "not-assessed",
+    "externalSpecialistReview": "not-assessed",
+    "editorialPeerReview": "not-assessed",
+    "empiricalValidation": "not-claimed"
+  },
+  "correction": {
+    "reason": "PUBLICATION_STATE.json is bound by RELEASE_MANIFEST.sha256 in the immutable DOI-bearing payload. A post-publication edit caused GitHub Actions run 32462360314 to fail the successor_release_manifest check.",
+    "action": "Restored PUBLICATION_STATE.json byte-for-byte from v0.3.0-candidate-r2 and recorded completion in this additive post-publication receipt. The release tag and all GitHub/Zenodo assets remain unchanged.",
+    "supersededWorkingReceiptCommit": "53fe1bd69765063b36aaed4a7254b2a2a61758db",
+    "manifestPolicy": "This receipt was created after publication and is intentionally outside RELEASE_MANIFEST.sha256; it is operational evidence, not part of the archived scientific payload."
+  }
+}
