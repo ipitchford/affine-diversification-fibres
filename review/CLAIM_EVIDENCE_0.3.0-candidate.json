@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "$schema": "../schemas/claim_evidence.schema.json",
+  "release": "0.3.0-candidate-review",
+  "status": "READY_FOR_FINAL_REVIEW_NOT_PUBLICATION",
+  "claims": [
+    {
+      "id": "C1",
+      "type": "theorem",
+      "statement": "For a fixed positive pulled signal, smooth homogeneous birth-death histories are in bijection with admissible cumulative-loss functions, and reciprocal speciation is affine in the associated measure.",
+      "scope": "Continuously differentiable histories on a fixed interval with positive survival.",
+      "evidence": [
+        {"path": "manuscript.pdf", "locator": "Theorem 1 and equations (2)-(8)", "role": "proof"},
+        {"path": "docs/theorem_audit.md", "locator": "T1", "role": "claim audit"},
+        {"path": "affine_diversification/test_affine_fibre.py", "role": "computational controls"}
+      ],
+      "assurance": {"internal": "passed", "external": "not_assessed"},
+      "open_risks": ["The coordinate may exist under alternative branching or survival-analysis notation."]
+    },
+    {
+      "id": "C2",
+      "type": "theorem",
+      "statement": "Finitely many independent deterministic survival events preserve the zero-inflated geometric descendant law and the reconstructed-tree law under the manuscript's fixed-stem survival and fixed-tip-count conditioning conventions.",
+      "scope": "Fixed stem age, oriented ranked tree and finite deterministic events; crown and random-origin conditioning are excluded.",
+      "evidence": [
+        {"path": "manuscript.pdf", "locator": "Theorems 3-4 and Remark 5", "role": "proof and scope"},
+        {"path": "outputs/independent_checks.json", "locator": "finite_event_simulation", "role": "direct stochastic simulation"},
+        {"path": "outputs/negative_controls.json", "locator": "M2_missing_branching_time_factorial", "role": "mutation control"}
+      ],
+      "assurance": {"internal": "passed", "external": "not_assessed"},
+      "open_risks": ["External stochastic-process review is pending.", "Other conditioning conventions may require different normalisers."]
+    },
+    {
+      "id": "C3",
+      "type": "theorem",
+      "statement": "For every finite continuous turnover cap, the pointwise survival and speciation projections have sharp formulas; c=1 is a phase boundary and c>1 yields a calculable pulled scale beyond which the speciation supremum is infinite.",
+      "scope": "Fixed signal, no interior atoms and homogeneous continuous turnover.",
+      "evidence": [
+        {"path": "manuscript.pdf", "locator": "Theorem 6 and Corollary 7", "role": "proof"},
+        {"path": "experiments/run_cap_phase_diagram.py", "role": "computational illustration"},
+        {"path": "outputs/negative_controls.json", "locator": "M3_supercritical_finite_bound", "role": "negative control"}
+      ],
+      "assurance": {"internal": "passed", "external": "not_assessed"},
+      "open_risks": ["The applied biological value of supercritical caps requires domain judgement."]
+    },
+    {
+      "id": "C4",
+      "type": "theorem",
+      "statement": "Finite interval restrictions on cumulative loss have explicit least and greatest directed-Lipschitz trajectories, pairwise incompatibility certificates, a positive-survival barrier test and a minimum compatible turnover cap.",
+      "scope": "Finite ordered constraints in pulled-scale time; sharp over the stated trajectory class.",
+      "evidence": [
+        {"path": "manuscript.pdf", "locator": "Theorem 8 and Corollaries 9-11", "role": "proof"},
+        {"path": "outputs/independent_checks.json", "locator": "720 LP extrema", "role": "independent numerical comparison"},
+        {"path": "verification/reference_envelopes.py", "role": "independent implementation"}
+      ],
+      "assurance": {"internal": "passed", "external": "not_assessed"},
+      "open_risks": ["Generic Lipschitz extension formulas are antecedents; originality is limited to the model-specific coupling and diagnostics."]
+    },
+    {
+      "id": "C5",
+      "type": "theorem_and_benchmark",
+      "statement": "For an equal-grid independent Uniform(0,c) turnover sampler, the endpoint-deficit lower tail and best-of-N sample requirement are exact and factorial in grid dimension near the endpoint.",
+      "scope": "Transparent matched sampler only; this is not a theorem about CRABS or adaptive samplers.",
+      "evidence": [
+        {"path": "manuscript.pdf", "locator": "Theorem 12", "role": "proof"},
+        {"path": "outputs/sampling_comparison_summary.json", "role": "Monte Carlo check"},
+        {"path": "figure_data/figure5_sampling_endpoint_cost.csv", "role": "figure data"}
+      ],
+      "assurance": {"internal": "passed", "comparative": "scoped"},
+      "open_risks": ["Actual congruence-class software may use more targeted proposals."]
+    },
+    {
+      "id": "C6",
+      "type": "confirmatory_deterministic",
+      "statement": "The frozen deterministic comparison passed all 1,944 registered validation cells, and the boundary constructor attained both discrete endpoints in all 300 eligible cells.",
+      "scope": "Frozen rho=1 semantic bridge, five signals, two grids and three turnover caps where applicable.",
+      "evidence": [
+        {"path": "experiments/affine_crabs_confirmatory/execution/DETERMINISTIC_EXECUTION_RECEIPT.json", "role": "H1 sealed receipt"},
+        {"path": "experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_EXECUTION_RECEIPT.json", "locator": "hypotheses.H3", "role": "H3 sealed receipt"},
+        {"path": "manuscript.pdf", "locator": "Table 1 and confirmatory results", "role": "reported result"}
+      ],
+      "assurance": {"internal": "passed", "external_replay": "not_assessed"},
+      "open_risks": ["The bridge and signal corpus are bounded to the frozen protocol."]
+    },
+    {
+      "id": "C7",
+      "type": "confirmatory_endpoint_incompleteness",
+      "statement": "Under the frozen H2 deficit-or-censor rule, all 300 primary CRABS rejection cells met the endpoint-incompleteness event.",
+      "scope": "Includes 240 returned finite clouds and 60 abrupt-signal structural censors classified under the documented prospective amendment; a censor is not a returned-cloud estimate.",
+      "evidence": [
+        {"path": "experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_EXECUTION_RECEIPT.json", "locator": "hypotheses.H2", "role": "sealed result"},
+        {"path": "experiments/affine_crabs_confirmatory/AMENDMENT_003_STOCHASTIC_METRICS.json", "role": "prospective metric rule"},
+        {"path": "experiments/affine_crabs_confirmatory/AMENDMENT_004_NONTERMINATION_REPAIR.json", "role": "incident treatment"},
+        {"path": "manuscript.pdf", "locator": "Nontermination incident and Table 1", "role": "reported result and scope"}
+      ],
+      "assurance": {"ledger": "passed", "external_replay": "not_assessed"},
+      "open_risks": ["Structural censoring prevents a returned-cloud deficit estimate for abrupt cells.", "The result is not a universal statement about CRABS configurations."]
+    },
+    {
+      "id": "C8",
+      "type": "confirmatory_decision_utility",
+      "statement": "Certification changed 532 of 3,840 evaluable preset decision-query statuses (13.85 percent; descriptive Wilson 95 percent range 12.80 to 14.98 percent), below the frozen 20 percent H4 gate, with zero false certificates.",
+      "scope": "Pooled non-abrupt strata under the frozen queries, multipliers, grids and caps; favorable subgroups do not override the pooled decision.",
+      "evidence": [
+        {"path": "experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_EXECUTION_RECEIPT.json", "locator": "hypotheses.H4", "role": "sealed result"},
+        {"path": "figure_data/figure8_crabs_confirmatory_h4.csv", "role": "figure source data"},
+        {"path": "manuscript.pdf", "locator": "Table 1 and Figure 5", "role": "reported primary result"}
+      ],
+      "assurance": {"internal": "passed", "verdict": "FAIL", "false_certificates": 0},
+      "open_risks": ["Decision utility is query-dependent.", "The failed H4 gate prohibits essential-complement and must-have claims."]
+    },
+    {
+      "id": "C9",
+      "type": "operational_benchmark",
+      "statement": "The qualified-host H5 gate passed clean installation, normal and optimized tasks, and the runtime rule; median exact-certification time was approximately 0.0000468 seconds versus two seconds allowed.",
+      "scope": "Qualified macOS host and frozen tasks only; not cross-platform usability or external software review.",
+      "evidence": [
+        {"path": "experiments/affine_crabs_confirmatory/execution/H5_EXECUTION_RECEIPT.json", "role": "preserved failed interpreter-selection incident"},
+        {"path": "experiments/affine_crabs_confirmatory/execution/H5_EXECUTION_RECEIPT_002.json", "role": "additive corrected receipt"},
+        {"path": "experiments/affine_crabs_confirmatory/execution/RESEARCH_CHECKPOINT.json", "locator": "hypotheses.H5", "role": "checkpoint summary"}
+      ],
+      "assurance": {"qualified_host": "passed", "cross_platform": "not_assessed"},
+      "open_risks": ["The correction changes interpreter qualification only; the original incident remains part of the record."]
+    },
+    {
+      "id": "C10",
+      "type": "conditional_sensitivity",
+      "statement": "The packaged single-tree mammal inputs reproduce the stated plug-in conditional bounds and joint-constraint incompatibility diagnostics.",
+      "scope": "Deterministic model-scale sensitivity only; no species-richness, palaeobiological or statistical inference.",
+      "evidence": [
+        {"path": "outputs/mammalia_worked_case.json", "role": "worked values"},
+        {"path": "outputs/mammalia_internal_replay.json", "role": "internal replay"},
+        {"path": "docs/empirical_mammalia_note.md", "role": "scope and provenance"}
+      ],
+      "assurance": {"computation": "passed", "observation_bridge": "not_assessed", "statistical_coverage": "not_assessed"},
+      "open_risks": ["Single upstream fitted curve.", "No preservation or taxonomic observation model.", "Upstream fit not independently repeated."]
+    },
+    {
+      "id": "C11",
+      "type": "logical_architecture",
+      "statement": "Union over an honest simultaneous uncertainty set for the pulled signal transfers that set's coverage to the resulting union identified set.",
+      "scope": "Logical inclusion conditional on a supplied honest simultaneous set; no construction is supplied here.",
+      "evidence": [
+        {"path": "manuscript.pdf", "locator": "Uncertainty architecture", "role": "set-inclusion argument"}
+      ],
+      "assurance": {"logic": "passed", "operational_inference": "not_assessed"},
+      "open_risks": ["Simultaneous band construction and finite-sample coverage remain open."]
+    }
+  ],
+  "prohibited_headlines": [
+    "must-have complement",
+    "essential complement",
+    "general validation of CRABS replacement or superiority",
+    "community accepted"
+  ]
+}

@@ -4,6 +4,7 @@
   "search_freeze": "2026-08-08",
   "corpus_boundary": "Targeted rather than systematic; see docs/novelty_gate.md.",
   "verification_summary": "All bibliography entries and manuscript citation contexts were checked on 8 August 2026 through publisher, DOI, arXiv or library-catalogue routes. This verifies source identity and contextual support, not the candidate theorem claims.",
+  "review_recheck": "On 21 August 2026, all 18 inherited entries and citation contexts were re-audited for the 0.3.0-candidate draft. The Anderson--Nash ISBN was corrected against WorldCat, CiNii and Google Books catalogue records; the reference corpus otherwise remained unchanged.",
   "sources": [
     {
       "id": "louca2020",
@@ -163,8 +164,8 @@
       "authors": "Anderson, Edward J.; Nash, Peter",
       "year": 1987,
       "title": "Linear Programming in Infinite-Dimensional Spaces: Theory and Applications",
-      "isbn": "9780471915969",
-      "url": "https://search.worldcat.org/title/15590671",
+      "isbn": "9780471912507",
+      "url": "https://search.worldcat.org/title/15053031",
       "role": "Infinite-dimensional linear-programming antecedent"
     }
   ],

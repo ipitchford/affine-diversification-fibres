@@ -22,8 +22,8 @@
 \hypersetup{colorlinks=true,linkcolor=deepteal,citecolor=violet,urlcolor=raspberry,
  pdftitle={Conditional Sharp Partial Identification of Diversification Histories},
  pdfauthor={Anonymous agentic research candidate},
- pdfsubject={Birth-death congruence classes, partial identification, affine measure geometry},
- pdfkeywords={birth-death process, diversification, congruence class, partial identification, pulled speciation rate, deterministic survival event, sharp bounds}}
+ pdfsubject={Birth-death congruence classes, partial identification, affine measure geometry, confirmatory CRABS comparison},
+ pdfkeywords={birth-death process, diversification, congruence class, partial identification, pulled speciation rate, deterministic survival event, sharp bounds, CRABS}}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -40,22 +40,22 @@
 \newcommand{\ac}{\mathrm{ac}}
 
 \title{\textbf{Conditional Sharp Partial Identification of Diversification Histories}\\
-\large Affine Measure Geometry, Event Congruence and Certified Extremes}
+\large Affine Measure Geometry, Event Congruence, Certified Extremes and a Confirmatory CRABS Comparison}
 \author{Anonymous agentic research candidate}
-\date{Candidate release 0.2.1 --- 8 August 2026}
+\date{Review draft 0.3.0-candidate --- 21 August 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Extant timetrees identify a pulled diversification signal but do not generally identify time-varying speciation and extinction rates separately. Existing methods therefore construct or sample alternative histories in a congruence class. A finite cloud cannot certify a sharp endpoint, and its failure near an endpoint can be factorial in the discretisation dimension. Conditional on a fixed pulled speciation rate, we represent homogeneous birth--death histories by a cumulative-loss measure beneath an explicit survival barrier. Reciprocal speciation is affine in this measure and its Radon--Nikodym derivative with respect to pulled scale is the turnover ratio $\mu/\lambda$. We prove that the descendant-count law remains zero-inflated geometric under finitely many independent deterministic survival events and derive the complete fixed-stem reconstructed-tree density under stem-survival and fixed-tip-count conditioning. For continuous histories with $0\leq\mu/\lambda\leq c$, we obtain sharp pointwise bounds for every finite $c$. The common restriction $c\leq1$ excludes continuous negative net diversification; extending beyond it reveals a phase transition: for $c>1$, the speciation supremum becomes infinite past a calculable pulled scale. Finite external interval constraints yield explicit least and greatest trajectories, pairwise infeasibility witnesses, a positive-survival test and the minimum compatible turnover cap. We also derive an exact endpoint-sampling law showing why finite random exploration is not certification. A public mammal curve provides a plug-in sensitivity illustration only: no simultaneous pulled-signal band or fossil observation model is claimed. The contribution is exact conditional projection and certification, not a replacement for birth--death likelihoods, identifiable restricted models or fossilised birth--death inference.
+Extant timetrees identify a pulled diversification signal but do not generally identify time-varying speciation and extinction rates separately. Existing methods therefore construct or sample alternative histories in a congruence class. Conditional on a fixed pulled speciation rate, we represent homogeneous birth--death histories by a cumulative-loss measure beneath an explicit survival barrier. Reciprocal speciation is affine in this measure, and its Radon--Nikodym derivative with respect to pulled scale is the turnover ratio $\mu/\lambda$. We prove finite-event congruence under stated fixed-stem conditioning, sharp turnover-capped bounds for every finite cap, explicit finite-constraint envelopes and infeasibility certificates, and an exact endpoint-sampling law. We then test whether certification adds decision utility to CRABS exploration in a prospectively frozen 1,100-cell benchmark. All 1,944 deterministic validation cells passed. Finite CRABS rejection exploration left a normalized endpoint deficit above 0.05 in all 300 primary cells, including 60 cells prospectively treated as structural censors after a documented nontermination amendment; a boundary constructor reached both discrete endpoints in all 300 cells. Certification changed 532 of 3,840 evaluable decision-query statuses (13.85\%; descriptive Wilson range 12.80--14.98\%), below the frozen 20\% H4 criterion, with zero false certificates. Clean-install, normal/optimized-task and runtime gates passed. Exact certification therefore exposed systematic endpoint incompleteness but did not meet the prospectively frozen essential-complement criterion. A public mammal curve remains a plug-in sensitivity illustration only. The contribution is exact conditional projection and a reproducible diagnostic complement, not a replacement for likelihoods, identifiable restricted models or fossilised birth--death inference.
 \end{abstract}
 
 \paragraph{Assurance boundary.}
-This is an unrefereed theorem-led candidate. Internal replay, independent linear-programming checks, direct branching-process simulation and deliberate negative controls pass. External specialist review of the fixed-stem event theorem, a systematic priority search, simultaneous uncertainty for the pulled signal, a fossil observation bridge and an actual matched CRABS run remain open gates. ``Sharp'' always means sharp over the stated conditional model class.
+This is an unrefereed theorem-led candidate with a completed internal confirmatory benchmark. Internal replay, independent linear-programming checks, direct branching-process simulation, deliberate negative controls and the sealed affine--CRABS ledger pass their stated integrity checks. The failed H4 utility gate is retained as the primary decision and prohibits ``must-have'' or essential-complement language. External specialist review of the fixed-stem event theorem, a systematic priority search, simultaneous uncertainty for the pulled signal, a fossil observation bridge and independent external replay remain open. ``Sharp'' always means sharp over the stated conditional model class.
 
 \paragraph{Persistent identifier.}
-Specific-version DOI: \href{https://doi.org/10.5281/zenodo.21851319}{10.5281/zenodo.21851319}.
+The prior 0.2.1 candidate is archived at \href{https://doi.org/10.5281/zenodo.21851319}{10.5281/zenodo.21851319}. This 0.3.0-candidate review draft is not yet archived and must not be attributed to that specific-version DOI.
 
 \section{Decision problem and contribution}
 Let $\tau\in[0,T]$ denote age before an analysis origin, with $\tau=0$ at that origin and larger $\tau$ further in the past. A homogeneous time-varying birth--death history has speciation rate $\lambda(\tau)>0$, extinction rate $\mu(\tau)\geq0$, and sampling probability $\rho\in(0,1]$ at the analysis origin. If $E(\tau)$ is the probability that a lineage at age $\tau$ leaves no sampled descendant, define
@@ -68,7 +68,7 @@ Existing tools construct or sample histories in the resulting congruence class \
 \begin{quote}
 For a fixed pulled signal and explicit restrictions, what is the complete feasible trajectory set, what are the sharp extrema of a stated target, and which constraints explain infeasibility?
 \end{quote}
-The paper contributes four linked results. First, it identifies an affine positive-measure coordinate for the smooth fibre and a Stieltjes completion containing incomplete sampling and deterministic survival events. Second, it secures the finite-event result under a precisely stated fixed-stem conditioning convention. Third, it solves turnover-capped pointwise and finite-constraint identification, including the previously omitted $c>1$ regime. Fourth, it quantifies the failure of a transparent finite sampler to attain exact endpoints.
+The paper contributes five linked results. First, it identifies an affine positive-measure coordinate for the smooth fibre and a Stieltjes completion containing incomplete sampling and deterministic survival events. Second, it secures the finite-event result under a precisely stated fixed-stem conditioning convention. Third, it solves turnover-capped pointwise and finite-constraint identification, including the previously omitted $c>1$ regime. Fourth, it quantifies the failure of a transparent finite sampler to attain exact endpoints. Fifth, it subjects the certification claim to a prospectively frozen direct comparison with CRABS and retains the failed primary utility gate.
 
 \section{Smooth affine fibre}
 Assume that $\lambda_p$ is continuous and strictly positive and define
@@ -399,7 +399,7 @@ and the smallest $N$ giving probability at least $\gamma$ is
 The variables $(c-\varepsilon_j)/c$ are independent $\mathrm{Uniform}(0,1)$. Exact endpoint attainment has probability zero. For $\eta/(c\Delta)\leq1$, the event that their sum is at most $\eta/(c\Delta)$ is an $m$-simplex of volume $[\eta/(c\Delta)]^m/m!$ inside the unit cube. Equations \eqref{eq:bestofN}--\eqref{eq:Nmin} follow from independent order statistics.
 \end{proof}
 
-With eight intervals and relative tolerance $\eta/(c\Delta)=0.2$, a 95\% hit probability requires 47,182,783,307 independent histories. With 16 intervals it requires about $9.56\times10^{24}$. This theorem concerns the transparent matched sampler only. A direct run of CRABS was not available in the present environment; actual samplers can concentrate differently, but no finite random sample proves an endpoint unless its proposal mechanism and coverage guarantee do so.
+With eight intervals and relative tolerance $\eta/(c\Delta)=0.2$, a 95\% hit probability requires 47,182,783,307 independent histories. With 16 intervals it requires about $9.56\times10^{24}$. This theorem concerns the transparent matched sampler only. Actual samplers can concentrate differently, but no finite random sample proves an endpoint unless its proposal mechanism supplies a corresponding coverage guarantee. The next section therefore evaluates CRABS directly instead of treating this analytic example as a software benchmark.
 
 \begin{figure}[t]
 \centering
@@ -414,6 +414,50 @@ With eight intervals and relative tolerance $\eta/(c\Delta)=0.2$, a 95\% hit pro
 \caption{Exact best-of-100 endpoint-deficit distribution for four independently sampled intervals, compared with 30,000 direct Monte Carlo experiments. This validates the order-statistic calculation; it is not a benchmark of the CRABS package.}
 \label{fig:samplingcheck}
 \end{figure}
+
+\section{Prospectively frozen comparison with CRABS}
+\subsection{Design and decision rules}
+The confirmatory protocol was locally frozen before execution and before inspecting any confirmatory result; it was not registered in an external repository. The comparison uses the explicit bridge $\rho=1$, $\lambda_{\mathrm{ref}}=\lambda_p$ and $\mu_{\mathrm{ref}}=0$ on identical piecewise-linear time grids. CRABS's \texttt{p.delta} proposal parameter is recorded separately from the pulled signal $\lambda_p$ and is never substituted for it.
+
+The stochastic design contains 1,100 cells: five signals (constant, abrupt, oscillatory, high dynamic range and a qualified CRABS primates EBD signal), two grids (25 and 100 knots), and ten replicates. Two hundred cells exercise the native HSMRF/GMRF procedures. The other 900 are cap-matched cells at turnover caps $c\in\{0.25,0.50,0.90\}$ using CRABS rejection exploration, a cap-aware proposal control and an exact boundary constructor. Seeds, proposal ceilings, file prefixes, query ages, query multipliers and decision thresholds were fixed in the protocol.
+
+The primary H2 analysis comprises 300 CRABS rejection cells. A cell satisfies H2 if the returned cloud leaves normalized deficit greater than 0.05 at one or more sharp discrete endpoints, or if a prospectively defined structural censor prevents a returned finite cloud. H3 requires the boundary constructor to reach both discrete endpoints in all 300 matched cells. H4 evaluates four ages crossed with four multipliers in every non-abrupt rejection cell: certification must change at least 20\% of 3,840 finite-sampler query statuses and produce no false certificate. H5 requires clean installation, agreement under normal and optimized Python tasks, and median exact-certification time below the frozen two-second allowance.
+
+\subsection{Nontermination incident and complete accounting}
+The first bounded execution exposed an internal unbounded proposal loop in abrupt-signal cells. For those cells, the exact minimum cap can require $\lambda>2$ while the frozen CRABS setting used \texttt{max.lambda=2}. A documented post-incident amendment, made before the complete rerun and before any primary H2 or H4 rejection result was available, added a deterministic preflight classification for this incompatibility. It changed no seed, signal, grid, cap, decision threshold, query or replacement rule.
+
+The completed ledger accounts for all 1,100 planned cells and contains 800 hash-bound sidecars. It records 1,000 passes and 100 \texttt{CENSORED\_STRUCTURAL\_NONTERMINATION} outcomes: 40 native HSMRF/GMRF abrupt cells and 60 primary CRABS-rejection abrupt cells. A structural censor is an integrity-preserving observation about the frozen execution configuration, not evidence that finite sampling succeeded and not a returned-cloud endpoint estimate.
+
+\subsection{Confirmatory results}
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.10}
+\begin{tabularx}{\linewidth}{@{}p{0.07\linewidth}p{0.22\linewidth}X p{0.08\linewidth}@{}}
+\toprule
+Gate & Target & Sealed result & Verdict \\
+\midrule
+H1 & Deterministic validity & 1,944/1,944 validation cells passed & Pass \\
+H2 & Endpoint incompleteness & 300/300 primary cells met the deficit-or-censor event; descriptive Wilson 95\% range 98.74--100\% & Pass \\
+H3 & Constructive attainability & Both discrete endpoints attained in 300/300 boundary cells; zero failures & Pass \\
+H4 & Decision utility & 532/3,840 statuses changed (13.85\%; descriptive Wilson 95\% range 12.80--14.98\%), below the 20\% gate; zero false certificates & Fail \\
+H5 & Operational viability & Clean install and normal/optimized tasks passed; median certification time approximately $4.68\times10^{-5}$ seconds versus two seconds allowed & Pass \\
+\bottomrule
+\end{tabularx}
+\caption{Prospectively frozen confirmatory gates. Wilson intervals are descriptive summaries, not replacements for the fixed pass/fail rules. H2 includes 240 returned finite clouds and 60 prospectively classified structural censors.}
+\label{tab:confirmatory}
+\end{table}
+
+H2 and H4 answer different questions. H2 shows that the frozen finite exploration did not certify sharp endpoints: every evaluable returned cloud missed at least one endpoint beyond tolerance, and the remaining abrupt cells were structurally censored. H4 asks whether exact certification changed the particular decisions fixed in advance. It did so for 532 queries, but the pooled 13.85\% fraction did not reach the 20\% criterion. A discrete-grid sensitivity analysis changed 182 of 3,840 statuses (4.74\%; descriptive Wilson range 4.11--5.46\%). No analysis produced a false certificate.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\linewidth]{figures/figure8_crabs_confirmatory_h4.png}
+\caption{H4 changed-query fractions in the 24 evaluable signal--grid--cap strata, with descriptive Wilson intervals and the frozen 20\% reference line. Each point aggregates 160 queries. Abrupt-signal strata are absent because all 60 primary rejection cells were structural censors and therefore had no finite-cloud decisions to compare. Some individual strata cross 20\%, but the prospectively specified decision is pooled; the subgroup pattern does not rescue the failed H4 gate.}
+\label{fig:crabsh4}
+\end{figure}
+
+The direct comparison therefore supports exact certification as a fast diagnostic safeguard against endpoint incompleteness. It does not support the stronger claim that certification is an empirically essential or ``must-have'' complement to CRABS under this benchmark.
 
 \section{External deterministic constraints}
 Let
@@ -519,7 +563,7 @@ Pulled-signal uncertainty & Estimation problem remains & Method-specific & Metho
 The integrating factor, pulled scale and zero-inflated geometric branching laws have reconstructed-process antecedents \parencite{lambert2013,hohna2015,macpherson2022}. Partial-identification framing, generic Lipschitz extensions and infinite-dimensional linear programming are also established literatures \parencite{manski2003,mcshane1934,whitney1934,anderson1987}. The defensible priority claim is narrower: we found no prior work coupling this cumulative-loss measure fibre to the complete package of cap-regime bounds, finite certificates, barrier test, minimum-cap diagnostic and exact endpoint-sampling law. The search was targeted, not systematic. A specialist recognition check remains necessary.
 
 \section{Computational assurance}
-Release 0.2.1 includes:
+The theorem package inherited from release 0.2.1 includes:
 \begin{itemize}
 \item 17 deterministic unit tests covering the smooth chart, cap regimes, event algebra, fixed-stem normalisation, finite certificates, boundary validation, mammal replay and sampling theorem;
 \item an independently written loop-based envelope implementation and 720 linear-programme endpoint checks across 180 random feasible cases;
@@ -530,13 +574,15 @@ Release 0.2.1 includes:
 \end{itemize}
 These checks establish internal replay and independent numerical consistency. They do not constitute external mathematical review, biological validation or formal proof checking. Exact dependencies are recorded, and the complete check suite passes under normal and optimized Python in a clean container pinned to a Python 3.13.5 base-image digest. That recreation was performed by the release-preparing agent, so independent external reproduction remains unassessed.
 
-\section{Limitations and research programme}
-The release remains a candidate for five reasons. First, the fixed-stem theorem needs an external specialist audit and does not cover crown or random-origin conditioning. Second, statistical inference requires a simultaneous uncertainty set for the pulled signal. Third, fossil application requires a preservation, observation and taxonomic mapping model. Fourth, the matched sampling theorem should be complemented by an actual CRABS comparison under identical restrictions. Fifth, priority should be checked across stochastic-process, survival-analysis, viability, optimal-recovery and non-English literatures.
+The 0.3.0-candidate review branch adds a complete 1,100-cell stochastic ledger, 800 hash-bound sidecars, an immutable full-ledger manifest, frozen hypothesis summaries, dual-mode protocol controls, seven protocol-harness tests and a clean-install/runtime receipt. The H5 record preserves an initial environment-selection incident in which a Python interpreter lacked SciPy and failed before unit-test execution; the additive corrected receipt changes only interpreter qualification. The existing 0.2.1 release manifest is intentionally not rewritten to absorb the new evidence.
 
-The most valuable extensions are: exact robust envelopes over a simultaneous family of $F$ curves; observation-aware fossil inequalities or chance constraints; target-specific optimisation for peak timing and integrated extinction; crown-conditioned event laws; and formalisation of Theorems 1, 6 and 8 in a proof assistant.
+\section{Limitations and research programme}
+The review draft remains a candidate for five reasons. First, the fixed-stem theorem needs an external specialist audit and does not cover crown or random-origin conditioning. Second, statistical inference requires a simultaneous uncertainty set for the pulled signal. Third, fossil application requires a preservation, observation and taxonomic mapping model. Fourth, the confirmatory comparison is bounded to one explicit semantic bridge, five signals, two grids, three caps and preset decision queries; H4 failed, and structural censoring limits returned-cloud claims for abrupt signals. Fifth, priority should be checked systematically across stochastic-process, survival-analysis, viability, optimal-recovery and non-English literatures.
+
+The most valuable extensions are: exact robust envelopes over a simultaneous family of $F$ curves; observation-aware fossil inequalities or chance constraints; target-specific optimisation for peak timing and integrated extinction; prospectively chosen target-specific decisions; sampler endpoint guarantees; crown-conditioned event laws; and formalisation of Theorems 1, 6 and 8 in a proof assistant. New tuning choices, signals or thresholds may motivate a separate study but cannot retroactively repair the failed H4 gate.
 
 \section{Conclusion}
-A congruence class is a functional identified set, not a collection of curves returned by one sampler. The cumulative-loss coordinate makes a useful part of that set affine. Under explicit restrictions, the analyst can report feasible trajectories, exact target endpoints, endpoint-attaining histories and short incompatibility certificates. The cap extension also identifies the boundary at which continuous decline destroys finite upper identification. These results provide a mathematically exact complement to exploration and point-identifying models. Their empirical use must retain the same discipline: fixed-signal geometry, statistical uncertainty and biological observation models are separate layers.
+A congruence class is a functional identified set, not a collection of curves returned by one sampler. The cumulative-loss coordinate makes a useful part of that set affine. Under explicit restrictions, the analyst can report feasible trajectories, exact target endpoints, endpoint-attaining histories and short incompatibility certificates. In the frozen CRABS comparison, finite rejection exploration missed an endpoint tolerance in every primary cell under the prespecified deficit-or-censor rule, yet certification changed only 13.85\% of the evaluable decision queries and therefore failed the 20\% utility gate. The evidence supports a fast exact diagnostic, not a claim of empirical necessity. Fixed-signal geometry, finite exploration, statistical uncertainty and biological observation models remain separate layers.
 
 \appendix
 \section{Sanity checks}
@@ -575,6 +621,9 @@ make verify
 make verify-package
 docker build -f Containerfile -t affine-diversification-fibres:0.2.1 .
 docker run --rm affine-diversification-fibres:0.2.1
+stage2=experiments/affine_crabs_confirmatory/execution
+shasum -a 256 -c "$stage2/STOCHASTIC_STAGE2_MANIFEST.sha256"
+python experiments/affine_crabs_confirmatory/generate_review_figure.py
 \end{verbatim}
 
 \printbibliography
