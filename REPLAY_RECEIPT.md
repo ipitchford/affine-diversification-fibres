@@ -20,6 +20,6 @@ Frozen result identity at this checkpoint:
 - H2: 240/240 returned-cloud endpoint deficits plus 60 structural censors;
 - H4: 532/3,840 clustered status changes, failed against the 20% gate;
 - fixed-stem joint component coverage sanity check: 0.96755 versus nominal lower bound 0.95;
-- manuscript: 23 pages, SHA-256 `8fd18c6c0fdcc11af874a1d37da5cddb02d74822f7345b226685ca8436dd77a5`.
+- release manuscript: 23 pages, SHA-256 `4e263ac0c3195a41b10733d6c6e3c6f5c7d328cfe534e0d515d4e7991206a5bf`.
 
-Public Linux CI, immutable release identity and public byte readback are recorded separately after they occur. They must not be inferred from this receipt.
+Public GitHub Actions run 32457758437 passed all three Linux jobs on pre-DOI commit `3e50413d9122e90de4b66c25cfdd0602bbdfb484`. The final DOI-bearing commit is rerun before tagging. These producer-controlled public checks are not unaffiliated reproduction.

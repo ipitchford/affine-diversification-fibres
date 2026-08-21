@@ -9,6 +9,7 @@
 - Five deliberate negative controls were detected.
 - The 1,900-entry Stage 2 ledger manifest and the H2/H4 summaries pass the integrated verifier.
 - The 23-page PDF rebuilds with resolved references and was inspected page-by-page.
+- Public GitHub Actions run 32457758437 passed the historical replay, Route A successor and pinned Linux-container jobs at commit `3e50413d9122e90de4b66c25cfdd0602bbdfb484`.
 
 ## Not established
 

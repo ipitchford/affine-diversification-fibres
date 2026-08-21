@@ -1,7 +1,7 @@
 Route A PDF inspection — 2026-08-21
 
 Artifact: manuscript.pdf
-SHA-256: 8fd18c6c0fdcc11af874a1d37da5cddb02d74822f7345b226685ca8436dd77a5
+SHA-256: 4e263ac0c3195a41b10733d6c6e3c6f5c7d328cfe534e0d515d4e7991206a5bf
 Pages: 23
 Page size: A4
 PDF version: 1.7
@@ -11,7 +11,7 @@ JavaScript: none
 Tagged PDF: no
 
 Rebuilt with latexmk/biber, rendered page-by-page, and visually inspected:
-- page 1: title, abstract, assurance boundary and previous-DOI warning render cleanly;
+- page 1: title, abstract, assurance boundary and separate successor/previous DOI statement render cleanly;
 - page 3: function-space proof continuation and measure-class material render cleanly;
 - pages 12–13: H4 gate, full transition table and clustered stratum plot are legible;
 - pages 17–18: mammal sensitivity, Route A Figure 9 and recognition tables render without clipping;

@@ -6,6 +6,8 @@
 
 **Previous immutable candidate:** [0.2.1, DOI 10.5281/zenodo.21851319](https://doi.org/10.5281/zenodo.21851319)
 
+**Successor DOI:** [10.5281/zenodo.22041054](https://doi.org/10.5281/zenodo.22041054)
+
 This Route A successor gives a finite-sample signal-to-decision workflow for one exact fixed-stem reconstructed tree under a homogeneous time-varying birth-death model. It constructs an honest simultaneous band for the pulled scale `F`, propagates that band through an affine conditional identified set, and reports three-valued turnover-cap decisions: certified incompatible, compatible throughout the band, or unresolved.
 
 The separate frozen CRABS comparison is supporting evidence, not the principal claim. All 240 returned primary rejection clouds missed at least one sharp endpoint beyond the frozen tolerance, with 60 additional structural censors. Exact certification changed 532/3,840 clustered decision-query statuses (13.854%), so the prespecified H4 utility gate failed. The candidate must not be described as a “must-have” or essential complement to CRABS.
@@ -15,8 +17,9 @@ The separate frozen CRABS comparison is supporting evidence, not the principal c
 - Internal mathematical, numerical, ledger and qualified-host checks have passed within their recorded scope.
 - The simultaneous band covers exact node-age sampling variation under the stated fixed-stem, stem-survival model only.
 - It does not cover topology or dating error, model misspecification, lineage heterogeneity, fossil observation, or uncertainty in external biological constraints.
-- External process-theory review, unaffiliated full replay, cross-platform replay and independent rights review remain outstanding. They are visible assurance gaps, not implied passes.
-- No DOI has been assigned to this successor, and the 0.2.1 DOI must not be used for it.
+- External process-theory review, unaffiliated full replay and independent rights review remain outstanding. They are visible assurance gaps, not implied passes.
+- Public Linux GitHub Actions replay passed on commit `3e50413d9122e90de4b66c25cfdd0602bbdfb484`; this is producer-workflow replay, not unaffiliated reproduction.
+- The successor's version DOI is `10.5281/zenodo.22041054`. The historical 0.2.1 DOI remains attached only to the earlier candidate.
 
 ## Qualified local replay
 
@@ -51,4 +54,4 @@ The full 1,100-cell CRABS computation is not rerun by the quick verifier; it val
 
 ## Publication state
 
-This repository is an unrefereed successor candidate. Stage 3′ retained Major Revision for journal-style acceptance but authorized Evidence Press candidate publication with notes. Public release remains conditional on the Stage 4.5 integrity report, immutable GitHub/Zenodo identity and Evidence Press readback. No public surface may call the work peer reviewed, independently reproduced, formally verified, biologically validated or a must-have CRABS complement.
+This repository is an unrefereed successor candidate. Stage 3′ retained Major Revision for journal-style acceptance but authorized Evidence Press candidate publication with notes. The Stage 4.5 integrity gate and public Linux CI passed; immutable release publication and Evidence Press readback are recorded separately. No public surface may call the work peer reviewed, independently reproduced, formally verified, biologically validated or a must-have CRABS complement.

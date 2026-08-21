@@ -2,6 +2,8 @@
 
 Version `0.3.0-candidate-r2` is approved only for publication as an **unrefereed Evidence Press candidate with notes**.
 
+Version DOI: [10.5281/zenodo.22041054](https://doi.org/10.5281/zenodo.22041054). The DOI records availability of this exact candidate and does not upgrade its assurance status.
+
 The internal Stage 3-prime review retained **Major Revision for journal-style acceptance** because an unaffiliated reconstructed-process review and unaffiliated reproduction have not occurred. Stage 4.5 internal integrity checks passed. These two decisions are compatible: Evidence Press publishes inspectable candidate states; it does not convert them into peer-reviewed findings.
 
 Safe claim: under the exact fixed-stem, stem-survival, homogeneous time-varying law, exact geometric count inversion and a conditional DKW--Massart node-age band give an at-least-nominal simultaneous confidence set for the pulled scale. The candidate propagates that set through a conditional affine identified set to three-valued target decisions.

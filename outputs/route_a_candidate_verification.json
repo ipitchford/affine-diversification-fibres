@@ -44,8 +44,9 @@
     {
       "id": "json_records",
       "status": "PASS",
-      "detail": "parsed 10 successor records",
+      "detail": "parsed 11 successor records",
       "evidence": [
+        ".zenodo.json",
         "AI_INDEX.json",
         "PROVENANCE.json",
         "environment.json",
@@ -56,6 +57,23 @@
         "figure_data/ALT_TEXT.json",
         "review/route_a/SOURCES_ROUTE_A.json",
         "review/route_a/ROUTE_A_REVISION_HASHES.json"
+      ]
+    },
+    {
+      "id": "release_identity_coherence",
+      "status": "PASS",
+      "detail": "doi=10.5281/zenodo.22041054; structured={'STATUS.json': '10.5281/zenodo.22041054', 'AI_INDEX.json': 'https://doi.org/10.5281/zenodo.22041054', 'PROVENANCE.json': 'https://doi.org/10.5281/zenodo.22041054', 'release_status.json': '10.5281/zenodo.22041054', 'PUBLICATION_STATE.json': '10.5281/zenodo.22041054'}; zenodo_version=0.3.0-candidate-r2",
+      "evidence": [
+        "CITATION.cff",
+        "README.md",
+        "manuscript.tex",
+        "manuscript.md",
+        "STATUS.json",
+        "AI_INDEX.json",
+        "PROVENANCE.json",
+        "release_status.json",
+        "PUBLICATION_STATE.json",
+        ".zenodo.json"
       ]
     },
     {
@@ -75,6 +93,14 @@
       "detail": "validated 1900 entries",
       "evidence": [
         "experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256"
+      ]
+    },
+    {
+      "id": "successor_release_manifest",
+      "status": "PASS",
+      "detail": "validated 5033 entries",
+      "evidence": [
+        "RELEASE_MANIFEST.sha256"
       ]
     },
     {
@@ -153,7 +179,7 @@
     {
       "id": "unit_tests_normal",
       "status": "PASS",
-      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.029s\n\nOK",
+      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.025s\n\nOK",
       "evidence": [
         "outputs/route_a_unit_tests_normal.txt"
       ]
@@ -161,7 +187,7 @@
     {
       "id": "unit_tests_optimized",
       "status": "PASS",
-      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.022s\n\nOK",
+      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.021s\n\nOK",
       "evidence": [
         "outputs/route_a_unit_tests_optimized.txt"
       ]

@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0rc2 - 2026-08-21 (review candidate; not released)
+## 0.3.0rc2 - 2026-08-21 (unrefereed release candidate)
 
 - Chose Route A and made the finite-sample fixed-stem signal-to-decision workflow the principal contribution.
 - Added exact geometric tip-count inversion, a DKW--Massart node-age band, simultaneous propagation to the pulled scale and three-valued cap decisions.
@@ -9,7 +9,8 @@
 - Split H2 into 240 returned-cloud deficits and 60 structural censors; added the protocol chronology and H4 transition/dependence summaries.
 - Added a structured theorem-by-theorem recognition search and new source registry.
 - Created a version-coherent successor packet while retaining the failed H4 gate and preserving historical 0.2.1 receipts unchanged.
-- External process review, unaffiliated full replay, cross-platform replay and final rights review remain open Stage 3′ gates.
+- Public Linux CI passed the historical, Route A and pinned-container jobs; external process review, unaffiliated full replay and final rights review remain open assurance dimensions.
+- Assigned successor version DOI `10.5281/zenodo.22041054` in the existing Zenodo concept lineage.
 
 ## 0.2.1 - 2026-08-08
 

@@ -22,6 +22,7 @@ from pypdf import PdfReader
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "outputs/route_a_candidate_verification.json"
 EXPECTED_VERSION = "0.3.0rc2"
+RELEASE_DOI = "10.5281/zenodo.22041054"
 HISTORICAL_HASHES = {
     "MANIFEST.sha256": "6c50d82213472a29eae71a22839f8addf023ad37238232473198f33d4ddb0f77",
     "REPLAY_RECEIPT.json": "aa596334df3bed17d264bab30da88e8ed674790a2347271834be3236868013d2",
@@ -92,7 +93,7 @@ def main() -> int:
         except Exception as exc:
             checks.append(check(f"schema:{record}", False, str(exc), [record, schema]))
 
-    json_records = ["AI_INDEX.json", "PROVENANCE.json", "environment.json", "SOURCES.json", "LICENSE_MAP.json", "PUBLICATION_STATE.json", "release_status.json", "figure_data/ALT_TEXT.json", "review/route_a/SOURCES_ROUTE_A.json", "review/route_a/ROUTE_A_REVISION_HASHES.json"]
+    json_records = [".zenodo.json", "AI_INDEX.json", "PROVENANCE.json", "environment.json", "SOURCES.json", "LICENSE_MAP.json", "PUBLICATION_STATE.json", "release_status.json", "figure_data/ALT_TEXT.json", "review/route_a/SOURCES_ROUTE_A.json", "review/route_a/ROUTE_A_REVISION_HASHES.json"]
     try:
         for record in json_records:
             load_json(record)
@@ -100,12 +101,37 @@ def main() -> int:
     except Exception as exc:
         checks.append(check("json_records", False, str(exc), json_records))
 
+    doi_surfaces = {
+        "CITATION.cff": (ROOT / "CITATION.cff").read_text(encoding="utf-8"),
+        "README.md": (ROOT / "README.md").read_text(encoding="utf-8"),
+        "manuscript.tex": (ROOT / "manuscript.tex").read_text(encoding="utf-8"),
+        "manuscript.md": (ROOT / "manuscript.md").read_text(encoding="utf-8"),
+    }
+    structured_dois = {
+        "STATUS.json": load_json("STATUS.json")["release"]["doi_for_this_candidate"],
+        "AI_INDEX.json": load_json("AI_INDEX.json")["persistent_identifier"],
+        "PROVENANCE.json": load_json("PROVENANCE.json")["persistent_identifier"],
+        "release_status.json": load_json("release_status.json")["doi"],
+        "PUBLICATION_STATE.json": load_json("PUBLICATION_STATE.json")["zenodo"]["versionDoi"],
+    }
+    zenodo_metadata = load_json(".zenodo.json")
+    doi_pass = (
+        all(RELEASE_DOI in text for text in doi_surfaces.values())
+        and all(RELEASE_DOI in value for value in structured_dois.values())
+        and zenodo_metadata["version"] == "0.3.0-candidate-r2"
+        and zenodo_metadata["creators"] == [{"name": "Anonymous"}]
+    )
+    checks.append(check("release_identity_coherence", doi_pass, f"doi={RELEASE_DOI}; structured={structured_dois}; zenodo_version={zenodo_metadata['version']}", [*doi_surfaces, *structured_dois, ".zenodo.json"]))
+
     hash_results = {path: sha256(ROOT / path) for path in {**HISTORICAL_HASHES, **SEALED_HASHES}}
     hashes_pass = all(hash_results[path] == expected for path, expected in {**HISTORICAL_HASHES, **SEALED_HASHES}.items())
     checks.append(check("protected_hashes", hashes_pass, str(hash_results), list(hash_results)))
 
     ledger_pass, ledger_detail = validate_manifest("experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256")
     checks.append(check("sealed_stage2_ledger", ledger_pass, ledger_detail, ["experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256"]))
+
+    release_manifest_pass, release_manifest_detail = validate_manifest("RELEASE_MANIFEST.sha256")
+    checks.append(check("successor_release_manifest", release_manifest_pass, release_manifest_detail, ["RELEASE_MANIFEST.sha256"]))
 
     fixed = load_json("outputs/fixed_stem_uncertainty.json")
     fixed_pass = (

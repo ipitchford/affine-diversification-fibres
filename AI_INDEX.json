@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "candidate": "0.3.0rc2",
   "identifier": "affine-route-a-0.3.0-candidate-r2",
-  "persistent_identifier": null,
+  "persistent_identifier": "https://doi.org/10.5281/zenodo.22041054",
   "previous_release": {"version": "0.2.1", "doi": "10.5281/zenodo.21851319"},
   "status": "STATUS.json",
   "safe_claim": "Under the exact fixed-stem, stem-survival, homogeneous time-varying law, exact count-tail inversion and a conditional DKW--Massart node-age band yield a simultaneous set for F that can be propagated to three-valued conditional affine decisions. A separate bounded CRABS benchmark retained a failed H4 utility gate.",
@@ -23,6 +23,12 @@
     {"path": "experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256", "role": "sealed historical Stage 2 result manifest"},
     {"path": "review/route_a/ROUTE_A_CANDIDATE_MANIFEST.sha256", "role": "additive successor review manifest"}
   ],
+  "public_replay": {
+    "commit": "3e50413d9122e90de4b66c25cfdd0602bbdfb484",
+    "workflow_run": "https://github.com/ipitchford/affine-diversification-fibres/actions/runs/32457758437",
+    "status": "passed",
+    "boundary": "Producer-controlled public Linux replay; not unaffiliated reproduction."
+  },
   "open_external_objects": [
     "review/route_a/03_EXTERNAL_PROCESS_REVIEW_REQUEST.md",
     "review/route_a/04_INDEPENDENT_REPLAY_REQUEST.md",

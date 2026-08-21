@@ -24,10 +24,10 @@
     "zenodoPublish": true
   },
   "budget": {
-    "elapsedMinutes": 8.6,
+    "elapsedMinutes": 19.48,
     "hardStopMinutes": 240,
     "hardStopRawTokens": 1000000,
-    "lastCheckedAt": "2026-08-21T07:09:26.674Z",
+    "lastCheckedAt": "2026-08-21T07:20:19.879Z",
     "profile": "full-candidate",
     "rawTokensCurrent": null,
     "rawTokensStart": null,
@@ -84,8 +84,8 @@
   },
   "github": {
     "assets": [],
-    "ciStatus": null,
-    "mainCommit": null,
+    "ciStatus": "GitHub Actions run 32457758437 passed all three jobs at 3e50413d9122e90de4b66c25cfdd0602bbdfb484; final DOI-bearing commit CI pending.",
+    "mainCommit": "3e50413d9122e90de4b66c25cfdd0602bbdfb484",
     "releaseUrl": null,
     "repository": "https://github.com/ipitchford/affine-diversification-fibres",
     "tag": null,
@@ -98,7 +98,7 @@
     "licensing": "PASS_WITH_NOTES: CC0 prose/data, MIT original code, upstream and NOASSERTION exceptions; independent rights review absent.",
     "manifest": "PASS: protected historical hashes and 1,900-entry sealed Stage 2 manifest validated; successor release manifest will be sealed after DOI injection.",
     "negativeControls": "PASS: five of five deliberate semantic controls detected.",
-    "pdf": "PASS: 23 pages inspected; SHA-256 8fd18c6c0fdcc11af874a1d37da5cddb02d74822f7345b226685ca8436dd77a5; untagged PDF disclosed.",
+    "pdf": "PASS: DOI-bearing 23-page release PDF inspected; SHA-256 4e263ac0c3195a41b10733d6c6e3c6f5c7d328cfe534e0d515d4e7991206a5bf; untagged PDF disclosed.",
     "replay": "PASS producer-side: normal and optimized tests, oracle, simulation, regeneration and ledger checks; independent reproduction absent.",
     "unresolved": [
       "Unaffiliated process-theory review is not established.",
@@ -139,20 +139,24 @@
       "status": "passed"
     },
     {
-      "completedAt": null,
-      "evidence": [],
+      "completedAt": "2026-08-21T07:20:19.811Z",
+      "evidence": [
+        "Public GitHub main fast-forwarded to 3e50413d9122e90de4b66c25cfdd0602bbdfb484 after Actions run 32457758437 passed all three Linux jobs."
+      ],
       "id": 2,
       "name": "public-research-repository",
-      "startedAt": null,
-      "status": "pending"
+      "startedAt": "2026-08-21T07:20:19.811Z",
+      "status": "passed"
     },
     {
       "completedAt": null,
-      "evidence": [],
+      "evidence": [
+        "Zenodo successor draft 22041054 created in concept lineage 21851318; reserved DOI 10.5281/zenodo.22041054."
+      ],
       "id": 3,
       "name": "github-zenodo-identity",
-      "startedAt": null,
-      "status": "pending"
+      "startedAt": "2026-08-21T07:20:19.880Z",
+      "status": "in-progress"
     },
     {
       "completedAt": null,
@@ -220,15 +224,15 @@
   },
   "route": "full-candidate",
   "schemaVersion": "2.0",
-  "updatedAt": "2026-08-21T07:09:26.675Z",
+  "updatedAt": "2026-08-21T07:20:19.880Z",
   "zenodo": {
     "assetsByteIdentical": null,
-    "conceptDoi": null,
-    "depositionId": null,
+    "conceptDoi": "10.5281/zenodo.21851318",
+    "depositionId": 22041054,
     "instance": "https://zenodo.org",
     "recordId": null,
     "recordUrl": null,
-    "status": null,
-    "versionDoi": null
+    "status": "draft-doi-reserved",
+    "versionDoi": "10.5281/zenodo.22041054"
   }
 }

@@ -14,7 +14,7 @@ This is an unrefereed Route-A revision candidate. Internal replay, independent l
 
 #### Persistent identifier.
 
-The prior 0.2.1 candidate is archived at [10.5281/zenodo.21851319](https://doi.org/10.5281/zenodo.21851319). This 0.3.0-candidate-r2 review draft is not yet archived and must not be attributed to that specific-version DOI.
+This 0.3.0-candidate-r2 successor is archived at [10.5281/zenodo.22041054](https://doi.org/10.5281/zenodo.22041054). The prior 0.2.1 candidate remains separately archived at [10.5281/zenodo.21851319](https://doi.org/10.5281/zenodo.21851319); the two version DOIs must not be conflated.
 
 # Decision problem and contribution
 

@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "candidate": "0.3.0rc2",
   "created_at": "2026-08-21",
-  "persistent_identifier": null,
+  "persistent_identifier": "https://doi.org/10.5281/zenodo.22041054",
   "previous_release": {"version": "0.2.1", "doi": "10.5281/zenodo.21851319", "manifest": "MANIFEST.sha256", "replay_receipt": "REPLAY_RECEIPT.json"},
   "object_history": [
     {"stage": "0.2.1", "description": "Historical archived candidate; protected hashes remain unchanged."},
@@ -10,7 +10,9 @@
     {"stage": "stage3", "description": "Five-role expert review returned unanimous Major Revision/HOLD_FOR_REPAIR.", "path": "review/stage3/06_EDITORIAL_DECISION.md"},
     {"stage": "0.3.0-candidate-r2", "description": "Route A revision adding finite-sample fixed-stem signal uncertainty, robust decisions, corrected H2/H4 interpretation and successor review packaging."},
     {"stage": "stage3-prime", "description": "Internal verification review retained Major Revision for journal acceptance and returned PASS_WITH_NOTES for explicitly unrefereed Evidence Press publication.", "path": "review/stage3_prime/02_EDITORIAL_DECISION.md"},
-    {"stage": "stage4.5", "description": "Final integrity audit passed with external assurance limitations retained.", "path": "docs/final_integrity_report_20260821.md"}
+    {"stage": "stage4.5", "description": "Final integrity audit passed with external assurance limitations retained.", "path": "docs/final_integrity_report_20260821.md"},
+    {"stage": "public-linux-ci", "description": "GitHub Actions run 32457758437 passed the historical replay, Route A successor and pinned-container jobs at commit 3e50413d9122e90de4b66c25cfdd0602bbdfb484."},
+    {"stage": "doi-reservation", "description": "Reserved version DOI 10.5281/zenodo.22041054 in existing concept lineage 10.5281/zenodo.21851318."}
   ],
   "roles": {
     "user": ["Set the research objective.", "Authorized staged continuation.", "Selected Route A."],

@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Cite this only as an unarchived review candidate; do not attribute the previous 0.2.1 DOI to it."
+message: "Cite this DOI-bearing unrefereed candidate; do not attribute the previous 0.2.1 version DOI to it."
 title: "Finite-Sample Signal Uncertainty and Sharp Partial Identification of Diversification Histories: An Affine Signal-to-Decision Workflow with a Bounded CRABS Comparison"
 version: 0.3.0rc2
 date-released: 2026-08-21
@@ -15,6 +15,9 @@ keywords:
   - congruence class
   - sharp bounds
 identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22041054"
+    description: "Version DOI for the 0.3.0-candidate-r2 successor"
   - type: other
     value: "affine-route-a-0.3.0-candidate-r2"
-    description: "Local review-candidate identifier; not a persistent identifier"
+    description: "Stable project identifier"

@@ -1,0 +1,36 @@
+{
+  "title": "Finite-Sample Signal Uncertainty and Sharp Partial Identification of Diversification Histories: An Affine Signal-to-Decision Workflow with a Bounded CRABS Comparison",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "Unrefereed Evidence Press candidate. Under an exact fixed-stem, stem-survival, homogeneous time-varying birth-death model, this successor constructs a finite-sample confidence set for the pulled scale and propagates it to conditional affine partial-identification decisions. A separate bounded CRABS benchmark retained a failed prespecified H4 utility gate. Producer-side replay and public Linux CI passed; independent reproduction, external specialist review, formal verification, editorial peer review, biological validation and broad CRABS utility are not established. Original prose and project-created data are CC0-1.0; original code is MIT; third-party exceptions retain their recorded terms.",
+  "creators": [
+    {
+      "name": "Anonymous"
+    }
+  ],
+  "version": "0.3.0-candidate-r2",
+  "publication_date": "2026-08-21",
+  "access_right": "open",
+  "license": "cc-zero",
+  "keywords": [
+    "phylogenetics",
+    "birth-death process",
+    "partial identification",
+    "simultaneous confidence band",
+    "congruence class",
+    "sharp bounds",
+    "CRABS"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/ipitchford/affine-diversification-fibres",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.21851319",
+      "relation": "isNewVersionOf",
+      "scheme": "doi"
+    }
+  ]
+}
