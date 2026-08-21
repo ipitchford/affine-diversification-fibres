@@ -5,11 +5,25 @@
   "components": [
     {
       "paths": [
+        "affine_diversification/**",
+        "verification/**",
+        "experiments/**/*.py",
+        "experiments/**/*.R",
+        ".github/workflows/**",
+        "Containerfile",
+        "Makefile"
+      ],
+      "license": "MIT",
+      "copyright": "Copyright (c) 2026 Anonymous",
+      "note": "Original executable code and build or verification automation; see LICENSE-CODE. Source-derived data handled below are excluded."
+    },
+    {
+      "paths": [
         "**"
       ],
       "license": "CC0-1.0",
       "copyright": "Original content dedicated to the public domain by its rights holders",
-      "note": "Default for all original content; the source-derived and user-supplied exceptions below take precedence."
+      "note": "Default for original prose, figures, project-created data and research records; the code, source-derived and user-supplied exceptions take precedence."
     },
     {
       "paths": [

@@ -13,7 +13,8 @@
     {"path": "CLAIM_EVIDENCE.json", "role": "successor claim-to-evidence map"},
     {"path": "ASSURANCE.json", "role": "scoped assurance matrix"},
     {"path": "review/route_a/01_RESPONSE_TO_REVIEWERS.md", "role": "R1-R9 and S1-S6 response"},
-    {"path": "review/route_a/06_STAGE4_CHECKPOINT.md", "role": "mandatory Stage 3 prime stopping boundary"}
+    {"path": "review/stage3_prime/02_EDITORIAL_DECISION.md", "role": "split scholarly and Evidence Press publication decision"},
+    {"path": "docs/final_integrity_report_20260821.md", "role": "Stage 4.5 final integrity decision"}
   ],
   "verification_objects": [
     {"path": "outputs/route_a_candidate_verification.json", "role": "integrated internal successor verification"},
@@ -28,7 +29,7 @@
     "review/route_a/05_RIGHTS_REVIEW_CHECKLIST.md"
   ],
   "do_not_infer": [
-    "No publication approval or peer-review acceptance.",
+    "No journal or peer-review acceptance; publication is only as an explicitly unrefereed candidate.",
     "No topology, dating, smoothing, model-selection or misspecification coverage.",
     "No derivative coverage obtained by differentiating the F band.",
     "No fossil observation or taxonomic-scale inference.",

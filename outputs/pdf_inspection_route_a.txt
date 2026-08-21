@@ -1,6 +1,7 @@
 Route A PDF inspection — 2026-08-21
 
 Artifact: manuscript.pdf
+SHA-256: 8fd18c6c0fdcc11af874a1d37da5cddb02d74822f7345b226685ca8436dd77a5
 Pages: 23
 Page size: A4
 PDF version: 1.7
@@ -9,7 +10,7 @@ Encryption: none
 JavaScript: none
 Tagged PDF: no
 
-Rendered at 110 dpi and visually inspected:
+Rebuilt with latexmk/biber, rendered page-by-page, and visually inspected:
 - page 1: title, abstract, assurance boundary and previous-DOI warning render cleanly;
 - page 3: function-space proof continuation and measure-class material render cleanly;
 - pages 12–13: H4 gate, full transition table and clustered stratum plot are legible;

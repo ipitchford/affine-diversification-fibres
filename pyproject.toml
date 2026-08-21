@@ -8,7 +8,7 @@ version = "0.3.0rc2"
 description = "Finite-sample pulled-signal uncertainty and sharp partial identification for fixed-stem diversification models"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "CC0-1.0 for original content; see LICENSE_MAP.json for source-derived exceptions"}
+license = {text = "MIT for original code; CC0-1.0 for original prose/data; see LICENSE_MAP.json"}
 authors = [{name = "Anonymous agentic research candidate"}]
 keywords = ["phylogenetics", "birth-death process", "partial identification", "congruence class"]
 dependencies = [

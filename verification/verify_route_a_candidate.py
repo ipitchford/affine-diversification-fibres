@@ -151,10 +151,23 @@ def main() -> int:
     markdown_pass = markdown.startswith("# Finite-Sample Signal Uncertainty") and "## Abstract" in markdown and "Theorem 14" in markdown
     checks.append(check("accessible_markdown", markdown_pass, "title, abstract and stable Route A theorem locator present", ["manuscript.md"]))
 
-    publication_ready = load_json("STATUS.json")["release"]["publication_ready"]
+    status = load_json("STATUS.json")
+    publication_ready = status["release"]["publication_ready"]
     public_authorizations = load_json("PUBLICATION_STATE.json")["authorization"]
-    publication_boundary_pass = publication_ready is False and not any(public_authorizations[key] for key in ["publicGitHub", "zenodoDraft", "zenodoPublish", "evidencePressDeploy"])
-    checks.append(check("publication_boundary", publication_boundary_pass, f"publication_ready={publication_ready}; public authorizations={public_authorizations}", ["STATUS.json", "PUBLICATION_STATE.json"]))
+    expected_authorizations = ["publicGitHub", "zenodoDraft", "zenodoPublish", "evidencePressDeploy"]
+    publication_boundary_pass = (
+        publication_ready is True
+        and status["release"].get("publication_readiness_scope") == "unrefereed_evidence_press_candidate_pass_with_notes"
+        and all(public_authorizations.get(key) is True for key in expected_authorizations)
+        and bool(public_authorizations.get("basis"))
+        and load_json("ASSURANCE.json")["items"][2]["status"] == "not_assessed"
+    )
+    checks.append(check("publication_boundary", publication_boundary_pass, f"publication_ready={publication_ready}; scope={status['release'].get('publication_readiness_scope')}; public authorizations={public_authorizations}", ["STATUS.json", "ASSURANCE.json", "PUBLICATION_STATE.json"]))
+
+    license_map = load_json("LICENSE_MAP.json")
+    mit_paths = next((item["paths"] for item in license_map["components"] if item["license"] == "MIT"), [])
+    license_pass = (ROOT / "LICENSE-CODE").is_file() and "affine_diversification/**" in mit_paths and any(item["license"] == "NOASSERTION" for item in license_map["components"])
+    checks.append(check("component_licensing", license_pass, f"MIT paths={len(mit_paths)}; NOASSERTION exceptions preserved", ["LICENSE", "LICENSE-CODE", "LICENSE.md", "LICENSE_MAP.json"]))
 
     normal_pass, normal_tail = run_tests(False)
     optimized_pass, optimized_tail = run_tests(True)
@@ -163,6 +176,10 @@ def main() -> int:
 
     required_review_files = [f"review/route_a/{name}" for name in ["00_REVISION_CONFIGURATION.md", "01_RESPONSE_TO_REVIEWERS.md", "02_CHANGE_LOG.md", "03_EXTERNAL_PROCESS_REVIEW_REQUEST.md", "04_INDEPENDENT_REPLAY_REQUEST.md", "05_RIGHTS_REVIEW_CHECKLIST.md", "06_STAGE4_CHECKPOINT.md"]]
     checks.append(check("review_packet", all((ROOT / path).is_file() for path in required_review_files), "R1-R9/S1-S6 response and open-gate requests present", required_review_files))
+
+    stage3_prime_pass, stage3_prime_detail = validate_manifest("review/stage3_prime/STAGE3_PRIME_MANIFEST.sha256")
+    stage3_prime_pass = stage3_prime_pass and (ROOT / "docs/final_integrity_report_20260821.md").is_file()
+    checks.append(check("stage3_prime_and_final_integrity", stage3_prime_pass, stage3_prime_detail, ["review/stage3_prime/STAGE3_PRIME_MANIFEST.sha256", "docs/final_integrity_report_20260821.md"]))
 
     overall = "PASS" if all(item["status"] == "PASS" for item in checks) else "FAIL"
     result = {

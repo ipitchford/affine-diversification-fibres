@@ -1,10 +1,234 @@
 {
-  "schemaVersion": "3.0",
-  "updatedAt": "2026-08-21",
-  "project": {"slug": "affine-diversification-fibres", "version": "0.3.0rc2", "status": "route_a_revision_candidate"},
-  "workflow": {"completedStage": 4, "nextStage": "3-prime-re-review", "decision": "HOLD_FOR_RE_REVIEW"},
-  "authorization": {"localRevision": true, "publicGitHub": false, "zenodoDraft": false, "zenodoPublish": false, "evidencePressDeploy": false},
-  "historicalRelease": {"version": "0.2.1", "doi": "10.5281/zenodo.21851319", "manifest": "MANIFEST.sha256", "replayReceipt": "REPLAY_RECEIPT.json", "mutated": false},
-  "integrityGate": {"routeAImplementation": "passed_internal", "crabsH4": "failed", "externalProcessReview": "outstanding", "independentReplay": "outstanding", "rightsReview": "outstanding", "publicationIntegrity": "not_run"},
-  "publicationBlock": "No release preparation, DOI action, deployment or public claim is authorized before Stage 3 prime and Stage 4.5."
+  "assuranceYield": {
+    "findings": [],
+    "newCriticalByReview": [
+      {
+        "decision": "changed",
+        "minutes": 0,
+        "p0": 0,
+        "p1": 0,
+        "rawTokens": 0,
+        "recordedAt": "2026-08-21T07:04:39.754Z",
+        "regression": "Stage 4.5 verifier and public assurance surfaces enforce the split decision.",
+        "reviewId": "stage3-prime",
+        "scientificBytes": "unchanged"
+      }
+    ],
+    "stoppingReason": "review stage3-prime found no new P0/P1 scientific issue"
+  },
+  "authorization": {
+    "basis": "User instructed: Re-review, take any necessary actions, then take the release through the full Evidence Press publishing workflow.",
+    "evidencePressDeploy": true,
+    "publicGitHub": true,
+    "zenodoDraft": true,
+    "zenodoPublish": true
+  },
+  "budget": {
+    "elapsedMinutes": 8.6,
+    "hardStopMinutes": 240,
+    "hardStopRawTokens": 1000000,
+    "lastCheckedAt": "2026-08-21T07:09:26.674Z",
+    "profile": "full-candidate",
+    "rawTokensCurrent": null,
+    "rawTokensStart": null,
+    "rawTokensUsed": 0,
+    "startedAt": "2026-08-21T07:00:50.826Z",
+    "state": "within-budget",
+    "targetMinutes": 180,
+    "targetRawTokens": 500000,
+    "tokenAccountingMethod": "runtime-fork-aware-counter-or-unavailable",
+    "uncachedInputTokensUsed": null
+  },
+  "closeout": {
+    "backupAudit": null,
+    "durableNote": null,
+    "finalElapsedMinutes": null,
+    "finalRawTokensUsed": null,
+    "handoff": null,
+    "handoffRequired": null,
+    "modelReviews": null,
+    "modelTurns": null
+  },
+  "coordination": {
+    "currentPhaseModelTurns": 0,
+    "endingAgentAudit": null,
+    "latestHandoff": null,
+    "maxModelTurnsPerPhase": 50,
+    "maxSubagents": 0,
+    "orphanedUiAgents": [],
+    "phaseTaskIds": [],
+    "startingAgentAudit": "2026-08-21: collaboration audit showed only /root running; no subagents used.",
+    "subagentsUsed": 0
+  },
+  "evidencePress": {
+    "branch": null,
+    "browserQa": null,
+    "canonicalUrl": null,
+    "checkout": null,
+    "contentCommitA": null,
+    "deploymentUrl": null,
+    "ledgerCommitB": null,
+    "mergedMainCommit": null,
+    "pageStructure": {
+      "contract": "canonical",
+      "exceptions": [],
+      "reason": null
+    },
+    "paperJsonUrl": null,
+    "protocolReadback": null,
+    "publicationIntegrity": null,
+    "pullRequests": [],
+    "readbackCommitC": null,
+    "readbackLedgerCommitD": null,
+    "repository": "https://github.com/ipitchford/evidence-press-site"
+  },
+  "github": {
+    "assets": [],
+    "ciStatus": null,
+    "mainCommit": null,
+    "releaseUrl": null,
+    "repository": "https://github.com/ipitchford/affine-diversification-fibres",
+    "tag": null,
+    "tagPayloadCommit": null
+  },
+  "integrityGate": {
+    "citations": "PASS_WITH_NOTES: identities and contexts audited; structured recognition is not exhaustive priority review.",
+    "claimBoundary": "Fixed-stem homogeneous signal-to-decision theorem; H4 failed; no broad CRABS, fossil-observation or empirical-validation claim.",
+    "decision": "PASS_WITH_NOTES for unrefereed candidate; Major Revision for journal-style acceptance.",
+    "licensing": "PASS_WITH_NOTES: CC0 prose/data, MIT original code, upstream and NOASSERTION exceptions; independent rights review absent.",
+    "manifest": "PASS: protected historical hashes and 1,900-entry sealed Stage 2 manifest validated; successor release manifest will be sealed after DOI injection.",
+    "negativeControls": "PASS: five of five deliberate semantic controls detected.",
+    "pdf": "PASS: 23 pages inspected; SHA-256 8fd18c6c0fdcc11af874a1d37da5cddb02d74822f7345b226685ca8436dd77a5; untagged PDF disclosed.",
+    "replay": "PASS producer-side: normal and optimized tests, oracle, simulation, regeneration and ledger checks; independent reproduction absent.",
+    "unresolved": [
+      "Unaffiliated process-theory review is not established.",
+      "Independent rerun or reimplementation is not established.",
+      "Editorial peer review and formal verification are not established.",
+      "Independent rights review is not established; component-level self-audit is recorded.",
+      "The prespecified H4 broad-utility gate failed at 532 of 3,840 clustered queries."
+    ]
+  },
+  "media": {
+    "art": null,
+    "audio": null,
+    "ogImage": null,
+    "transcript": null,
+    "youtubeThumbnail": null,
+    "youtubeVideo": null
+  },
+  "phases": [
+    {
+      "completedAt": "2026-08-21T07:04:39.337Z",
+      "evidence": [
+        "Recovered clean scientific branch b2f873f, current public 0.2.1 identity, and explicit full-publication authority."
+      ],
+      "id": 0,
+      "name": "recover-and-isolate",
+      "startedAt": "2026-08-21T07:04:39.337Z",
+      "status": "passed"
+    },
+    {
+      "completedAt": "2026-08-21T07:09:26.675Z",
+      "evidence": [
+        "Stage 3-prime verification review completed; Stage 4.5 integrity audit underway.",
+        "Stage 4.5 PASS_WITH_NOTES: all seven failure modes cleared internally; external assurance limitations retained in docs/final_integrity_report_20260821.md."
+      ],
+      "id": 1,
+      "name": "integrity-gate",
+      "startedAt": "2026-08-21T07:04:39.478Z",
+      "status": "passed"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 2,
+      "name": "public-research-repository",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 3,
+      "name": "github-zenodo-identity",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 4,
+      "name": "evidence-press-authoring",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 5,
+      "name": "communication-assets",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 6,
+      "name": "composite-seal-and-ci",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 7,
+      "name": "guarded-deploy-and-readback",
+      "startedAt": null,
+      "status": "pending"
+    },
+    {
+      "completedAt": null,
+      "evidence": [],
+      "id": 8,
+      "name": "publication-ledger-and-closeout",
+      "startedAt": null,
+      "status": "pending"
+    }
+  ],
+  "project": {
+    "slug": "finite-sample-affine-diversification",
+    "sourcePath": null,
+    "sourceSha256": null,
+    "status": "unrefereed-candidate",
+    "title": "Finite-Sample Signal Uncertainty and Sharp Partial Identification of Diversification Histories"
+  },
+  "reviewPolicy": {
+    "confirmationReviewsUsed": 0,
+    "entries": [
+      {
+        "id": "stage3-prime",
+        "kind": "substantive",
+        "question": "Does the Route A revision resolve the first-round scientific defects and define a safe publication boundary?",
+        "recordedAt": "2026-08-21T07:04:39.616Z",
+        "result": "Major Revision for journal acceptance; PASS_WITH_NOTES for an explicitly unrefereed Evidence Press candidate after three release-boundary corrections."
+      }
+    ],
+    "exceptions": [],
+    "maxConfirmationReviews": 1,
+    "maxSubstantiveReviews": 1,
+    "substantiveReviewsUsed": 1
+  },
+  "route": "full-candidate",
+  "schemaVersion": "2.0",
+  "updatedAt": "2026-08-21T07:09:26.675Z",
+  "zenodo": {
+    "assetsByteIdentical": null,
+    "conceptDoi": null,
+    "depositionId": null,
+    "instance": "https://zenodo.org",
+    "recordId": null,
+    "recordUrl": null,
+    "status": null,
+    "versionDoi": null
+  }
 }

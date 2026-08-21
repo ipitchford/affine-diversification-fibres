@@ -3,10 +3,10 @@
   "date": "2026-08-21",
   "doi": null,
   "previous_release_doi": "10.5281/zenodo.21851319",
-  "status": "review_candidate",
-  "decision": "AWAIT_STAGE3_PRIME_RE_REVIEW",
-  "publication_ready": false,
+  "status": "unrefereed_candidate_pass_with_notes",
+  "decision": "STAGE4_5_PASS_WITH_NOTES_PUBLIC_IDENTITY_PENDING",
+  "publication_ready": true,
   "internal_checks": ["21 unit tests under normal and optimized Python", "20,000-replicate fixed-stem sanity check", "1,100-cell sealed-ledger reconciliation", "23-page PDF inspection", "citation and recognition ledgers"],
-  "open_gates": ["external process-theory report", "unaffiliated replay receipt", "Linux replay", "independent rights review", "Stage 3 prime recommendation", "Stage 4.5 integrity audit"],
+  "open_gates": ["external process-theory report", "unaffiliated replay receipt", "Linux replay or CI", "independent rights review", "immutable GitHub and Zenodo identity", "Evidence Press public readback"],
   "authoritative_status_record": "STATUS.json"
 }

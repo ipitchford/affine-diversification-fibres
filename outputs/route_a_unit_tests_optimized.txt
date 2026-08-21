@@ -21,6 +21,6 @@ test_20_fixed_stem_single_tip_band_is_valid_but_uninformative_inside (affine_div
 test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok
 
 ----------------------------------------------------------------------
-Ran 21 tests in 0.018s
+Ran 21 tests in 0.022s
 
 OK

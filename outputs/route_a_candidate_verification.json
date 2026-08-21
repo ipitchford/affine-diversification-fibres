@@ -132,16 +132,28 @@
     {
       "id": "publication_boundary",
       "status": "PASS",
-      "detail": "publication_ready=False; public authorizations={'localRevision': True, 'publicGitHub': False, 'zenodoDraft': False, 'zenodoPublish': False, 'evidencePressDeploy': False}",
+      "detail": "publication_ready=True; scope=unrefereed_evidence_press_candidate_pass_with_notes; public authorizations={'basis': 'User instructed: Re-review, take any necessary actions, then take the release through the full Evidence Press publishing workflow.', 'evidencePressDeploy': True, 'publicGitHub': True, 'zenodoDraft': True, 'zenodoPublish': True}",
       "evidence": [
         "STATUS.json",
+        "ASSURANCE.json",
         "PUBLICATION_STATE.json"
+      ]
+    },
+    {
+      "id": "component_licensing",
+      "status": "PASS",
+      "detail": "MIT paths=7; NOASSERTION exceptions preserved",
+      "evidence": [
+        "LICENSE",
+        "LICENSE-CODE",
+        "LICENSE.md",
+        "LICENSE_MAP.json"
       ]
     },
     {
       "id": "unit_tests_normal",
       "status": "PASS",
-      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.023s\n\nOK",
+      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.029s\n\nOK",
       "evidence": [
         "outputs/route_a_unit_tests_normal.txt"
       ]
@@ -149,7 +161,7 @@
     {
       "id": "unit_tests_optimized",
       "status": "PASS",
-      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.018s\n\nOK",
+      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.022s\n\nOK",
       "evidence": [
         "outputs/route_a_unit_tests_optimized.txt"
       ]
@@ -166,6 +178,15 @@
         "review/route_a/04_INDEPENDENT_REPLAY_REQUEST.md",
         "review/route_a/05_RIGHTS_REVIEW_CHECKLIST.md",
         "review/route_a/06_STAGE4_CHECKPOINT.md"
+      ]
+    },
+    {
+      "id": "stage3_prime_and_final_integrity",
+      "status": "PASS",
+      "detail": "validated 3 entries",
+      "evidence": [
+        "review/stage3_prime/STAGE3_PRIME_MANIFEST.sha256",
+        "docs/final_integrity_report_20260821.md"
       ]
     }
   ]

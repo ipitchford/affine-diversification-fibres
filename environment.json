@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "candidate": "0.3.0rc2",
   "recorded_at": "2026-08-21",
-  "recreation_status": "qualified_macos_passed_external_cross_platform_outstanding",
+  "recreation_status": "qualified_macos_passed_public_linux_ci_pending_external_cross_platform_outstanding",
   "qualified_host": {
     "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
     "python": "3.13.5",
@@ -14,7 +14,7 @@
     "base": "python:3.13.5-slim",
     "digest": "sha256:4c2cf9917bd1cbacc5e9b07320025bdb7cdf2df7b0ceaccb55e9dd7e30987419",
     "requirements": "requirements-lock.txt",
-    "route_a_status": "not_rerun; required from independent or Stage 4.5 replay"
+    "route_a_status": "local container daemon unavailable during Stage 4.5; public GitHub Actions Linux jobs are required before tagging"
   },
   "toolchain": {"pdftex": "1.40.29 / TeX Live 2026", "biber": "2.21", "latexmk": "4.88", "pandoc": "3.9"},
   "entry_points": [
@@ -22,5 +22,5 @@
     "docker build -f Containerfile -t affine-diversification-fibres:0.3.0rc2 .",
     "docker run --rm affine-diversification-fibres:0.3.0rc2"
   ],
-  "assurance_boundary": "The macOS result is internal repeatability. Linux/container and unaffiliated recreation are not assessed for the Route A successor."
+  "assurance_boundary": "The macOS result is internal repeatability. A later public Linux CI pass remains producer-workflow replay, not unaffiliated reproduction."
 }

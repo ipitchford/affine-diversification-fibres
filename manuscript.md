@@ -813,7 +813,7 @@ The theorem package inherited from release 0.2.1 includes:
 
 - machine-readable data and alt text for every figure, plus PDF render inspection.
 
-These checks establish internal replay and independent numerical consistency. They do not constitute external mathematical review, biological validation or formal proof checking. Exact dependencies are recorded, and the complete check suite passes under normal and optimized Python in a clean container pinned to a Python 3.13.5 base-image digest. That recreation was performed by the release-preparing agent, so independent external reproduction remains unassessed.
+These checks establish internal replay and implementation-diverse numerical consistency. They do not constitute external mathematical review, biological validation or formal proof checking. Exact dependencies and a container recipe pinned to a Python 3.13.5 base-image digest are recorded. The current Route-A verifier and all 21 tests pass under normal and optimized Python in the qualified macOS environment; current Linux execution remains unassessed until a public CI or external replay receipt records it. Independent external reproduction is unassessed.
 
 The 0.3.0-candidate review branch adds a complete 1,100-cell stochastic ledger, 800 hash-bound sidecars, an immutable full-ledger manifest, frozen hypothesis summaries, dual-mode protocol controls, seven protocol-harness tests and a clean-install/runtime receipt. The H5 record preserves an initial environment-selection incident in which a Python interpreter lacked SciPy and failed before unit-test execution; the additive corrected receipt changes only interpreter qualification. The existing 0.2.1 release manifest is intentionally not rewritten to absorb the new evidence.
 

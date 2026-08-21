@@ -2,7 +2,7 @@
 
 **Successor candidate:** `0.3.0rc2` / `0.3.0-candidate-r2`, 21 August 2026
 
-**Workflow state:** Stage 4 revision complete enough for mandatory Stage 3′ re-review; not approved for publication
+**Workflow state:** Stage 3′ completed; approved only for an explicitly unrefereed Evidence Press candidate under `PASS_WITH_NOTES`
 
 **Previous immutable candidate:** [0.2.1, DOI 10.5281/zenodo.21851319](https://doi.org/10.5281/zenodo.21851319)
 
@@ -15,7 +15,7 @@ The separate frozen CRABS comparison is supporting evidence, not the principal c
 - Internal mathematical, numerical, ledger and qualified-host checks have passed within their recorded scope.
 - The simultaneous band covers exact node-age sampling variation under the stated fixed-stem, stem-survival model only.
 - It does not cover topology or dating error, model misspecification, lineage heterogeneity, fossil observation, or uncertainty in external biological constraints.
-- External process-theory review, unaffiliated full replay, cross-platform replay and final rights review remain outstanding.
+- External process-theory review, unaffiliated full replay, cross-platform replay and independent rights review remain outstanding. They are visible assurance gaps, not implied passes.
 - No DOI has been assigned to this successor, and the 0.2.1 DOI must not be used for it.
 
 ## Qualified local replay
@@ -51,4 +51,4 @@ The full 1,100-cell CRABS computation is not rerun by the quick verifier; it val
 
 ## Publication state
 
-This repository is a review candidate. Publication preparation remains blocked until Stage 3′ re-review and the later integrity checkpoint accept the revision or explicitly narrow it further.
+This repository is an unrefereed successor candidate. Stage 3′ retained Major Revision for journal-style acceptance but authorized Evidence Press candidate publication with notes. Public release remains conditional on the Stage 4.5 integrity report, immutable GitHub/Zenodo identity and Evidence Press readback. No public surface may call the work peer reviewed, independently reproduced, formally verified, biologically validated or a must-have CRABS complement.

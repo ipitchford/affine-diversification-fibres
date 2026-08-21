@@ -8,7 +8,9 @@
     {"stage": "0.2.1", "description": "Historical archived candidate; protected hashes remain unchanged."},
     {"stage": "0.3.0-candidate", "description": "Complete frozen affine--CRABS ledger and first-round final-review packet."},
     {"stage": "stage3", "description": "Five-role expert review returned unanimous Major Revision/HOLD_FOR_REPAIR.", "path": "review/stage3/06_EDITORIAL_DECISION.md"},
-    {"stage": "0.3.0-candidate-r2", "description": "Route A revision adding finite-sample fixed-stem signal uncertainty, robust decisions, corrected H2/H4 interpretation and successor review packaging."}
+    {"stage": "0.3.0-candidate-r2", "description": "Route A revision adding finite-sample fixed-stem signal uncertainty, robust decisions, corrected H2/H4 interpretation and successor review packaging."},
+    {"stage": "stage3-prime", "description": "Internal verification review retained Major Revision for journal acceptance and returned PASS_WITH_NOTES for explicitly unrefereed Evidence Press publication.", "path": "review/stage3_prime/02_EDITORIAL_DECISION.md"},
+    {"stage": "stage4.5", "description": "Final integrity audit passed with external assurance limitations retained.", "path": "docs/final_integrity_report_20260821.md"}
   ],
   "roles": {
     "user": ["Set the research objective.", "Authorized staged continuation.", "Selected Route A."],
@@ -26,5 +28,5 @@
     {"input": "unchanged sealed Stage 2 ledger", "output": ["outputs/crabs_h2_h4_revision_summary.json", "figure_data/crabs_h4_status_transitions.csv", "figure_data/crabs_h4_transition_strata.csv"], "description": "H2 returned-cloud/censor split and H4 directional/dependence summaries without result-byte mutation."},
     {"input": "manuscript.tex and references.bib", "output": ["manuscript.pdf", "manuscript.md"], "description": "LaTeX compilation and citation-resolved accessible companion generation."}
   ],
-  "integrity_boundary": "The successor records internal replay and scoped checks. It does not assert external theorem review, independent reproduction, rights approval, biological validation, exhaustive priority or publication authorization."
+  "integrity_boundary": "The successor records internal replay and scoped checks. The user authorized unrefereed candidate publication. The package does not assert external theorem review, independent reproduction, independent rights approval, biological validation, exhaustive priority or journal acceptance."
 }

@@ -6,12 +6,12 @@
     "version": "0.3.0rc2",
     "date": "2026-08-21",
     "state": "candidate",
-    "publication_ready": false,
-    "publication_readiness_scope": "mandatory_stage3_prime_re_review_only",
+    "publication_ready": true,
+    "publication_readiness_scope": "unrefereed_evidence_press_candidate_pass_with_notes",
     "previous_release_doi": "10.5281/zenodo.21851319",
     "doi_for_this_candidate": null
   },
-  "decision": "STAGE4_ROUTE_A_REVISION_AWAITING_STAGE3_PRIME_RE_REVIEW",
+  "decision": "STAGE4_5_PASS_WITH_NOTES_FOR_UNREFEREED_CANDIDATE_MAJOR_REVISION_FOR_JOURNAL_ACCEPTANCE",
   "safe_claim": "Under the exact fixed-stem, stem-survival, homogeneous time-varying law, geometric tip-count inversion and a conditional DKW--Massart node-age band give an at-least-nominal simultaneous confidence set for the pulled scale F. Propagating that set through the stated affine fibre yields conditional three-valued target decisions. A separate bounded CRABS benchmark retained its failed H4 utility gate.",
   "exclusions": [
     "No claim of topology or node-age reconstruction uncertainty coverage.",
@@ -22,12 +22,12 @@
     "No attribution of the historical 0.2.1 DOI to this successor."
   ],
   "open_gates": [
-    {"id": "G1", "status": "not_assessed", "severity": "load_bearing_theorem", "item": "Written unaffiliated process-theory review of the fixed-stem probability object and conditioning."},
+    {"id": "G1", "status": "not_assessed", "severity": "load_bearing_theorem", "item": "Written unaffiliated process-theory review of the fixed-stem probability object and conditioning; required for assurance upgrade, not claimed by the unrefereed release."},
     {"id": "G2", "status": "partial", "severity": "recognition", "item": "Structured recognition search completed; specialist, non-English and non-indexed priority coverage remains incomplete."},
     {"id": "G3", "status": "passed", "severity": "statistical", "item": "Honest simultaneous fixed-stem pulled-scale band and target propagation constructed and internally tested."},
     {"id": "G4", "status": "not_assessed", "severity": "empirical", "item": "Fossil preservation, observation and taxonomic-scale model."},
     {"id": "G5", "status": "failed", "severity": "comparative_utility", "item": "Prespecified H4 gate: 532/3,840 clustered statuses changed, below 20 percent."},
-    {"id": "G6", "status": "not_assessed", "severity": "reproducibility", "item": "Unaffiliated full replay and signed reproduction receipt."},
-    {"id": "G7", "status": "partial", "severity": "release_integrity", "item": "Successor metadata and internal verifier prepared; Linux replay and independent rights review remain outstanding."}
+    {"id": "G6", "status": "not_assessed", "severity": "reproducibility", "item": "Unaffiliated full replay and signed reproduction receipt; not claimed by the unrefereed release."},
+    {"id": "G7", "status": "partial", "severity": "release_integrity", "item": "Stage 4.5 local integrity passed; Linux CI, immutable GitHub/Zenodo identity, public readback and independent rights review remain outstanding."}
   ]
 }
