@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "checkpoint_date": "2026-08-21",
+  "status": "HOLD_AT_MANDATORY_RESEARCH_CHECKPOINT",
+  "decision": "Do not prepare an Evidence Press release until explicit post-checkpoint authorization and a claim-narrowed successor package are created.",
+  "hypotheses": {
+    "H1": {"verdict": "PASS", "evidence": "1944/1944 registered deterministic cells passed"},
+    "H2": {"verdict": "PASS", "events": 300, "eligible_cells": 300, "proportion": 1.0, "wilson_95": [0.9873570287754538, 0.9999999999999998]},
+    "H3": {"verdict": "PASS", "failures": 0, "eligible_cells": 300},
+    "H4": {"verdict": "FAIL", "changed_queries": 532, "evaluable_queries": 3840, "proportion": 0.13854166666666667, "threshold": 0.2, "false_certificates": 0, "wilson_95": [0.12797566961118387, 0.14983013228271427]},
+    "H5": {"verdict": "PASS", "clean_environment_tasks": "PASS", "normal_and_optimized_tasks": "PASS", "median_certification_seconds": 0.00004677049582824111, "allowed_seconds": 2.0}
+  },
+  "complete_ledger": {
+    "registered_cells": 1100,
+    "result_files": 1100,
+    "sample_sidecars": 800,
+    "status_counts": {"PASS": 1000, "CENSORED_STRUCTURAL_NONTERMINATION": 100},
+    "temporary_files": 0,
+    "manifest_check": "PASS",
+    "manifest_sha256": "1a751b4500ce28eb14db6a44773c73727a76aca96d001273af0507f4f06b31d2",
+    "execution_receipt_sha256": "7553aab3309a08cf2ed25b0ace182edd81b3ebd9a14f59a10f49e538cfabeb77"
+  },
+  "h5_receipts": {
+    "stage1_incident_sha256": "c5086bcd10c53bac6dfe928fd4714f996f57ba775593d072a465eee70db4418c",
+    "corrected_receipt_sha256": "b61533fe29032ba6e23e53cbe9d871e9484cfecc2ddd7f268f940c9aece32f0d",
+    "correction_scope": "Interpreter qualification only; the first interpreter lacked SciPy and failed before unit-test execution."
+  },
+  "publication_gates": {
+    "external_mathematical_and_conditioning_review": "OUTSTANDING",
+    "semantic_validation": "PASS_WITHIN_FROZEN_RHO_1_BRIDGE",
+    "comparator_fairness": "PASS_WITH_STRUCTURAL_CENSOR_DISCLOSURE",
+    "prespecified_generality": "BOUNDED_TO_FROZEN_CORPUS",
+    "incremental_decision_utility": "FAIL_H4",
+    "reproducibility": "INTERNAL_COMPLETE_EXTERNAL_REPLAY_OUTSTANDING",
+    "adapter_usability": "PASS_ON_QUALIFIED_HOST_CROSS_PLATFORM_OUTSTANDING",
+    "citation_and_licence_verification": "PRIOR_CANDIDATE_PASS_RELEASE_RECHECK_REQUIRED",
+    "evidence_press_release_integrity": "FAIL_STALE_0_2_1_MANIFEST_AND_ASSURANCE_TEXT"
+  },
+  "claim_boundary": {
+    "required": "Report the mixed confirmatory result and the H4 failure.",
+    "prohibited": ["must-have complement", "essential complement", "community accepted", "general validation of CRABS replacement or superiority"],
+    "permitted_candidate_claim": "Exact affine certification exposed large finite-exploration endpoint deficits throughout the frozen benchmark and produced no false certificates, but changed only 13.85% of evaluable decision-query statuses overall."
+  },
+  "next_stage_requires_explicit_confirmation": true,
+  "public_release_authorized": false
+}
