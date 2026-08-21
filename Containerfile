@@ -5,4 +5,4 @@ COPY requirements-lock.txt ./
 RUN python -m pip install --no-cache-dir -r requirements-lock.txt
 COPY . .
 ENV PYTHONPATH=/work
-CMD ["python", "verification/replay_release.py"]
+CMD ["python", "verification/verify_route_a_candidate.py"]

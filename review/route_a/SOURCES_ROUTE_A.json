@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "candidate": "0.3.0rc2",
+  "search_date": "2026-08-21",
+  "boundary": "Structured recognition supplement; not an exhaustive systematic review or proof of priority.",
+  "sources": [
+    {"id": "nee1994", "authors": "Nee, Sean; May, Robert M.; Harvey, Paul H.", "title": "The reconstructed evolutionary process", "year": 1994, "doi": "10.1098/rstb.1994.0068", "role": "Reconstructed-process antecedent"},
+    {"id": "gernhard2008", "authors": "Gernhard, Tanja", "title": "The conditioned reconstructed process", "year": 2008, "doi": "10.1016/j.jtbi.2008.04.005", "role": "Conditioned reconstructed-tree and node-age antecedent"},
+    {"id": "stadler2010", "authors": "Stadler, Tanja", "title": "Sampling-through-time in birth-death trees", "year": 2010, "doi": "10.1016/j.jtbi.2010.09.010", "role": "Sampling and reconstructed-tree antecedent"},
+    {"id": "stadlersteel2019", "authors": "Stadler, Tanja; Steel, Mike", "title": "Swapping Birth and Death: Symmetries and Transformations in Phylodynamic Models", "year": 2019, "doi": "10.1093/sysbio/syz039", "role": "Conditioning and reconstructed-tree distribution context"},
+    {"id": "morlon2022", "authors": "Morlon, Hélène; Robin, Stéphane; Hartig, Florian", "title": "Studying speciation and extinction dynamics from phylogenies: addressing identifiability issues", "year": 2022, "doi": "10.1016/j.tree.2022.02.004", "role": "Diversification-inference scope and limitations"},
+    {"id": "title2026", "authors": "Title, Pascal O.; Henao-Díaz, L. Francisco; Zenil-Ferguson, Rosana; Vasconcelos, Thais", "title": "An Evolving View of Lineage Diversification", "year": 2026, "doi": "10.1093/sysbio/syaf086", "role": "Current domain discussion; online publication predates issue year"},
+    {"id": "massart1990", "authors": "Massart, Pascal", "title": "The tight constant in the Dvoretzky-Kiefer-Wolfowitz inequality", "year": 1990, "doi": "10.1214/aop/1176990746", "role": "Simultaneous empirical-CDF band"},
+    {"id": "chernozhukov2007", "authors": "Chernozhukov, Victor; Hong, Han; Tamer, Elie", "title": "Estimation and confidence regions for parameter sets in econometric models", "year": 2007, "doi": "10.1111/j.1468-0262.2007.00794.x", "role": "Confidence sets for partially identified models"},
+    {"id": "yeganova2009", "authors": "Yeganova, Lana; Wilbur, W. John", "title": "Isotonic regression under Lipschitz constraint", "year": 2009, "doi": "10.1007/s10957-008-9477-0", "role": "Isotonic Lipschitz antecedent"},
+    {"id": "micchelli1976", "authors": "Micchelli, Charles A.; Rivlin, Theodore J.; Winograd, Shmuel", "title": "The optimal recovery of smooth functions", "year": 1976, "doi": "10.1007/BF01395972", "role": "Optimal-recovery antecedent"},
+    {"id": "gilljohansen1990", "authors": "Gill, Richard D.; Johansen, Søren", "title": "A survey of product-integration with a view toward application in survival analysis", "year": 1990, "doi": "10.1214/aos/1176347865", "role": "Product-integral and event-coordinate antecedent"}
+  ]
+}

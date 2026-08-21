@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0rc2 - 2026-08-21 (review candidate; not released)
+
+- Chose Route A and made the finite-sample fixed-stem signal-to-decision workflow the principal contribution.
+- Added exact geometric tip-count inversion, a DKW--Massart node-age band, simultaneous propagation to the pulled scale and three-valued cap decisions.
+- Added a frozen synthetic worked decision and 20,000-replicate component-coverage sanity check.
+- Narrowed the reconstructed-tree theorem to its topology-marginal probability object and corrected Theorem 1's function spaces.
+- Split H2 into 240 returned-cloud deficits and 60 structural censors; added the protocol chronology and H4 transition/dependence summaries.
+- Added a structured theorem-by-theorem recognition search and new source registry.
+- Created a version-coherent successor packet while retaining the failed H4 gate and preserving historical 0.2.1 receipts unchanged.
+- External process review, unaffiliated full replay, cross-platform replay and final rights review remain open Stage 3′ gates.
+
 ## 0.2.1 - 2026-08-08
 
 - Preserved the v0.2.0 mathematical claims while hardening the candidate for public scrutiny.

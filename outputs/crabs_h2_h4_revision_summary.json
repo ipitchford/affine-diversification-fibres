@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "source": "sealed Stage-2 ledger; historical result bytes unchanged",
+  "H2": {
+    "returned_clouds": 240,
+    "returned_cloud_deficit_events": 240,
+    "returned_cloud_deficit_fraction": 1.0,
+    "structural_censors": 60,
+    "registered_composite_events": 300,
+    "registered_primary_cells": 300,
+    "interpretation": "The returned-cloud endpoint result is 240/240 and does not depend on counting the 60 structural censors as registered workflow events."
+  },
+  "H4": {
+    "evaluable_cells": 240,
+    "queries_per_cell": 16,
+    "evaluable_queries": 3840,
+    "changed_queries": 532,
+    "changed_fraction": 0.13854166666666667,
+    "false_certificates": 0,
+    "transition_matrix": {
+      "BELOW": {
+        "BELOW": 1620,
+        "UNRESOLVED": 112,
+        "ABOVE": 30
+      },
+      "UNRESOLVED": {
+        "BELOW": 0,
+        "UNRESOLVED": 278,
+        "ABOVE": 0
+      },
+      "ABOVE": {
+        "BELOW": 0,
+        "UNRESOLVED": 390,
+        "ABOVE": 1410
+      }
+    },
+    "changed_queries_per_cell_distribution": {
+      "0": 30,
+      "1": 80,
+      "2": 20,
+      "3": 50,
+      "4": 38,
+      "5": 22
+    },
+    "dependence_boundary": "The 16 queries within each cell share one sampled cloud and exact endpoint calculation. Query rows are therefore clustered and the pooled fraction is the frozen descriptive gate statistic, not an independent-query population estimate.",
+    "zero_false_certificate_boundary": "Zero is an implementation-consistency invariant against the frozen analytic endpoints, not independent validation of theorem truth."
+  }
+}

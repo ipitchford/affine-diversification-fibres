@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "affine-diversification-fibres"
-version = "0.2.1"
-description = "Conditional sharp partial identification in phylogenetic birth-death congruence classes"
+version = "0.3.0rc2"
+description = "Finite-sample pulled-signal uncertainty and sharp partial identification for fixed-stem diversification models"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "CC0-1.0 for original content; see LICENSE_MAP.json for source-derived exceptions"}
@@ -20,7 +20,7 @@ dependencies = [
 [project.urls]
 Documentation = "https://evidence-press.pages.dev"
 Repository = "https://github.com/ipitchford/affine-diversification-fibres"
-Publication = "https://doi.org/10.5281/zenodo.21851319"
+Previous-release = "https://doi.org/10.5281/zenodo.21851319"
 
 [tool.setuptools]
 packages = ["affine_diversification"]

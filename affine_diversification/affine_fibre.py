@@ -13,14 +13,14 @@ constraints.  They are not statistical confidence intervals.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import comb, factorial, log1p
+from math import comb, factorial, log, log1p, sqrt
 from typing import Optional
 
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
 
 FloatArray = NDArray[np.float64]
-__version__ = "0.2.1"
+__version__ = "0.3.0rc2"
 
 
 def _as_float_1d(values: ArrayLike, name: str) -> FloatArray:
@@ -121,6 +121,49 @@ class PointBounds:
     width_factor: FloatArray
     lower_endpoint_attained: NDArray[np.bool_]
     regime: str
+
+
+@dataclass(frozen=True)
+class FixedStemSignalBand:
+    """Finite-sample simultaneous band for a fixed-stem pulled scale.
+
+    Coverage is with respect to the exact fixed-stem reconstructed-process law,
+    conditional on stem survival.  It does not include tree-dating error,
+    smoothing uncertainty, or model misspecification.
+    """
+
+    evaluation_ages: FloatArray
+    empirical_branching_cdf: FloatArray
+    branching_cdf_lower: FloatArray
+    branching_cdf_upper: FloatArray
+    survival_lower: FloatArray
+    survival_upper: FloatArray
+    F_lower: FloatArray
+    F_upper: FloatArray
+    F_plugin: FloatArray
+    p_lower: float
+    p_upper: float
+    p_plugin: float
+    dkw_radius: float
+    n_tips: int
+    alpha: float
+    alpha_count: float
+    alpha_ages: float
+
+
+@dataclass(frozen=True)
+class TurnoverCapDecision:
+    """Robust decision for one deterministic diversity constraint."""
+
+    status: str
+    plugin_status: str
+    proposed_cap: float
+    minimum_cap_lower: float
+    minimum_cap_upper: float
+    minimum_cap_plugin: float
+    F_lower: float
+    F_upper: float
+    F_plugin: float
 
 
 def turnover_cap_regime(turnover_cap: float) -> str:
@@ -438,6 +481,191 @@ def minimum_turnover_cap_from_diversity(
     _validate_rho(rho)
     q_bound = fossil_q_upper(origin_lineages, diversity_lower)
     return float(max(0.0, 1.0 - (q_bound - rho) / (x - 1.0)))
+
+
+def geometric_probability_interval(n: int, *, alpha: float) -> tuple[float, float]:
+    """Equal-tailed exact interval for ``p`` from ``N ~ Geometric(p)``.
+
+    The geometric distribution is supported on ``1, 2, ...``.  The endpoints
+    invert ``P_p(N <= n)`` and ``P_p(N >= n)``; discreteness makes coverage
+    conservative rather than below the requested ``1-alpha`` level.
+    """
+    if not isinstance(n, (int, np.integer)) or n < 1:
+        raise ValueError("n must be a positive integer")
+    if not np.isfinite(alpha) or not (0.0 < alpha < 1.0):
+        raise ValueError("alpha must lie in (0,1)")
+    tail = 0.5 * float(alpha)
+    lower = -np.expm1(np.log1p(-tail) / int(n))
+    upper = 1.0 if n == 1 else -np.expm1(log(tail) / (int(n) - 1))
+    return float(lower), float(upper)
+
+
+def fixed_stem_signal_band(
+    branching_ages: ArrayLike,
+    evaluation_ages: ArrayLike,
+    *,
+    stem_age: float,
+    alpha: float = 0.05,
+    alpha_count: float | None = None,
+    alpha_ages: float | None = None,
+) -> FixedStemSignalBand:
+    """Construct an honest simultaneous band for ``F`` under fixed stem age.
+
+    Conditional on stem survival, the positive tip count is geometric with
+    ``p=1/F(stem_age)``.  Conditional on that count, the ``N-1`` unordered
+    branching ages are iid with CDF
+
+    ``B(t) = (1 - 1/F(t)) / (1 - 1/F(stem_age))``.
+
+    An exact geometric interval and a two-sided DKW--Massart band are combined
+    by Bonferroni.  The returned coverage is therefore at least ``1-alpha`` for
+    the full evaluated curve whenever the stated process law is correct.
+    """
+    ages = np.asarray(branching_ages, dtype=float)
+    if ages.ndim != 1:
+        raise ValueError("branching_ages must be one-dimensional")
+    if not np.all(np.isfinite(ages)):
+        raise ValueError("branching_ages contains a non-finite value")
+    evaluation = _as_float_1d(evaluation_ages, "evaluation_ages")
+    _require_strictly_increasing(evaluation, "evaluation_ages")
+    if not np.isfinite(stem_age) or stem_age <= 0:
+        raise ValueError("stem_age must be finite and positive")
+    if np.any(ages <= 0) or np.any(ages >= stem_age):
+        raise ValueError("branching ages must lie strictly inside (0, stem_age)")
+    if evaluation[0] < 0 or evaluation[-1] > stem_age:
+        raise ValueError("evaluation_ages must lie in [0, stem_age]")
+    if not np.isfinite(alpha) or not (0.0 < alpha < 1.0):
+        raise ValueError("alpha must lie in (0,1)")
+
+    if alpha_count is None and alpha_ages is None:
+        alpha_count = 0.5 * alpha
+        alpha_ages = 0.5 * alpha
+    elif alpha_count is None:
+        alpha_count = alpha - float(alpha_ages)
+    elif alpha_ages is None:
+        alpha_ages = alpha - float(alpha_count)
+    alpha_count = float(alpha_count)
+    alpha_ages = float(alpha_ages)
+    if not (0.0 < alpha_count < 1.0) or not (0.0 < alpha_ages < 1.0):
+        raise ValueError("alpha_count and alpha_ages must lie in (0,1)")
+    if alpha_count + alpha_ages > alpha + 64.0 * np.finfo(float).eps:
+        raise ValueError("alpha_count + alpha_ages must not exceed alpha")
+
+    n_tips = int(ages.size + 1)
+    p_lower, p_upper = geometric_probability_interval(n_tips, alpha=alpha_count)
+    p_plugin = 1.0 / n_tips
+
+    if ages.size:
+        sorted_ages = np.sort(ages)
+        empirical = np.searchsorted(sorted_ages, evaluation, side="right") / ages.size
+        radius = sqrt(log(2.0 / alpha_ages) / (2.0 * ages.size))
+        b_lower = np.maximum(0.0, empirical - radius)
+        b_upper = np.minimum(1.0, empirical + radius)
+    else:
+        empirical = np.zeros_like(evaluation)
+        radius = 1.0
+        b_lower = np.zeros_like(evaluation)
+        b_upper = np.ones_like(evaluation)
+
+    at_zero = np.isclose(evaluation, 0.0, atol=1e-12, rtol=0.0)
+    at_stem = np.isclose(evaluation, stem_age, atol=1e-12, rtol=0.0)
+    empirical[at_zero] = 0.0
+    b_lower[at_zero] = 0.0
+    b_upper[at_zero] = 0.0
+    empirical[at_stem] = 1.0
+    b_lower[at_stem] = 1.0
+    b_upper[at_stem] = 1.0
+
+    survival_lower = 1.0 - (1.0 - p_lower) * b_upper
+    survival_upper = 1.0 - (1.0 - p_upper) * b_lower
+    survival_plugin = 1.0 - (1.0 - p_plugin) * empirical
+    if np.any(survival_lower <= 0) or np.any(survival_lower > survival_upper):
+        raise RuntimeError("internal error while mapping the CDF band to survival")
+
+    return FixedStemSignalBand(
+        evaluation_ages=evaluation,
+        empirical_branching_cdf=empirical,
+        branching_cdf_lower=b_lower,
+        branching_cdf_upper=b_upper,
+        survival_lower=survival_lower,
+        survival_upper=survival_upper,
+        F_lower=1.0 / survival_upper,
+        F_upper=1.0 / survival_lower,
+        F_plugin=1.0 / survival_plugin,
+        p_lower=p_lower,
+        p_upper=p_upper,
+        p_plugin=p_plugin,
+        dkw_radius=float(radius),
+        n_tips=n_tips,
+        alpha=float(alpha),
+        alpha_count=alpha_count,
+        alpha_ages=alpha_ages,
+    )
+
+
+def turnover_cap_decision_from_signal_band(
+    *,
+    F_lower: float,
+    F_upper: float,
+    F_plugin: float,
+    rho: float,
+    origin_lineages: float,
+    diversity_lower: float,
+    proposed_cap: float,
+    tolerance: float = 1e-12,
+) -> TurnoverCapDecision:
+    """Propagate a signal band into a three-valued cap decision.
+
+    ``CERTIFIED_INCOMPATIBLE`` means every pulled scale in the supplied band
+    violates the proposed cap for the stated deterministic diversity bound.
+    ``CERTIFIED_COMPATIBLE`` means the cap is feasible throughout the band.
+    Otherwise statistical uncertainty crosses the decision boundary and the
+    correct result is ``UNRESOLVED``.
+    """
+    values = np.asarray([F_lower, F_upper, F_plugin, proposed_cap, tolerance], dtype=float)
+    if not np.all(np.isfinite(values)):
+        raise ValueError("signal, cap and tolerance inputs must be finite")
+    if F_lower <= 1 or F_upper < F_lower or not (F_lower <= F_plugin <= F_upper):
+        raise ValueError("require 1 < F_lower <= F_plugin <= F_upper")
+    _validate_rho(rho)
+    turnover_cap_regime(proposed_cap)
+    if tolerance < 0:
+        raise ValueError("tolerance must be non-negative")
+
+    q_bound = fossil_q_upper(origin_lineages, diversity_lower)
+    offset = q_bound - rho
+
+    def required_cap(x: float) -> float:
+        return max(0.0, 1.0 - offset / (x - 1.0))
+
+    cap_at_lower = required_cap(F_lower)
+    cap_at_upper = required_cap(F_upper)
+    cap_min = min(cap_at_lower, cap_at_upper)
+    cap_max = max(cap_at_lower, cap_at_upper)
+    cap_plugin = required_cap(F_plugin)
+
+    if proposed_cap < cap_min - tolerance:
+        status = "CERTIFIED_INCOMPATIBLE"
+    elif proposed_cap >= cap_max - tolerance:
+        status = "CERTIFIED_COMPATIBLE"
+    else:
+        status = "UNRESOLVED"
+    plugin_status = (
+        "PLUGIN_COMPATIBLE"
+        if proposed_cap >= cap_plugin - tolerance
+        else "PLUGIN_INCOMPATIBLE"
+    )
+    return TurnoverCapDecision(
+        status=status,
+        plugin_status=plugin_status,
+        proposed_cap=float(proposed_cap),
+        minimum_cap_lower=float(cap_min),
+        minimum_cap_upper=float(cap_max),
+        minimum_cap_plugin=float(cap_plugin),
+        F_lower=float(F_lower),
+        F_upper=float(F_upper),
+        F_plugin=float(F_plugin),
+    )
 
 
 def mass_extinction_atom(q_before: float, survival_fraction: float) -> float:

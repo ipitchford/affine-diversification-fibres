@@ -1,79 +1,30 @@
 {
-  "schema_version": "1.0",
-  "release": "0.2.1",
-  "created_at": "2026-08-08",
-  "persistent_identifiers": {
-    "specific_version_doi": "10.5281/zenodo.21851319",
-    "repository": "https://github.com/ipitchford/affine-diversification-fibres"
-  },
+  "schema_version": "1.1",
+  "candidate": "0.3.0rc2",
+  "created_at": "2026-08-21",
+  "persistent_identifier": null,
+  "previous_release": {"version": "0.2.1", "doi": "10.5281/zenodo.21851319", "manifest": "MANIFEST.sha256", "replay_receipt": "REPLAY_RECEIPT.json"},
   "object_history": [
-    {
-      "stage": "0.1.0",
-      "description": "Initial theorem-led candidate and executable package."
-    },
-    {
-      "stage": "major_review",
-      "description": "User supplied a full high-confidence major-revision review.",
-      "path": "docs/review_received_20260806.md"
-    },
-    {
-      "stage": "0.2.0",
-      "description": "Interactive revision addressing the review and adding new theorems and assurance controls."
-    },
-    {
-      "stage": "0.2.1",
-      "description": "Claim-preserving publication hardening: citation and source-data audit, CC0 dedication of original content, scratch replay, pinned-container recreation and agent-readable release records."
-    }
+    {"stage": "0.2.1", "description": "Historical archived candidate; protected hashes remain unchanged."},
+    {"stage": "0.3.0-candidate", "description": "Complete frozen affine--CRABS ledger and first-round final-review packet."},
+    {"stage": "stage3", "description": "Five-role expert review returned unanimous Major Revision/HOLD_FOR_REPAIR.", "path": "review/stage3/06_EDITORIAL_DECISION.md"},
+    {"stage": "0.3.0-candidate-r2", "description": "Route A revision adding finite-sample fixed-stem signal uncertainty, robust decisions, corrected H2/H4 interpretation and successor review packaging."}
   ],
   "roles": {
-    "user": [
-      "Set the research objective.",
-      "Supplied the candidate and revision review.",
-      "Requested action towards higher originality, significance and rigour."
-    ],
-    "ai_system": [
-      "Audited claims and prior art.",
-      "Developed mathematical extensions and proofs.",
-      "Wrote and revised manuscript and code.",
-      "Ran computational and PDF checks.",
-      "Constructed release metadata."
-    ],
-    "external_human_specialist": [
-      "Not yet involved; explicit open gate."
-    ]
+    "user": ["Set the research objective.", "Authorized staged continuation.", "Selected Route A."],
+    "ai_system": ["Performed derivation, implementation, simulation, ledger analysis, recognition search, drafting, revision packaging and internal validation."],
+    "external_human_specialist": ["Not yet involved; written process review remains an explicit open gate."],
+    "independent_reproducer": ["Not yet involved; full replay remains an explicit open gate."]
   },
   "ai_disclosure": {
-    "system": "OpenAI GPT-5.6 Pro",
-    "mode": "interactive, tool-using research and artifact construction",
+    "system": "OpenAI Codex research workflow",
+    "mode": "interactive tool-using research and artifact construction",
     "human_authorship_or_endorsement_inferred": false
   },
   "key_transformations": [
-    {
-      "input": "candidate 0.1.0",
-      "output": "candidate 0.2.0",
-      "description": "Major revision, mathematical extensions and assurance upgrade."
-    },
-    {
-      "input": "candidate 0.2.0",
-      "output": "candidate 0.2.1",
-      "description": "No mathematical claim changes; publication, provenance, citation, licensing and replay hardening."
-    },
-    {
-      "input": "public upstream mammal fitted-rate and fossil summaries",
-      "output": [
-        "data/mammalia_tree1_psr.csv",
-        "data/mammalia_fossil_excerpt.csv"
-      ],
-      "description": "Numerical extraction and column-limited derivative used only for sensitivity replay."
-    },
-    {
-      "input": "manuscript.tex and references.bib",
-      "output": [
-        "manuscript.pdf",
-        "manuscript.md"
-      ],
-      "description": "LaTeX compilation and citation-resolved Markdown rendering."
-    }
+    {"input": "fixed-stem count and node-age factorization", "output": ["affine_diversification/affine_fibre.py", "experiments/run_fixed_stem_uncertainty.py", "outputs/fixed_stem_uncertainty.json"], "description": "Exact count inversion and DKW node-age band propagated to F and a cap decision."},
+    {"input": "unchanged sealed Stage 2 ledger", "output": ["outputs/crabs_h2_h4_revision_summary.json", "figure_data/crabs_h4_status_transitions.csv", "figure_data/crabs_h4_transition_strata.csv"], "description": "H2 returned-cloud/censor split and H4 directional/dependence summaries without result-byte mutation."},
+    {"input": "manuscript.tex and references.bib", "output": ["manuscript.pdf", "manuscript.md"], "description": "LaTeX compilation and citation-resolved accessible companion generation."}
   ],
-  "integrity_boundary": "The package records internal replay and scoped independent numerical checks. It does not assert external peer review, formal verification, biological validation or exhaustive priority."
+  "integrity_boundary": "The successor records internal replay and scoped checks. It does not assert external theorem review, independent reproduction, rights approval, biological validation, exhaustive priority or publication authorization."
 }

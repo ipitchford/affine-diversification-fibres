@@ -1,54 +1,26 @@
 {
-  "schema_version": "1.0",
-  "release": "0.2.1",
-  "recorded_at": "2026-08-08",
-  "recreation_status": "passed_locally_not_independent",
-  "recreation_note": "The complete normal and optimized replay passed in a clean container built from the pinned Python 3.13.5 base-image digest. This was local agent replay, not independent external reproduction.",
-  "python": {
-    "version": "3.13.5",
-    "implementation": "CPython",
-    "executable_at_build": "/opt/pyvenv/bin/python"
+  "schema_version": "1.1",
+  "candidate": "0.3.0rc2",
+  "recorded_at": "2026-08-21",
+  "recreation_status": "qualified_macos_passed_external_cross_platform_outstanding",
+  "qualified_host": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.5",
+    "executable": "/Users/admin/.venvs/analysis-py313/bin/python",
+    "packages": {"numpy": "2.4.4", "scipy": "1.17.1", "matplotlib": "3.10.8", "jsonschema": "4.26.0", "pypdf": "6.10.2"},
+    "status": "21 normal and optimized unit tests plus integrated Route A verifier passed"
   },
-  "platform": {
-    "system": "Linux",
-    "release": "6.18.35",
-    "machine": "x86_64",
-    "platform": "Linux-6.18.35-x86_64-with-glibc2.41"
+  "pinned_container": {
+    "base": "python:3.13.5-slim",
+    "digest": "sha256:4c2cf9917bd1cbacc5e9b07320025bdb7cdf2df7b0ceaccb55e9dd7e30987419",
+    "requirements": "requirements-lock.txt",
+    "route_a_status": "not_rerun; required from independent or Stage 4.5 replay"
   },
-  "python_packages": {
-    "numpy": "2.3.5",
-    "scipy": "1.17.0",
-    "matplotlib": "3.10.8",
-    "contourpy": "1.3.3",
-    "cycler": "0.12.1",
-    "fonttools": "4.63.0",
-    "kiwisolver": "1.5.0",
-    "packaging": "25.0",
-    "pillow": "12.2.0",
-    "pyparsing": "3.3.2",
-    "python-dateutil": "2.9.0.post0",
-    "six": "1.17.0",
-    "jsonschema": "4.26.0",
-    "jsonschema-specifications": "2025.9.1",
-    "referencing": "0.37.0",
-    "rpds-py": "2026.5.1",
-    "attrs": "26.1.0",
-    "pypdf": "5.9.0",
-    "setuptools": "82.0.1"
-  },
-  "toolchain": {
-    "pdflatex": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
-    "biber": "2.21",
-    "pandoc": "3.9"
-  },
+  "toolchain": {"pdftex": "1.40.29 / TeX Live 2026", "biber": "2.21", "latexmk": "4.88", "pandoc": "3.9"},
   "entry_points": [
-    "make verify",
-    "make verify-package",
-    "docker build -f Containerfile -t affine-diversification-fibres:0.2.1 .",
-    "docker run --rm affine-diversification-fibres:0.2.1"
+    "make verify-route-a PYTHON=/Users/admin/.venvs/analysis-py313/bin/python",
+    "docker build -f Containerfile -t affine-diversification-fibres:0.3.0rc2 .",
+    "docker run --rm affine-diversification-fibres:0.3.0rc2"
   ],
-  "container_base": {
-    "image": "python:3.13.5-slim",
-    "digest": "sha256:4c2cf9917bd1cbacc5e9b07320025bdb7cdf2df7b0ceaccb55e9dd7e30987419"
-  }
+  "assurance_boundary": "The macOS result is internal repeatability. Linux/container and unaffiliated recreation are not assessed for the Route A successor."
 }

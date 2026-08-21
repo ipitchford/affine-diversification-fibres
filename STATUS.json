@@ -3,90 +3,31 @@
   "$schema": "schemas/status.schema.json",
   "release": {
     "name": "affine-diversification-fibres",
-    "version": "0.2.1",
-    "date": "2026-08-08",
-    "doi": "10.5281/zenodo.21851319",
+    "version": "0.3.0rc2",
+    "date": "2026-08-21",
     "state": "candidate",
-    "publication_ready": true,
-    "publication_readiness_scope": "public_candidate_dissemination_only",
-    "publication_readiness_note": "Ready to be made public for scrutiny as an unrefereed candidate; this field does not assert theorem truth, novelty, independent reproduction or peer review.",
-    "review_basis": "docs/review_received_20260806.md"
+    "publication_ready": false,
+    "publication_readiness_scope": "mandatory_stage3_prime_re_review_only",
+    "previous_release_doi": "10.5281/zenodo.21851319",
+    "doi_for_this_candidate": null
   },
-  "decision": "RETAIN_CANDIDATE_AFTER_MAJOR_REVISION",
-  "safe_claim": "Conditional on a fixed pulled speciation signal, a stated class of homogeneous time-dependent birth-death histories admits a cumulative-loss measure coordinate. Continuous turnover caps and finite interval constraints then yield sharp pointwise projections, endpoint-attaining histories where stated, finite incompatibility certificates, a positive-survival test and a minimum compatible cap. Finitely many independent deterministic survival events preserve the reconstructed-tree law only under the fixed-stem conditioning conventions proved in the manuscript.",
-  "headline_assessment": {
-    "originality": {
-      "score_12": 8.0,
-      "calibration": "3* Medium",
-      "confidence": 0.72
-    },
-    "significance": {
-      "score_12": 8.0,
-      "calibration": "3* Medium",
-      "confidence": 0.69
-    },
-    "rigour": {
-      "score_12": 8.5,
-      "calibration": "3* Medium-High",
-      "confidence": 0.81
-    },
-    "overall": {
-      "score_12": 8.0,
-      "calibration": "3* Medium",
-      "confidence": 0.72
-    },
-    "note": "Indicative reviewer calibration, not an official REF judgement."
-  },
+  "decision": "STAGE4_ROUTE_A_REVISION_AWAITING_STAGE3_PRIME_RE_REVIEW",
+  "safe_claim": "Under the exact fixed-stem, stem-survival, homogeneous time-varying law, geometric tip-count inversion and a conditional DKW--Massart node-age band give an at-least-nominal simultaneous confidence set for the pulled scale F. Propagating that set through the stated affine fibre yields conditional three-valued target decisions. A separate bounded CRABS benchmark retained its failed H4 utility gate.",
   "exclusions": [
-    "No crown-conditioned or random-origin finite-event equivalence claim.",
-    "No posterior-equality claim for likelihood-equivalent histories.",
-    "No simultaneous confidence coverage for the pulled signal.",
-    "No validated fossil preservation, observation or genus-to-species bridge.",
-    "No performance claim against the actual CRABS implementation.",
-    "No exhaustive novelty or priority claim."
+    "No claim of topology or node-age reconstruction uncertainty coverage.",
+    "No claim for lineage-, state-, trait-, clade- or diversity-dependent processes.",
+    "No fossil preservation, observation or taxonomic-scale inference.",
+    "No coverage for derivatives of F or lambda_p obtained by differentiating the band.",
+    "No essential-complement, must-have, replacement, superiority or community-acceptance claim about CRABS.",
+    "No attribution of the historical 0.2.1 DOI to this successor."
   ],
   "open_gates": [
-    {
-      "id": "G1",
-      "status": "not_assessed",
-      "severity": "load_bearing_theorem",
-      "item": "External specialist audit of the fixed-stem finite-event theorem and event conventions."
-    },
-    {
-      "id": "G2",
-      "status": "not_assessed",
-      "severity": "novelty",
-      "item": "Recognition search across books, theses, adjacent mathematical fields and non-English literature."
-    },
-    {
-      "id": "G3",
-      "status": "not_assessed",
-      "severity": "statistical",
-      "item": "Construction and propagation of an honest simultaneous uncertainty set for the pulled signal."
-    },
-    {
-      "id": "G4",
-      "status": "not_assessed",
-      "severity": "empirical",
-      "item": "Fossil preservation, observation and taxonomic-scale model."
-    },
-    {
-      "id": "G5",
-      "status": "not_assessed",
-      "severity": "comparative",
-      "item": "Actual matched CRABS or equivalent software comparison under identical restrictions."
-    },
-    {
-      "id": "G6",
-      "status": "not_assessed",
-      "severity": "extension",
-      "item": "Crown and random-origin conditioning derivations."
-    },
-    {
-      "id": "G7",
-      "status": "passed",
-      "severity": "reproducibility",
-      "item": "Clean recreation with the pinned container image has passed locally under normal and optimized Python; independent external replay remains not assessed."
-    }
+    {"id": "G1", "status": "not_assessed", "severity": "load_bearing_theorem", "item": "Written unaffiliated process-theory review of the fixed-stem probability object and conditioning."},
+    {"id": "G2", "status": "partial", "severity": "recognition", "item": "Structured recognition search completed; specialist, non-English and non-indexed priority coverage remains incomplete."},
+    {"id": "G3", "status": "passed", "severity": "statistical", "item": "Honest simultaneous fixed-stem pulled-scale band and target propagation constructed and internally tested."},
+    {"id": "G4", "status": "not_assessed", "severity": "empirical", "item": "Fossil preservation, observation and taxonomic-scale model."},
+    {"id": "G5", "status": "failed", "severity": "comparative_utility", "item": "Prespecified H4 gate: 532/3,840 clustered statuses changed, below 20 percent."},
+    {"id": "G6", "status": "not_assessed", "severity": "reproducibility", "item": "Unaffiliated full replay and signed reproduction receipt."},
+    {"id": "G7", "status": "partial", "severity": "release_integrity", "item": "Successor metadata and internal verifier prepared; Linux replay and independent rights review remain outstanding."}
   ]
 }

@@ -1,10 +1,11 @@
 {
   "schema_version": "1.0",
-  "release": "0.2.1",
-  "search_freeze": "2026-08-08",
+  "release": "0.3.0rc2",
+  "search_freeze": "2026-08-21",
   "corpus_boundary": "Targeted rather than systematic; see docs/novelty_gate.md.",
   "verification_summary": "All bibliography entries and manuscript citation contexts were checked on 8 August 2026 through publisher, DOI, arXiv or library-catalogue routes. This verifies source identity and contextual support, not the candidate theorem claims.",
-  "review_recheck": "On 21 August 2026, all 18 inherited entries and citation contexts were re-audited for the 0.3.0-candidate draft. The Anderson--Nash ISBN was corrected against WorldCat, CiNii and Google Books catalogue records; the reference corpus otherwise remained unchanged.",
+  "review_recheck": "On 21 August 2026, all inherited entries and citation contexts were re-audited and a Route A recognition supplement was created at review/route_a/SOURCES_ROUTE_A.json. The combined search remains structured rather than exhaustive.",
+  "successor_supplement": "review/route_a/SOURCES_ROUTE_A.json",
   "sources": [
     {
       "id": "louca2020",

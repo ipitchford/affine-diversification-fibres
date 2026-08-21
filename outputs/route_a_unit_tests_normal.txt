@@ -1,0 +1,26 @@
+test_01_public_mammal_curve_integrates_to_reported_scale (affine_diversification.test_affine_fibre.AffineFibreTests.test_01_public_mammal_curve_integrates_to_reported_scale) ... ok
+test_02_pure_birth_and_subcritical_endpoint (affine_diversification.test_affine_fibre.AffineFibreTests.test_02_pure_birth_and_subcritical_endpoint) ... ok
+test_03_critical_cap_is_pointwise_finite_without_uniform_factor (affine_diversification.test_affine_fibre.AffineFibreTests.test_03_critical_cap_is_pointwise_finite_without_uniform_factor) ... ok
+test_04_supercritical_phase_transition (affine_diversification.test_affine_fibre.AffineFibreTests.test_04_supercritical_phase_transition) ... ok
+test_05_turnover_construction_and_validation (affine_diversification.test_affine_fibre.AffineFibreTests.test_05_turnover_construction_and_validation) ... ok
+test_06_mass_extinction_atom_is_exact (affine_diversification.test_affine_fibre.AffineFibreTests.test_06_mass_extinction_atom_is_exact) ... ok
+test_07_zero_inflated_geometric_distribution (affine_diversification.test_affine_fibre.AffineFibreTests.test_07_zero_inflated_geometric_distribution) ... ok
+test_08_fixed_stem_count_density_normalises (affine_diversification.test_affine_fibre.AffineFibreTests.test_08_fixed_stem_count_density_normalises) ... ok
+test_09_finite_event_p1_over_u_identity (affine_diversification.test_affine_fibre.AffineFibreTests.test_09_finite_event_p1_over_u_identity) ... ok
+test_10_pairwise_infeasibility_certificate (affine_diversification.test_affine_fibre.AffineFibreTests.test_10_pairwise_infeasibility_certificate) ... ok
+test_11_positive_survival_barrier (affine_diversification.test_affine_fibre.AffineFibreTests.test_11_positive_survival_barrier) ... ok
+test_12_minimum_cap_formula (affine_diversification.test_affine_fibre.AffineFibreTests.test_12_minimum_cap_formula) ... ok
+test_13_closed_form_envelopes_match_grid_linear_programmes (affine_diversification.test_affine_fibre.AffineFibreTests.test_13_closed_form_envelopes_match_grid_linear_programmes) ... ok
+test_14_unsorted_and_duplicate_constraints_are_rejected (affine_diversification.test_affine_fibre.AffineFibreTests.test_14_unsorted_and_duplicate_constraints_are_rejected) ... ok
+test_15_endpoint_sampling_small_tail_formula (affine_diversification.test_affine_fibre.AffineFibreTests.test_15_endpoint_sampling_small_tail_formula) ... ok
+test_16_best_of_n_sampling_probability (affine_diversification.test_affine_fibre.AffineFibreTests.test_16_best_of_n_sampling_probability) ... ok
+test_17_mammal_worked_value (affine_diversification.test_affine_fibre.AffineFibreTests.test_17_mammal_worked_value) ... ok
+test_18_geometric_interval_has_at_least_nominal_coverage (affine_diversification.test_affine_fibre.AffineFibreTests.test_18_geometric_interval_has_at_least_nominal_coverage) ... ok
+test_19_fixed_stem_band_maps_count_and_age_bands_to_F (affine_diversification.test_affine_fibre.AffineFibreTests.test_19_fixed_stem_band_maps_count_and_age_bands_to_F) ... ok
+test_20_fixed_stem_single_tip_band_is_valid_but_uninformative_inside (affine_diversification.test_affine_fibre.AffineFibreTests.test_20_fixed_stem_single_tip_band_is_valid_but_uninformative_inside) ... ok
+test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.023s
+
+OK

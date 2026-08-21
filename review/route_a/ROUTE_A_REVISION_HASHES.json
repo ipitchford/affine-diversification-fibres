@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "first_round_candidate": {
+    "git_commit": "a16c8af6f192fb62c656dc641ad69c8abda1f305",
+    "manuscript_pdf_sha256": "6b12a27ebf2c8375b445e9f354e1a87321b7b9abf43d5f72ab2ac2557d151c21",
+    "review_manifest_sha256": "eee0d5f2980b920afcc77de91c6357940c15ec4ca8860b38dacb8a4e8ee0681f"
+  },
+  "stage3_review": {
+    "git_commit": "5291952",
+    "review_manifest_sha256": "c1c7ad5e55f3de75de8832b763cd43bb9c182d14a65b74b021a95ab6c47b4770"
+  },
+  "route_a_revision": {
+    "candidate": "0.3.0rc2",
+    "manuscript_pdf_sha256": "e6dc3299f8835ee33a7024a39b7d0f2d452be64b14e6848532b9e0a4334d5d44",
+    "candidate_manifest": "review/route_a/ROUTE_A_CANDIDATE_MANIFEST.sha256"
+  },
+  "protected_historical_records": {
+    "MANIFEST.sha256": "6c50d82213472a29eae71a22839f8addf023ad37238232473198f33d4ddb0f77",
+    "REPLAY_RECEIPT.json": "aa596334df3bed17d264bab30da88e8ed674790a2347271834be3236868013d2"
+  }
+}

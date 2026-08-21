@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "candidate": "0.3.0rc2",
+  "sealed_at": "2026-08-21",
+  "manifest": "review/route_a/ROUTE_A_CANDIDATE_MANIFEST.sha256",
+  "manifest_entries": 54,
+  "manifest_sha256": "5e5f895f626246f671eb33442c1512d21fbce8c762285da9f6e97b906534befb",
+  "manuscript_pdf_sha256": "e6dc3299f8835ee33a7024a39b7d0f2d452be64b14e6848532b9e0a4334d5d44",
+  "historical_manifest_sha256": "6c50d82213472a29eae71a22839f8addf023ad37238232473198f33d4ddb0f77",
+  "historical_replay_receipt_sha256": "aa596334df3bed17d264bab30da88e8ed674790a2347271834be3236868013d2",
+  "stage2_ledger_manifest_sha256": "1a751b4500ce28eb14db6a44773c73727a76aca96d001273af0507f4f06b31d2",
+  "validation": "PASS",
+  "assurance_boundary": "The manifest binds the internal Route A review packet. It does not supply external process review, independent reproduction, rights approval, Stage 3 prime acceptance or publication authorization. The repository commit binds this receipt itself."
+}

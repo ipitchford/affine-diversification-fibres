@@ -20,8 +20,8 @@
 \definecolor{raspberry}{HTML}{B23A6F}
 \definecolor{violet}{HTML}{6750A4}
 \hypersetup{colorlinks=true,linkcolor=deepteal,citecolor=violet,urlcolor=raspberry,
- pdftitle={Conditional Sharp Partial Identification of Diversification Histories},
- pdfauthor={Anonymous agentic research candidate},
+ pdftitle={Finite-Sample Signal Uncertainty and Sharp Partial Identification of Diversification Histories},
+ pdfauthor={Anonymous},
  pdfsubject={Birth-death congruence classes, partial identification, affine measure geometry, confirmatory CRABS comparison},
  pdfkeywords={birth-death process, diversification, congruence class, partial identification, pulled speciation rate, deterministic survival event, sharp bounds, CRABS}}
 
@@ -39,36 +39,36 @@
 \newcommand{\dd}{\,\mathrm{d}}
 \newcommand{\ac}{\mathrm{ac}}
 
-\title{\textbf{Conditional Sharp Partial Identification of Diversification Histories}\\
-\large Affine Measure Geometry, Event Congruence, Certified Extremes and a Confirmatory CRABS Comparison}
-\author{Anonymous agentic research candidate}
-\date{Review draft 0.3.0-candidate --- 21 August 2026}
+\title{\textbf{Finite-Sample Signal Uncertainty and Sharp Partial Identification of Diversification Histories}\\
+\large An Affine Signal-to-Decision Workflow with a Bounded CRABS Comparison}
+\author{Anonymous}
+\date{Route A revision 0.3.0-candidate-r2 --- 21 August 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Extant timetrees identify a pulled diversification signal but do not generally identify time-varying speciation and extinction rates separately. Existing methods therefore construct or sample alternative histories in a congruence class. Conditional on a fixed pulled speciation rate, we represent homogeneous birth--death histories by a cumulative-loss measure beneath an explicit survival barrier. Reciprocal speciation is affine in this measure, and its Radon--Nikodym derivative with respect to pulled scale is the turnover ratio $\mu/\lambda$. We prove finite-event congruence under stated fixed-stem conditioning, sharp turnover-capped bounds for every finite cap, explicit finite-constraint envelopes and infeasibility certificates, and an exact endpoint-sampling law. We then test whether certification adds decision utility to CRABS exploration in a prospectively frozen 1,100-cell benchmark. All 1,944 deterministic validation cells passed. Finite CRABS rejection exploration left a normalized endpoint deficit above 0.05 in all 300 primary cells, including 60 cells prospectively treated as structural censors after a documented nontermination amendment; a boundary constructor reached both discrete endpoints in all 300 cells. Certification changed 532 of 3,840 evaluable decision-query statuses (13.85\%; descriptive Wilson range 12.80--14.98\%), below the frozen 20\% H4 criterion, with zero false certificates. Clean-install, normal/optimized-task and runtime gates passed. Exact certification therefore exposed systematic endpoint incompleteness but did not meet the prospectively frozen essential-complement criterion. A public mammal curve remains a plug-in sensitivity illustration only. The contribution is exact conditional projection and a reproducible diagnostic complement, not a replacement for likelihoods, identifiable restricted models or fossilised birth--death inference.
+Extant timetree likelihoods depend on a pulled diversification signal but do not generally identify homogeneous time-varying speciation and extinction rates separately. We give a finite-sample route from one exact fixed-stem reconstructed tree to uncertainty-aware partial-identification decisions. Conditional on stem survival, the tip count is geometric with parameter $p=1/F(T)$ and, conditional on that count, the unordered node ages are independent with a known transformation of the pulled scale $F$. Exact tail inversion for $p$ and a Dvoretzky--Kiefer--Wolfowitz--Massart band for the node-age distribution therefore yield a simultaneous confidence set for the full $F$ trajectory. Bonferroni propagation gives at least the stated finite-sample coverage under the fixed-stem homogeneous model. We combine this set with an affine cumulative-loss representation, sharp turnover-cap bounds and finite infeasibility certificates. In a frozen synthetic example with 22 tips, a 95\% band gives $F(T)\in[5.31,1749.48]$: it rules out a registered cap of 0.70 under a stated normalized deterministic-diversity constraint, while an interior plug-in ``compatible'' decision becomes correctly unresolved. A 20,000-replicate sanity check gives 96.755\% joint component coverage; the theorem, not the simulation, supplies the guarantee. A separate prospectively frozen CRABS benchmark found endpoint deficits in 240/240 returned clouds plus 60 structural censors, but certification changed only 532/3,840 clustered decision queries (13.854\%), below the 20\% H4 gate. The result is an uncertainty-aware diagnostic workflow for homogeneous fixed-stem models, not empirical validation, an observation model, or an essential CRABS complement.
 \end{abstract}
 
 \paragraph{Assurance boundary.}
-This is an unrefereed theorem-led candidate with a completed internal confirmatory benchmark. Internal replay, independent linear-programming checks, direct branching-process simulation, deliberate negative controls and the sealed affine--CRABS ledger pass their stated integrity checks. The failed H4 utility gate is retained as the primary decision and prohibits ``must-have'' or essential-complement language. External specialist review of the fixed-stem event theorem, a systematic priority search, simultaneous uncertainty for the pulled signal, a fossil observation bridge and independent external replay remain open. ``Sharp'' always means sharp over the stated conditional model class.
+This is an unrefereed Route-A revision candidate. Internal replay, independent linear-programming checks, direct branching-process simulation, deliberate negative controls, the fixed-stem uncertainty implementation and the sealed affine--CRABS ledger pass their stated integrity checks. The simultaneous band covers sampling variation under the exact fixed-stem, stem-survival, homogeneous time-varying law only; it does not cover topology or dating error, smoothing, lineage heterogeneity, model misspecification or a fossil observation process. The failed H4 utility gate is retained and prohibits ``must-have'' or essential-complement language. External process-theory review and unaffiliated full replay remain outstanding. ``Sharp'' always means sharp over the stated conditional model class.
 
 \paragraph{Persistent identifier.}
-The prior 0.2.1 candidate is archived at \href{https://doi.org/10.5281/zenodo.21851319}{10.5281/zenodo.21851319}. This 0.3.0-candidate review draft is not yet archived and must not be attributed to that specific-version DOI.
+The prior 0.2.1 candidate is archived at \href{https://doi.org/10.5281/zenodo.21851319}{10.5281/zenodo.21851319}. This 0.3.0-candidate-r2 review draft is not yet archived and must not be attributed to that specific-version DOI.
 
 \section{Decision problem and contribution}
 Let $\tau\in[0,T]$ denote age before an analysis origin, with $\tau=0$ at that origin and larger $\tau$ further in the past. A homogeneous time-varying birth--death history has speciation rate $\lambda(\tau)>0$, extinction rate $\mu(\tau)\geq0$, and sampling probability $\rho\in(0,1]$ at the analysis origin. If $E(\tau)$ is the probability that a lineage at age $\tau$ leaves no sampled descendant, define
 \begin{equation}
  u(\tau)=1-E(\tau),\qquad \lambda_p(\tau)=\lambda(\tau)u(\tau). \label{eq:definitions}
 \end{equation}
-The pulled speciation rate $\lambda_p$ is identified by the reconstructed extant-timetree likelihood under the generalized homogeneous model, whereas $\lambda$ and $\mu$ are not separately identified without further restrictions \parencite{louca2020,helmstetter2022}.
+Under the generalized homogeneous model, the reconstructed extant-timetree likelihood depends on $\lambda$ and $\mu$ through the pulled quantity $\lambda_p$; this likelihood-level identification does not by itself make a time-varying function precisely estimable from finite data. The component rates $\lambda$ and $\mu$ are not separately identified without further restrictions \parencite{louca2020,helmstetter2022,morlon2022,title2026}.
 
 Existing tools construct or sample histories in the resulting congruence class \parencite{hohna2022,andreoletti2023,kopperud2023}. They answer an exploration question. The target here is a partial-identification question:
 \begin{quote}
-For a fixed pulled signal and explicit restrictions, what is the complete feasible trajectory set, what are the sharp extrema of a stated target, and which constraints explain infeasibility?
+From one fixed-stem tree, which signal trajectories and diversification histories remain compatible with sampling variation and explicit restrictions, and which target decisions are resolved rather than plug-in artefacts?
 \end{quote}
-The paper contributes five linked results. First, it identifies an affine positive-measure coordinate for the smooth fibre and a Stieltjes completion containing incomplete sampling and deterministic survival events. Second, it secures the finite-event result under a precisely stated fixed-stem conditioning convention. Third, it solves turnover-capped pointwise and finite-constraint identification, including the previously omitted $c>1$ regime. Fourth, it quantifies the failure of a transparent finite sampler to attain exact endpoints. Fifth, it subjects the certification claim to a prospectively frozen direct comparison with CRABS and retains the failed primary utility gate.
+The principal contribution is a finite-sample fixed-stem signal-to-decision workflow: an honest simultaneous set for $F$, a confidence-containing union of conditional affine fibres and a three-valued target decision. Four supporting results make that workflow auditable: a cumulative-loss coordinate with explicit measure subclasses; all-cap sharp bounds and finite certificates; an exact endpoint-sampling law; and a prospectively frozen CRABS comparison whose failed utility gate is retained. The method is restricted to homogeneous time-varying branching with exact node ages. Lineage-, state-, trait-, clade- and diversity-dependent processes lie outside the one-dimensional fibre.
 
 \section{Smooth affine fibre}
 Assume that $\lambda_p$ is continuous and strictly positive and define
@@ -90,7 +90,7 @@ Fix $\lambda_p>0$ and $F$ from \eqref{eq:F}. The map
 \[
  (\rho,\lambda,\mu)\longmapsto A=F\left(1-\frac{\lambda_p}{\lambda}\right)
 \]
-is a bijection between continuously differentiable histories with pulled rate $\lambda_p$ and functions $A\in C^1([0,T])$ satisfying
+is a bijection between histories with continuous rates $\lambda>0$ and $\mu\geq0$ and pulled rate $\lambda_p$ and functions $A\in C^1([0,T])$ satisfying
 \[
  0\leq A(0)<1,\qquad A'\geq0,\qquad A<F.
 \]
@@ -106,6 +106,8 @@ If $\nu$ is the positive measure with cumulative function $A$, then
  \quad\text{almost everywhere}. \label{eq:RN}
 \end{equation}
 \end{theorem}
+
+Here a continuous-rate history means $(\rho,\lambda,\mu)\in(0,1]\times C([0,T])\times C([0,T])$ with the displayed sign restrictions. Its survival solution is $C^1$. The theorem does not claim that $\lambda$ or $\mu$ is continuously differentiable when only $\lambda_p\in C([0,T])$ and $A\in C^1([0,T])$ are assumed.
 
 \begin{proof}
 Differentiate \eqref{eq:A}, use $F'=\lambda_pF$ and substitute \eqref{eq:survival}:
@@ -134,7 +136,7 @@ For a finite positive Radon measure $\nu\in\V_F$, let
 \begin{equation}
  A(\tau)=\nu([0,\tau]),\qquad q(\tau)=F(\tau)-A(\tau),\qquad u=q/F. \label{eq:q}
 \end{equation}
-Use right-continuous cumulative functions and let $q_-(\tau)=F(\tau)-A(\tau^-)$. Define
+Use right-continuous cumulative functions. Because age increases into the past, $a-$ denotes the younger-side limit and $a+$ the older-side limit. Let $q_-(\tau)=F(\tau)-A(\tau^-)$. Define
 \begin{equation}
  \dd K(\tau)=\frac{\dd\nu(\tau)}{q_-(\tau)}. \label{eq:K}
 \end{equation}
@@ -160,7 +162,26 @@ Since $u=1-A/F$ and $F$ is continuous,
 Because $q_-=Fu_-$ and $\dd A=\dd\nu=q_-\dd K$, this is \eqref{eq:stieltjes}. The strict barrier gives $m<q(a-)$; taking jumps yields \eqref{eq:eventjump}.
 \end{proof}
 
-An atom at zero represents incomplete sampling. An interior atom represents independent deterministic survival of contemporaneous lineages. It is not a value of the continuous ratio $\mu/\lambda$.
+The boundary atom at zero is the coordinate representation of incomplete sampling. An interior atom represents independent deterministic survival thinning of every contemporaneous lineage with the same probability; it is not a point value of the continuous ratio $\mu/\lambda$. State-, lineage- or diversity-dependent thinning is not covered.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}p{0.25\linewidth}X@{}}
+\toprule
+Class & Mathematical object & Results that apply \\
+\midrule
+Continuous-rate history & $\lambda,\mu\in C$, $A\in C^1$ & Smooth affine bijection and reciprocal-rate identity \\
+Absolutely continuous fibre & $\dd\nu=(1-\rho)\delta_0+\varepsilon\dd F$ & Turnover-cap bounds, finite envelopes and certificates \\
+Finite-event history & Absolutely continuous background plus finitely many independent common-survival atoms & Descendant-count and topology-marginal fixed-stem laws \\
+General finite Radon measure & May include singular-continuous mass & Stieltjes coordinate algebra only; no process-law claim here \\
+Lineage/state-dependent process & Rates or thinning vary among contemporaneous lineages & Outside this paper's one-dimensional homogeneous fibre \\
+\bottomrule
+\end{tabularx}
+\caption{Applicability map. Event atoms are outside the continuous turnover cap unless an additional event restriction is stated.}
+\label{tab:modelclasses}
+\end{table}
 
 \subsection{Descendant-count law}
 Let $N_\tau$ be the number of sampled descendants at the analysis origin from one lineage at age $\tau$, with probability-generating function
@@ -200,14 +221,19 @@ Finite events change $u$ but not the conditional positive descendant-count law.
 At $\tau=0$, $a=1$ and \eqref{eq:zig} equals $1-\rho+\rho z$. Between events, $a'=-\lambda_pa=-\lambda ua$. Differentiate \eqref{eq:zig}, substitute $u'=\lambda u(1-u)-\mu u$ and $a'=-\lambda ua$, and recover \eqref{eq:pgf}. Uniqueness of the backward equation proves the form between events. Equation \eqref{eq:pgfevent} multiplies $u$ by $s_a$ without changing $a=1/F$, so the form persists across every event. Expanding the geometric series gives \eqref{eq:pk}--\eqref{eq:conditionalgeometric}.
 \end{proof}
 
-\subsection{Complete fixed-stem reconstructed-tree law}
-Fix a stem age $T$. Let $0<t_1<\cdots<t_{n-1}<T$ be the ordered internal-node ages after marginalising over the exchangeable ranked topology. Conditional on the ages, the choice of splitting lineage and daughter orientation has a topology law that depends on $n$ and the reporting convention, but not on the rate history. Define
+\subsection{Fixed-stem tip-count and ordered-node-age law}
+Fix a stem age $T$ and condition on the stem leaving at least one sampled descendant. The probability object in this subsection is
+\[
+ \Omega_T=\bigsqcup_{n\geq1}\{n\}\times\Delta_{n-1}(T),\qquad
+ \Delta_{n-1}(T)=\{0<t_1<\cdots<t_{n-1}<T\},
+\]
+equipped with counting measure in $n$ and Lebesgue measure on each ordered simplex; $\Delta_0(T)$ is a singleton. Ranked, oriented or labelled topology is marginalised, not left implicit. Define
 \begin{equation}
  h(t)=\lambda(t)p_1(t)=\frac{\lambda_p(t)}{F(t)}=-\frac{\dd}{\dd t}\frac1{F(t)}, \label{eq:h}
 \end{equation}
 so $\int_0^T h(t)\dd t=1-1/F(T)$.
 
-\begin{theorem}[Finite-event congruence at fixed stem age]\label{thm:fixedstem}
+\begin{theorem}[Fixed-stem count and ordered-node-age congruence]\label{thm:fixedstem}
 Under \cref{thm:geometric}, the unconditioned joint density of $N_T=n$ and the ordered internal-node ages, with ranked topology marginalised, is
 \begin{equation}
  g_{n,T}(t_1,\ldots,t_{n-1})=p_1(T)\prod_{i=1}^{n-1}i\lambda(t_i)p_1(t_i). \label{eq:unconditionedtree}
@@ -223,11 +249,11 @@ and conditional additionally on $N_T=n$,
  =\frac{(n-1)!}{[1-1/F(T)]^{n-1}}
  \prod_{i=1}^{n-1}\frac{\lambda_p(t_i)}{F(t_i)}. \label{eq:countdensity}
 \end{equation}
-Conditional on these ages, homogeneous branching and independent event thinning make the ranked-topology law exchangeable and independent of the rate history. Hence histories sharing $\lambda_p$ have the same complete fixed-stem reconstructed-tree law under either conditioning, including histories with finitely many independent deterministic survival events.
+Hence histories sharing $\lambda_p$ have the same law on $\Omega_T$ under either displayed conditioning, including histories with finitely many independent common-survival events. No probability mass on labelled, oriented or ranked topologies is asserted by this theorem.
 \end{theorem}
 
 \begin{proof}
-The branching property gives \eqref{eq:unconditionedtree} for the topology-marginal ordered ages. Before the first observed split the stem contributes $p_1(T)$. With $i$ reconstructed lineages, summing over which lineage generates the next observed split produces $i\lambda(t_i)$, and the new observed branch contributes $p_1(t_i)$. Conditional on that split, exchangeability makes the lineage choice uniform among the $i$ lineages; daughter orientation is likewise rate-independent. Independent event thinning preserves exchangeability and the recursion. By \eqref{eq:pk} and \eqref{eq:h},
+The branching property gives \eqref{eq:unconditionedtree} for the topology-marginal ordered ages. Before the first observed split the stem contributes $p_1(T)$. With $i$ reconstructed lineages, summing over which lineage generates the next observed split produces $i\lambda(t_i)$, and the new observed branch contributes $p_1(t_i)$. Independent common-survival thinning preserves this recursion. By \eqref{eq:pk} and \eqref{eq:h},
 \[
  g_{n,T}=\frac{u(T)}{F(T)}(n-1)!\prod_{i=1}^{n-1}h(t_i).
 \]
@@ -241,7 +267,7 @@ Dividing by $u(T)$ proves \eqref{eq:survivaldensity}; dividing by the conditiona
 \end{proof}
 
 \begin{remark}[Conditioning scope]\label{rem:scope}
-\Cref{thm:fixedstem} fixes stem age and covers stem-survival and observed-tip-count conditioning. It does not claim equality under random-origin priors, crown conditioning or other normalisers. Those cases require separate derivations. Event-aware reconstructed-process and coalescent point-process results remain the process-theoretic antecedents \parencite{lambert2013,hohna2015,macpherson2022}.
+\Cref{thm:fixedstem} fixes stem age and covers stem-survival and observed-tip-count conditioning on the explicitly topology-marginal space $\Omega_T$. A fuller tree object requires a separately stated topology convention and mass function. The theorem does not claim equality under random-origin priors, crown conditioning or other normalisers. Those cases require separate derivations. Reconstructed-process, conditioned-node-time and coalescent-point-process results are direct antecedents \parencite{nee1994,gernhard2008,stadler2010,lambert2013,hohna2015,stadlersteel2019,macpherson2022}.
 \end{remark}
 
 \section{Turnover caps and the phase transition at \texorpdfstring{$c=1$}{c=1}}
@@ -297,6 +323,25 @@ The speciation supremum is finite below $x_{\mathrm{crit}}$ and infinite at and 
 \end{corollary}
 
 The familiar assumption $c\leq1$ means $\mu\leq\lambda$ at every non-event time and therefore excludes continuous negative net diversification. The extension to $c>1$ makes the cost of allowing decline explicit rather than hiding it in a sampler.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\linewidth}{@{}p{0.13\linewidth}p{0.27\linewidth}X@{}}
+\toprule
+Cap regime & Permits & Excludes or weakens \\
+\midrule
+$c=0$ & Pure-birth continuous background & Every continuous extinction contribution \\
+$0<c<1$ & Extinction below speciation at every ordinary time; finite uniform identification factor & Every interval of continuous negative net diversification; common-survival events remain separate atoms \\
+$c=1$ & Zero net diversification as a boundary & Continuous decline; no uniform deep-time width bound \\
+$c>1$ & Bounded intervals of continuous decline & Unbounded turnover; speciation upper bounds diverge after $x_{\rm crit}$ \\
+Time-varying $c(x)$ & Scientifically varying ceilings, if supplied & Not covered by the closed forms here; finite constraints can be handled by interval-specific directed slopes \\
+\bottomrule
+\end{tabularx}
+\caption{Biological reading of the turnover restriction. No cap value is presented as natural; applications should report a justified sensitivity range.}
+\label{tab:capbiology}
+\end{table}
 
 \begin{figure}[t]
 \centering
@@ -421,12 +466,30 @@ The confirmatory protocol was locally frozen before execution and before inspect
 
 The stochastic design contains 1,100 cells: five signals (constant, abrupt, oscillatory, high dynamic range and a qualified CRABS primates EBD signal), two grids (25 and 100 knots), and ten replicates. Two hundred cells exercise the native HSMRF/GMRF procedures. The other 900 are cap-matched cells at turnover caps $c\in\{0.25,0.50,0.90\}$ using CRABS rejection exploration, a cap-aware proposal control and an exact boundary constructor. Seeds, proposal ceilings, file prefixes, query ages, query multipliers and decision thresholds were fixed in the protocol.
 
-The primary H2 analysis comprises 300 CRABS rejection cells. A cell satisfies H2 if the returned cloud leaves normalized deficit greater than 0.05 at one or more sharp discrete endpoints, or if a prospectively defined structural censor prevents a returned finite cloud. H3 requires the boundary constructor to reach both discrete endpoints in all 300 matched cells. H4 evaluates four ages crossed with four multipliers in every non-abrupt rejection cell: certification must change at least 20\% of 3,840 finite-sampler query statuses and produce no false certificate. H5 requires clean installation, agreement under normal and optimized Python tasks, and median exact-certification time below the frozen two-second allowance.
+The primary H2 analysis comprises 300 CRABS rejection cells. The frozen composite counts either a returned cloud with normalized deficit greater than 0.05 at one or more sharp discrete endpoints or a structurally censored cell. The revision reports those outcomes separately and treats the returned-cloud result as the scientific endpoint evidence. H3 requires the boundary constructor to reach both discrete endpoints in all 300 matched cells. H4 evaluates four ages crossed with four multipliers in every non-abrupt rejection cell: certification must change at least 20\% of 3,840 finite-sampler query statuses and pass a frozen analytic-endpoint consistency check. H5 requires clean installation, agreement under normal and optimized Python tasks, and median exact-certification time below the frozen two-second allowance.
 
 \subsection{Nontermination incident and complete accounting}
 The first bounded execution exposed an internal unbounded proposal loop in abrupt-signal cells. For those cells, the exact minimum cap can require $\lambda>2$ while the frozen CRABS setting used \texttt{max.lambda=2}. A documented post-incident amendment, made before the complete rerun and before any primary H2 or H4 rejection result was available, added a deterministic preflight classification for this incompatibility. It changed no seed, signal, grid, cap, decision threshold, query or replacement rule.
 
 The completed ledger accounts for all 1,100 planned cells and contains 800 hash-bound sidecars. It records 1,000 passes and 100 \texttt{CENSORED\_STRUCTURAL\_NONTERMINATION} outcomes: 40 native HSMRF/GMRF abrupt cells and 60 primary CRABS-rejection abrupt cells. A structural censor is an integrity-preserving observation about the frozen execution configuration, not evidence that finite sampling succeeded and not a returned-cloud endpoint estimate.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\linewidth}{@{}p{0.18\linewidth}p{0.19\linewidth}X@{}}
+\toprule
+Time (Europe/London) & Frozen commit & Event \\
+\midrule
+20 Aug 13:35 & \texttt{c121901} & Protocol frozen before confirmatory execution \\
+20 Aug 14:01 & \texttt{b23047e} & H2--H4 metric definitions frozen before stochastic execution \\
+20 Aug 14:17 & \texttt{cdd1f27} & Stage-1 nontermination incident preserved; zero primary rejection/H4 results had been observed \\
+20 Aug 14:18 & \texttt{809ae19} & Outcome-informed harness Amendment 004 froze the structural preflight and full Stage-2 rerun \\
+21 Aug 02:48 & \texttt{4b3dc2c} & Complete 1,100-cell ledger and H1--H5 checkpoint sealed \\
+\bottomrule
+\end{tabularx}
+\caption{Protocol chronology from repository commit metadata. Amendment 004 was informed by nontermination behavior, not by any primary H2 rejection-cloud or H4 query result.}
+\label{tab:timeline}
+\end{table}
 
 \subsection{Confirmatory results}
 \begin{table}[H]
@@ -438,22 +501,40 @@ The completed ledger accounts for all 1,100 planned cells and contains 800 hash-
 Gate & Target & Sealed result & Verdict \\
 \midrule
 H1 & Deterministic validity & 1,944/1,944 validation cells passed & Pass \\
-H2 & Endpoint incompleteness & 300/300 primary cells met the deficit-or-censor event; descriptive Wilson 95\% range 98.74--100\% & Pass \\
+H2 & Returned-cloud endpoint incompleteness & 240/240 returned clouds exceeded the deficit threshold; 60/60 additional primary cells were structural censors; frozen composite 300/300 & Pass \\
 H3 & Constructive attainability & Both discrete endpoints attained in 300/300 boundary cells; zero failures & Pass \\
-H4 & Decision utility & 532/3,840 statuses changed (13.85\%; descriptive Wilson 95\% range 12.80--14.98\%), below the 20\% gate; zero false certificates & Fail \\
+H4 & Decision utility & 532/3,840 clustered statuses changed (13.85\%), below the 20\% gate; zero analytic-endpoint consistency violations & Fail \\
 H5 & Operational viability & Clean install and normal/optimized tasks passed; median certification time approximately $4.68\times10^{-5}$ seconds versus two seconds allowed & Pass \\
 \bottomrule
 \end{tabularx}
-\caption{Prospectively frozen confirmatory gates. Wilson intervals are descriptive summaries, not replacements for the fixed pass/fail rules. H2 includes 240 returned finite clouds and 60 prospectively classified structural censors.}
+\caption{Prospectively frozen confirmatory gates. The H2 scientific conclusion is true for all 240 returned clouds without counting censors as deficits. Query-level H4 intervals are omitted here because the 16 queries within a cell are dependent.}
 \label{tab:confirmatory}
 \end{table}
 
-H2 and H4 answer different questions. H2 shows that the frozen finite exploration did not certify sharp endpoints: every evaluable returned cloud missed at least one endpoint beyond tolerance, and the remaining abrupt cells were structurally censored. H4 asks whether exact certification changed the particular decisions fixed in advance. It did so for 532 queries, but the pooled 13.85\% fraction did not reach the 20\% criterion. A discrete-grid sensitivity analysis changed 182 of 3,840 statuses (4.74\%; descriptive Wilson range 4.11--5.46\%). No analysis produced a false certificate.
+H2 and H4 answer different questions. H2 shows that every returned primary cloud missed at least one endpoint beyond tolerance (240/240); the 60 abrupt primary cells are reported separately as structural censors. H4 asks whether exact certification changed the particular decisions fixed in advance. It did so for 532 queries, but the pooled 13.854\% descriptive gate statistic did not reach 20\%. The 16 queries within a cell share the same sampled cloud and exact endpoints, so they are clustered rather than independent observations. A discrete-grid sensitivity analysis changed 182 of 3,840 statuses (4.740\%). The zero consistency-violation result checks the implementation against its frozen analytic endpoints; it is not independent validation of theorem truth.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}lrrr r@{}}
+\toprule
+Finite cloud $\backslash$ exact certificate & Below & Unresolved & Above & Row total \\
+\midrule
+Below & 1,620 & 112 & 30 & 1,762 \\
+Unresolved & 0 & 278 & 0 & 278 \\
+Above & 0 & 390 & 1,410 & 1,800 \\
+\midrule
+Column total & 1,620 & 780 & 1,440 & 3,840 \\
+\bottomrule
+\end{tabular}
+\caption{Directional H4 transitions from the unchanged sealed ledger. Of 532 changes, 502 withdraw a finite-cloud determination to unresolved and 30 reverse below to above. These are clustered descriptive counts across 240 cells.}
+\label{tab:h4transitions}
+\end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.94\linewidth]{figures/figure8_crabs_confirmatory_h4.png}
-\caption{H4 changed-query fractions in the 24 evaluable signal--grid--cap strata, with descriptive Wilson intervals and the frozen 20\% reference line. Each point aggregates 160 queries. Abrupt-signal strata are absent because all 60 primary rejection cells were structural censors and therefore had no finite-cloud decisions to compare. Some individual strata cross 20\%, but the prospectively specified decision is pooled; the subgroup pattern does not rescue the failed H4 gate.}
+\caption{H4 changed-query fractions in the 24 evaluable signal--grid--cap strata, with visibly descriptive Wilson displays and the frozen 20\% reference line. Each point aggregates 160 dependent queries from ten cells. Abrupt-signal strata are absent because all 60 primary rejection cells were structural censors and therefore had no finite-cloud decisions to compare. Some strata cross 20\%, but they do not rescue the failed pooled gate.}
 \label{fig:crabsh4}
 \end{figure}
 
@@ -528,17 +609,74 @@ a factor of 1.80374. Values $D=398$ and $D=577$ are incompatible with $c=0.5$ un
 \label{fig:mammalbounds}
 \end{figure}
 
-\section{Conditional geometry versus statistical uncertainty}
-Let $\Theta(F)$ denote the conditional functional identified set generated by a pulled-scale trajectory $F$. Suppose a simultaneous random set $\Fset_{1-\alpha}$ satisfies
+\section{Finite-sample fixed-stem uncertainty and robust decisions}
+\subsection{Simultaneous band for the pulled scale}
+Under stem survival, \cref{thm:fixedstem} gives
+\[
+ N\sim\operatorname{Geometric}(p),\qquad p=F(T)^{-1},
+\]
+on $1,2,\ldots$. Conditional on $N=n$, the $m=n-1$ unordered node ages are independent with CDF
 \begin{equation}
- \Pr(F_0\in\Fset_{1-\alpha})\geq1-\alpha. \label{eq:Fcoverage}
+ B(t)=\frac{1-F(t)^{-1}}{1-F(T)^{-1}}=\frac{1-S(t)}{1-p},
+ \qquad S(t)=F(t)^{-1}. \label{eq:Bcdf}
 \end{equation}
-Then
+This factorization is the inference input; it concerns exact node ages under the topology-marginal fixed-stem law \parencite{gernhard2008,lambert2013}.
+
+For an error allocation $\alpha_N+\alpha_B\leq\alpha$, invert the two geometric tails to obtain
+\begin{align}
+ p_L(n)&=1-(1-\alpha_N/2)^{1/n}, \label{eq:pL}\\
+ p_U(n)&=\begin{cases}
+ 1,&n=1,\\
+ 1-(\alpha_N/2)^{1/(n-1)},&n>1.
+ \end{cases} \label{eq:pU}
+\end{align}
+For $m>0$, let $\widehat B_m$ be the empirical CDF and set
 \begin{equation}
- \Theta(F_0)\subseteq\bigcup_{F\in\Fset_{1-\alpha}}\Theta(F)
- \quad\text{whenever }F_0\in\Fset_{1-\alpha}, \label{eq:coverageunion}
+ \epsilon_m=\sqrt{\frac{\log(2/\alpha_B)}{2m}},\qquad
+ B_L=(\widehat B_m-\epsilon_m)_+,\quad
+ B_U=\min(1,\widehat B_m+\epsilon_m). \label{eq:DKWband}
 \end{equation}
-so the union transfers the simultaneous coverage of the signal set to a set containing the true conditional identified set. This is a set-inclusion principle, not an operational inferential method. A pointwise band is not automatically simultaneous; this release does not construct $\Fset_{1-\alpha}$ or propagate phylogenetic, smoothing and model uncertainty.
+Use the known support endpoints $B(0)=0$ and $B(T)=1$ exactly. If $n=1$, use the uninformative interior band $[0,1]$. The Dvoretzky--Kiefer--Wolfowitz--Massart inequality makes \eqref{eq:DKWband} simultaneous over all $t$ \parencite{massart1990}.
+
+\begin{theorem}[Honest fixed-stem pulled-scale band]\label{thm:signalband}
+Define
+\begin{align}
+ S_L(t)&=1-(1-p_L)B_U(t),&S_U(t)&=1-(1-p_U)B_L(t), \label{eq:Sband}\\
+ F_L(t)&=S_U(t)^{-1},&F_U(t)&=S_L(t)^{-1}. \label{eq:Fband}
+\end{align}
+Under the exact fixed-stem, stem-survival, homogeneous time-varying law of \cref{thm:fixedstem},
+\begin{equation}
+ \Pr\{F_L(t)\leq F(t)\leq F_U(t)\ \text{for every }t\in[0,T]\}
+ \geq1-\alpha_N-\alpha_B\geq1-\alpha. \label{eq:Fcoverage}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For observed $n$, \eqref{eq:pL} inverts $\Pr_p(N\leq n)=1-(1-p)^n$, and \eqref{eq:pU} inverts $\Pr_p(N\geq n)=(1-p)^{n-1}$. The two excluded tail events have total probability at most $\alpha_N$; discreteness can only make the interval conservative. Conditional on every $n>1$, the DKW--Massart failure probability is at most $\alpha_B$; it is zero for the uninformative $n=1$ band. Bonferroni therefore gives joint coverage at least $1-\alpha_N-\alpha_B$. On that event, $S=1-(1-p)B$ is increasing in $p$ and decreasing in $B$, which gives \eqref{eq:Sband}; reciprocal monotonicity gives \eqref{eq:Fband}.
+\end{proof}
+
+Let $\Theta(F)$ denote the conditional affine identified set. The uncertainty-aware set
+\begin{equation}
+ \Theta_{1-\alpha}=\bigcup_{F\in\mathcal F:\,F_L\leq F\leq F_U}\Theta(F), \label{eq:coverageunion}
+\end{equation}
+where $\mathcal F$ is the class of valid absolutely continuous pulled scales with $F(0)=1$, $F>0$ and nonnegative a.e. log derivative. The union contains $\Theta(F_0)$ whenever the signal band covers $F_0$, following the confidence-set logic for partially identified models \parencite{chernozhukov2007}. Pointwise curves between the displayed limits that are not valid pulled scales are therefore not admitted. This is finite-sample coverage for the specified branching law, not for phylogenetic reconstruction, dating, smoothing or model selection. The band controls $F$, not its derivative: it must not be differentiated to claim covered bounds for $\lambda_p=F'/F$.
+
+\subsection{Three-valued cap decision and frozen demonstration}
+For one deterministic model-scale statement $N_{\rm det}(t)\geq D$, \cref{cor:diversity} gives $c_{\min}(F(t))$. Over the simultaneous band, let $[c_L,c_U]$ be the range of this function. For a proposed cap $c_0$, report \textsc{incompatible} if $c_0<c_L$, \textsc{compatible throughout the band} if $c_0\geq c_U$, and \textsc{unresolved} otherwise. The middle label means mathematical feasibility under every covered signal, not biological truth.
+
+The frozen demonstration uses $\lambda_p=0.08$, $T=50$, tree seed 20260821, $\alpha_N=\alpha_B=0.025$, $\rho=1$, the normalized model-scale constraint $M_0/D=2$, and no observation model. The generated tree has $N=22$. At the stem endpoint,
+\[
+ F(T)\in[5.30968,1749.47699],\qquad
+ c_{\min}\in[0.76796,0.99943].
+\]
+The registered $c_0=0.70$ is therefore incompatible throughout the 95\% signal set. At age 20, the plug-in estimate gives $c_{\min}=0.77778$ and would label $c_0=0.80$ compatible, but the simultaneous range is $[0,0.99943]$ and the correct decision is unresolved. Across 20,000 frozen simulations, the count interval covered 98.685\%, the node-age CDF band covered 98.035\%, and both covered jointly in 96.755\%; these are numerical checks, not substitutes for \cref{thm:signalband}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\linewidth]{figures/figure9_fixed_stem_uncertainty.png}
+\caption{Frozen synthetic method demonstration. Left: generating $F$, plug-in curve and 95\% simultaneous fixed-stem band. Right: propagation into the minimum-cap range for the normalized deterministic constraint. The stem target is incompatible; the interior plug-in-compatible target is unresolved after uncertainty propagation. This is not empirical validation.}
+\label{fig:uncertainty}
+\end{figure}
 
 \section{Position relative to existing methods}
 \begin{table}[H]
@@ -553,19 +691,43 @@ What is learned? & Pulled signal and congruence & Constructed or sampled histori
 Endpoint guarantee & No & Proposal-dependent finite exploration & Point estimate under model & Closed-form sharp endpoints for stated classes \\
 Infeasibility witness & No & Not the principal output & Model fit or identification result & Violating pair and minimum cap \\
 Deterministic events & Process literature required & Event scenarios may be constructed & Model-specific & Stieltjes coordinate and fixed-stem proof \\
-Pulled-signal uncertainty & Estimation problem remains & Method-specific & Method-specific & Not supplied; union architecture only \\
+Pulled-signal uncertainty & Estimation problem remains & Method-specific & Method-specific & Exact fixed-stem sampling band; other uncertainty sources excluded \\
 \bottomrule
 \end{tabularx}
 \caption{The proposed method complements rather than supersedes existing approaches. Congruence tools explore histories; identifiable restrictions or richer observations can restore point identification \parencite{legried2022,legried2023,truman2025,truman2026correction,dieselhorst2026}.}
 \label{tab:comparison}
 \end{table}
 
-The integrating factor, pulled scale and zero-inflated geometric branching laws have reconstructed-process antecedents \parencite{lambert2013,hohna2015,macpherson2022}. Partial-identification framing, generic Lipschitz extensions and infinite-dimensional linear programming are also established literatures \parencite{manski2003,mcshane1934,whitney1934,anderson1987}. The defensible priority claim is narrower: we found no prior work coupling this cumulative-loss measure fibre to the complete package of cap-regime bounds, finite certificates, barrier test, minimum-cap diagnostic and exact endpoint-sampling law. The search was targeted, not systematic. A specialist recognition check remains necessary.
+The integrating factor, pulled scale, conditional geometric count and independent-node-age representation have reconstructed-process antecedents \parencite{nee1994,gernhard2008,stadler2010,lambert2013,hohna2015,stadlersteel2019,macpherson2022}. DKW bands, partial-identification confidence regions, Lipschitz extension, optimal recovery, isotonic Lipschitz regression and product integration are also established literatures \parencite{massart1990,chernozhukov2007,mcshane1934,whitney1934,micchelli1976,yeganova2009,gilljohansen1990,anderson1987}. The defensible contribution is their model-specific coupling, not invention of those ingredients.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\linewidth}{@{}p{0.23\linewidth}p{0.24\linewidth}X@{}}
+\toprule
+Result & Classification after recognition search & Closest antecedent and residual contribution \\
+\midrule
+Smooth affine fibre & Reformulation / model-specific synthesis & Pulled-variable and integrating-factor theory antecede it; positive-measure order and reciprocal-rate presentation are coupled here \\
+Finite-event count law & Extension in stated coordinate & Event-aware reconstructed processes antecede it; invariance is restated for independent common-survival atoms \\
+Fixed-stem ordered ages & Antecedent-backed specialization & Conditioned reconstructed processes and coalescent point processes supply the factorization; topology claims are now explicitly excluded \\
+All-cap phase bounds & Exact model-specific consequence & Elementary differential inequalities; $c=1$ phase and $x_{\rm crit}$ organize the fibre restriction \\
+Finite certificates & Application-specific exact projection & McShane--Whitney, optimal recovery and isotonic Lipschitz methods antecede the geometry \\
+Endpoint-sampling law & New synthesis for this proposal law & Irwin--Hall/order-statistic probability is standard; the certification consequence is the contribution \\
+Fixed-stem $F$ band & New coupling, not new probability theory & Exact geometric inversion plus DKW--Massart mapped through the reconstructed-process factorization \\
+Affine--CRABS benchmark & Bounded empirical comparison & Prespecified negative/mixed result; H4 failed and scope is not generalized \\
+\bottomrule
+\end{tabularx}
+\caption{Theorem-by-theorem recognition classification. Search routes and residual priority uncertainty are recorded in the companion recognition ledger.}
+\label{tab:recognition}
+\end{table}
+
+The structured recognition search covered reconstructed and conditioned birth--death processes, incomplete sampling, congruence methods, partial identification, survival/product-integration, optimal recovery and isotonic Lipschitz regression, plus a current field synthesis \parencite{morlon2022,title2026}. It was broader than the 0.2.1 targeted search but cannot establish global priority across every language, thesis or unindexed source. External specialist recognition remains appropriate.
 
 \section{Computational assurance}
 The theorem package inherited from release 0.2.1 includes:
 \begin{itemize}
-\item 17 deterministic unit tests covering the smooth chart, cap regimes, event algebra, fixed-stem normalisation, finite certificates, boundary validation, mammal replay and sampling theorem;
+\item 21 deterministic unit tests covering the smooth chart, cap regimes, event algebra, fixed-stem normalisation, finite certificates, boundary validation, mammal replay, sampling theorem, exact geometric coverage and all three robust-decision states;
 \item an independently written loop-based envelope implementation and 720 linear-programme endpoint checks across 180 random feasible cases;
 \item a direct 160,000-replicate birth--death simulation with two deterministic bottlenecks, checked against analytic survival and the conditional descendant-count law;
 \item five deliberately broken or infeasible negative controls, all detected;
@@ -576,13 +738,33 @@ These checks establish internal replay and independent numerical consistency. Th
 
 The 0.3.0-candidate review branch adds a complete 1,100-cell stochastic ledger, 800 hash-bound sidecars, an immutable full-ledger manifest, frozen hypothesis summaries, dual-mode protocol controls, seven protocol-harness tests and a clean-install/runtime receipt. The H5 record preserves an initial environment-selection incident in which a Python interpreter lacked SciPy and failed before unit-test execution; the additive corrected receipt changes only interpreter qualification. The existing 0.2.1 release manifest is intentionally not rewritten to absorb the new evidence.
 
-\section{Limitations and research programme}
-The review draft remains a candidate for five reasons. First, the fixed-stem theorem needs an external specialist audit and does not cover crown or random-origin conditioning. Second, statistical inference requires a simultaneous uncertainty set for the pulled signal. Third, fossil application requires a preservation, observation and taxonomic mapping model. Fourth, the confirmatory comparison is bounded to one explicit semantic bridge, five signals, two grids, three caps and preset decision queries; H4 failed, and structural censoring limits returned-cloud claims for abrupt signals. Fifth, priority should be checked systematically across stochastic-process, survival-analysis, viability, optimal-recovery and non-English literatures.
+Route A adds exact count-tail inversion, a DKW--Massart full-trajectory band, monotone propagation into three-valued decisions, a frozen synthetic tree and 20,000-replicate coverage sanity check. The first local Route-A test attempt used the host's bare Python 3.14 and failed at import because SciPy was absent; the qualified Python 3.13 environment then passed all 21 tests. That environment incident is reported as environment selection, not a code failure.
 
-The most valuable extensions are: exact robust envelopes over a simultaneous family of $F$ curves; observation-aware fossil inequalities or chance constraints; target-specific optimisation for peak timing and integrated extinction; prospectively chosen target-specific decisions; sampler endpoint guarantees; crown-conditioned event laws; and formalisation of Theorems 1, 6 and 8 in a proof assistant. New tuning choices, signals or thresholds may motivate a separate study but cannot retroactively repair the failed H4 gate.
+\section{Limitations and research programme}
+The revision remains a candidate for five reasons. First, the fixed-stem count and ordered-age theorem still needs written review by an unaffiliated process specialist and does not cover crown or random-origin conditioning. Second, \cref{thm:signalband} covers exact node-age sampling variation under the specified law only; topology and dating uncertainty, smoothing choices, lineage heterogeneity and model misspecification remain outside it. Third, fossil application still requires preservation, observation and taxonomic mapping models and uncertainty in $\rho$, $M_0$, $D$ and event time. Fourth, the confirmatory comparison is bounded to one semantic bridge, five signals, two grids, three caps and preset clustered queries; H4 failed, and abrupt signals were censored. Fifth, unaffiliated full replay, cross-platform testing and external rights review remain outstanding.
+
+The most valuable extensions are: tree-posterior or confidence-set layers that retain simultaneous coverage; observation-aware fossil inequalities or chance constraints; derivative-regularized inference for targets involving $\lambda_p$; target-specific optimisation for peak timing and integrated extinction; sampler endpoint guarantees; crown-conditioned event laws; and proof-assistant formalisation. New benchmark tuning, signals or thresholds may motivate a separate study but cannot retroactively repair the failed H4 gate.
 
 \section{Conclusion}
-A congruence class is a functional identified set, not a collection of curves returned by one sampler. The cumulative-loss coordinate makes a useful part of that set affine. Under explicit restrictions, the analyst can report feasible trajectories, exact target endpoints, endpoint-attaining histories and short incompatibility certificates. In the frozen CRABS comparison, finite rejection exploration missed an endpoint tolerance in every primary cell under the prespecified deficit-or-censor rule, yet certification changed only 13.85\% of the evaluable decision queries and therefore failed the 20\% utility gate. The evidence supports a fast exact diagnostic, not a claim of empirical necessity. Fixed-signal geometry, finite exploration, statistical uncertainty and biological observation models remain separate layers.
+A congruence class is a functional identified set, not a cloud returned by one sampler. Under the fixed-stem homogeneous law, exact count inversion and a DKW--Massart node-age band now connect sampling variation to the affine fibre with finite-sample simultaneous coverage. The worked example shows both possible outcomes: a robust incompatibility and a plug-in decision that becomes unresolved. In the separate CRABS comparison, every returned primary cloud missed the endpoint tolerance, yet certification changed only 13.854\% of clustered queries and failed the 20\% utility gate. The result is a precise diagnostic workflow with visible refusal states, not a claim that it recovers the true history, validates palaeobiological inference or is essential to CRABS.
+
+\section*{Data and code availability}
+All original code, frozen synthetic inputs, figure data, CRABS protocol files, the sealed 1,100-cell ledger and machine-readable summaries used in this revision are included in the review candidate. The mammal values are source-derived extracts; their provenance and upstream terms are recorded in \texttt{DATA\_PROVENANCE.md} and \texttt{LICENSE\_MAP.json}. The historical 0.2.1 DOI does not identify this revision. No successor DOI has been minted.
+
+\section*{Ethics statement}
+The work uses mathematical derivations, simulations and previously published aggregate or phylogenetic materials. It involves no human participants, personal data, live animals or newly collected specimens, so institutional ethics approval was not applicable.
+
+\section*{Author contributions}
+The scholarly creator is recorded as Anonymous under the Evidence Press protocol. The candidate was developed through an agentic research workflow covering conceptualization, mathematical derivation, software, validation, data curation, visualization and drafting. Human actions were limited to setting the research objective, authorizing staged continuation and selecting Route A. External mathematical review and unaffiliated reproduction have not yet occurred and are not attributed.
+
+\section*{Funding}
+No external funding was reported for this candidate.
+
+\section*{Competing interests}
+No competing interests were reported. Evidence Press is the intended publication workflow, not an independent validator of the results.
+
+\section*{AI-use disclosure}
+Generative AI produced substantial portions of the mathematical prose, code, analysis and revision materials. All machine-generated claims remain bounded by executable checks, source verification and the explicit outstanding-review gates. Internal AI review and replay are not substitutes for human peer review, proof verification or independent reproduction.
 
 \appendix
 \section{Sanity checks}
@@ -619,8 +801,10 @@ From the release root:
 \begin{verbatim}
 make verify
 make verify-package
-docker build -f Containerfile -t affine-diversification-fibres:0.2.1 .
-docker run --rm affine-diversification-fibres:0.2.1
+python experiments/run_fixed_stem_uncertainty.py
+python experiments/affine_crabs_confirmatory/summarize_h2_h4.py
+docker build -f Containerfile -t affine-diversification-fibres:0.3.0rc2 .
+docker run --rm affine-diversification-fibres:0.3.0rc2
 stage2=experiments/affine_crabs_confirmatory/execution
 shasum -a 256 -c "$stage2/STOCHASTIC_STAGE2_MANIFEST.sha256"
 python experiments/affine_crabs_confirmatory/generate_review_figure.py

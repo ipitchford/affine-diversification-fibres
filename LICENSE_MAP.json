@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "release": "0.2.1",
+  "release": "0.3.0rc2",
   "default_rule": "No file is relicensed by implication; the most specific matching entry applies.",
   "components": [
     {
@@ -23,10 +23,22 @@
     },
     {
       "paths": [
-        "docs/review_received_20260806.md"
+        "experiments/affine_crabs_confirmatory/execution/qualification/crabs_primates_ebd_025.csv",
+        "experiments/affine_crabs_confirmatory/execution/qualification/crabs_primates_ebd_100.csv",
+        "experiments/affine_crabs_confirmatory/execution/qualification/crabs_primates_ebd_400.csv",
+        "experiments/affine_crabs_confirmatory/execution/qualification/crabs_primates_ebd_native.csv"
       ],
       "license": "NOASSERTION",
-      "note": "User-supplied review included as revision provenance."
+      "source_declared_license": "GPL-3.0-only",
+      "note": "Qualification extracts produced from the CRABS primates example; retained with upstream provenance and not relicensed by this package. Independent redistribution review remains outstanding."
+    },
+    {
+      "paths": [
+        "docs/review_received_20260806.md",
+        "review/stage3/*.md"
+      ],
+      "license": "NOASSERTION",
+      "note": "User-supplied or workflow-generated review material retained as revision provenance; no third-party rights claim is made."
     }
   ]
 }

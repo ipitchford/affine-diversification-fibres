@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0",
+  "candidate": "0.3.0rc2",
+  "status": "PASS",
+  "assurance_boundary": "Internal candidate verification only; not external theorem review, independent reproduction, rights approval or publication authorization.",
+  "checks": [
+    {
+      "id": "version_coherence",
+      "status": "PASS",
+      "detail": "{'pyproject': '0.3.0rc2', 'module': '0.3.0rc2', 'status': '0.3.0rc2'}",
+      "evidence": [
+        "pyproject.toml",
+        "affine_diversification/affine_fibre.py",
+        "STATUS.json"
+      ]
+    },
+    {
+      "id": "schema:STATUS.json",
+      "status": "PASS",
+      "detail": "schema validation passed",
+      "evidence": [
+        "STATUS.json",
+        "schemas/status.schema.json"
+      ]
+    },
+    {
+      "id": "schema:ASSURANCE.json",
+      "status": "PASS",
+      "detail": "schema validation passed",
+      "evidence": [
+        "ASSURANCE.json",
+        "schemas/assurance.schema.json"
+      ]
+    },
+    {
+      "id": "schema:CLAIM_EVIDENCE.json",
+      "status": "PASS",
+      "detail": "schema validation passed",
+      "evidence": [
+        "CLAIM_EVIDENCE.json",
+        "schemas/claim_evidence.schema.json"
+      ]
+    },
+    {
+      "id": "json_records",
+      "status": "PASS",
+      "detail": "parsed 10 successor records",
+      "evidence": [
+        "AI_INDEX.json",
+        "PROVENANCE.json",
+        "environment.json",
+        "SOURCES.json",
+        "LICENSE_MAP.json",
+        "PUBLICATION_STATE.json",
+        "release_status.json",
+        "figure_data/ALT_TEXT.json",
+        "review/route_a/SOURCES_ROUTE_A.json",
+        "review/route_a/ROUTE_A_REVISION_HASHES.json"
+      ]
+    },
+    {
+      "id": "protected_hashes",
+      "status": "PASS",
+      "detail": "{'MANIFEST.sha256': '6c50d82213472a29eae71a22839f8addf023ad37238232473198f33d4ddb0f77', 'REPLAY_RECEIPT.json': 'aa596334df3bed17d264bab30da88e8ed674790a2347271834be3236868013d2', 'experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256': '1a751b4500ce28eb14db6a44773c73727a76aca96d001273af0507f4f06b31d2', 'experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_EXECUTION_RECEIPT.json': '7553aab3309a08cf2ed25b0ace182edd81b3ebd9a14f59a10f49e538cfabeb77'}",
+      "evidence": [
+        "MANIFEST.sha256",
+        "REPLAY_RECEIPT.json",
+        "experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256",
+        "experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_EXECUTION_RECEIPT.json"
+      ]
+    },
+    {
+      "id": "sealed_stage2_ledger",
+      "status": "PASS",
+      "detail": "validated 1900 entries",
+      "evidence": [
+        "experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256"
+      ]
+    },
+    {
+      "id": "route_a_frozen_decision",
+      "status": "PASS",
+      "detail": "N=22; primary=CERTIFIED_INCOMPATIBLE; caution=UNRESOLVED; joint=0.96755",
+      "evidence": [
+        "outputs/fixed_stem_uncertainty.json"
+      ]
+    },
+    {
+      "id": "h2_h4_invariants",
+      "status": "PASS",
+      "detail": "H2=240/240 plus 60 censors; H4=532/3840",
+      "evidence": [
+        "outputs/crabs_h2_h4_revision_summary.json",
+        "figure_data/crabs_h4_status_transitions.csv"
+      ]
+    },
+    {
+      "id": "h4_tables",
+      "status": "PASS",
+      "detail": "pooled transition rows=9; strata=24; stratum-transition rows=216",
+      "evidence": [
+        "figure_data/crabs_h4_status_transitions.csv",
+        "figure_data/crabs_h4_transition_strata.csv"
+      ]
+    },
+    {
+      "id": "figure_alt_text",
+      "status": "PASS",
+      "detail": "PNG figures=9; missing=[]",
+      "evidence": [
+        "figure_data/ALT_TEXT.json",
+        "figures/"
+      ]
+    },
+    {
+      "id": "pdf",
+      "status": "PASS",
+      "detail": "pages=23; title=Finite-Sample Signal Uncertainty and Sharp Partial Identification of Diversification Histories",
+      "evidence": [
+        "manuscript.pdf",
+        "outputs/pdf_inspection_route_a.txt"
+      ]
+    },
+    {
+      "id": "accessible_markdown",
+      "status": "PASS",
+      "detail": "title, abstract and stable Route A theorem locator present",
+      "evidence": [
+        "manuscript.md"
+      ]
+    },
+    {
+      "id": "publication_boundary",
+      "status": "PASS",
+      "detail": "publication_ready=False; public authorizations={'localRevision': True, 'publicGitHub': False, 'zenodoDraft': False, 'zenodoPublish': False, 'evidencePressDeploy': False}",
+      "evidence": [
+        "STATUS.json",
+        "PUBLICATION_STATE.json"
+      ]
+    },
+    {
+      "id": "unit_tests_normal",
+      "status": "PASS",
+      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.023s\n\nOK",
+      "evidence": [
+        "outputs/route_a_unit_tests_normal.txt"
+      ]
+    },
+    {
+      "id": "unit_tests_optimized",
+      "status": "PASS",
+      "detail": "test_21_signal_band_yields_three_valued_cap_decisions (affine_diversification.test_affine_fibre.AffineFibreTests.test_21_signal_band_yields_three_valued_cap_decisions) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.018s\n\nOK",
+      "evidence": [
+        "outputs/route_a_unit_tests_optimized.txt"
+      ]
+    },
+    {
+      "id": "review_packet",
+      "status": "PASS",
+      "detail": "R1-R9/S1-S6 response and open-gate requests present",
+      "evidence": [
+        "review/route_a/00_REVISION_CONFIGURATION.md",
+        "review/route_a/01_RESPONSE_TO_REVIEWERS.md",
+        "review/route_a/02_CHANGE_LOG.md",
+        "review/route_a/03_EXTERNAL_PROCESS_REVIEW_REQUEST.md",
+        "review/route_a/04_INDEPENDENT_REPLAY_REQUEST.md",
+        "review/route_a/05_RIGHTS_REVIEW_CHECKLIST.md",
+        "review/route_a/06_STAGE4_CHECKPOINT.md"
+      ]
+    }
+  ]
+}

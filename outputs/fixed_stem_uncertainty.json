@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "scope": "synthetic fixed-stem method demonstration",
+  "assurance_boundary": "Finite-sample coverage is conditional on the exact fixed-stem, stem-survival, homogeneous time-varying reconstructed-process law. It excludes dating error, smoothing, model misspecification and any fossil observation process.",
+  "model": {
+    "pulled_rate": 0.08,
+    "stem_age": 50.0,
+    "F_stem_true": 54.598150033144236,
+    "p_true": 0.01831563888873418
+  },
+  "observed_tree": {
+    "seed": 20260821,
+    "n_tips": 22,
+    "n_branching_ages": 21,
+    "minimum_branching_age": 1.6619086056391208,
+    "maximum_branching_age": 42.983656280536415
+  },
+  "confidence_band": {
+    "confidence_level": 0.95,
+    "alpha_count": 0.025,
+    "alpha_ages": 0.025,
+    "p_interval": [
+      0.0005715994023673525,
+      0.188335283644982
+    ],
+    "F_stem_interval": [
+      5.309679528160172,
+      1749.4769866068723
+    ],
+    "F_stem_plugin": 22.00000000000002,
+    "dkw_radius": 0.32300768952493264
+  },
+  "primary_target": {
+    "age": 50.0,
+    "rho": 1.0,
+    "origin_lineages": 2.0,
+    "diversity_lower": 1.0,
+    "proposed_cap": 0.7,
+    "status": "CERTIFIED_INCOMPATIBLE",
+    "plugin_status": "PLUGIN_INCOMPATIBLE",
+    "minimum_cap_lower": 0.767964185395728,
+    "minimum_cap_upper": 0.9994280736848927,
+    "minimum_cap_plugin": 0.9523809523809524,
+    "F_lower": 5.309679528160172,
+    "F_upper": 1749.4769866068723,
+    "F_plugin": 22.00000000000002
+  },
+  "caution_target": {
+    "age": 20.0,
+    "rho": 1.0,
+    "origin_lineages": 2.0,
+    "diversity_lower": 1.0,
+    "proposed_cap": 0.8,
+    "status": "UNRESOLVED",
+    "plugin_status": "PLUGIN_COMPATIBLE",
+    "minimum_cap_lower": 0.0,
+    "minimum_cap_upper": 0.9994280736848927,
+    "minimum_cap_plugin": 0.7777777777777777,
+    "F_lower": 1.7653455687774613,
+    "F_upper": 1749.4769866068723,
+    "F_plugin": 5.499999999999998
+  },
+  "coverage_sanity_check": {
+    "replicates": 20000,
+    "seed": 20260822,
+    "mean_tip_count": 54.77615,
+    "count_interval_coverage": 0.98685,
+    "branching_cdf_band_coverage": 0.98035,
+    "joint_component_coverage": 0.96755,
+    "nominal_joint_lower_bound": 0.95,
+    "role": "Monte Carlo sanity check; not the proof of coverage"
+  }
+}

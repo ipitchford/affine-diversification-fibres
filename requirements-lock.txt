@@ -1,5 +1,6 @@
-# Exact Python environment recorded for candidate release 0.2.1.
-# Environment recreation remains assurance status: partial; see environment.json.
+# Pinned container environment inherited by Route A candidate 0.3.0rc2.
+# The Route A code passed in the qualified macOS environment recorded in
+# environment.json; fresh Linux/container replay remains an external gate.
 numpy==2.3.5
 scipy==1.17.0
 matplotlib==3.10.8

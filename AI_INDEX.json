@@ -1,89 +1,38 @@
 {
-  "schema_version": "1.0",
-  "release": "0.2.1",
-  "identifiers": {
-    "doi": "10.5281/zenodo.21851319",
-    "doi_url": "https://doi.org/10.5281/zenodo.21851319",
-    "repository": "https://github.com/ipitchford/affine-diversification-fibres"
-  },
+  "schema_version": "1.1",
+  "candidate": "0.3.0rc2",
+  "identifier": "affine-route-a-0.3.0-candidate-r2",
+  "persistent_identifier": null,
+  "previous_release": {"version": "0.2.1", "doi": "10.5281/zenodo.21851319"},
   "status": "STATUS.json",
-  "safe_claim": "Conditional on a fixed pulled speciation signal, a stated class of homogeneous time-dependent birth-death histories admits a cumulative-loss measure coordinate. Continuous turnover caps and finite interval constraints then yield sharp pointwise projections, endpoint-attaining histories where stated, finite incompatibility certificates, a positive-survival test and a minimum compatible cap. Finitely many independent deterministic survival events preserve the reconstructed-tree law only under the fixed-stem conditioning conventions proved in the manuscript.",
+  "safe_claim": "Under the exact fixed-stem, stem-survival, homogeneous time-varying law, exact count-tail inversion and a conditional DKW--Massart node-age band yield a simultaneous set for F that can be propagated to three-valued conditional affine decisions. A separate bounded CRABS benchmark retained a failed H4 utility gate.",
   "primary_objects": [
-    {
-      "path": "manuscript.pdf",
-      "role": "authoritative rendered manuscript"
-    },
-    {
-      "path": "manuscript.tex",
-      "role": "authoritative mathematical source"
-    },
-    {
-      "path": "manuscript.md",
-      "role": "citation-resolved accessible text rendering; PDF controls numbering"
-    },
-    {
-      "path": "CLAIM_EVIDENCE.json",
-      "role": "claim-to-evidence map"
-    },
-    {
-      "path": "ASSURANCE.json",
-      "role": "scoped assurance matrix"
-    },
-    {
-      "path": "STATUS.json",
-      "role": "release state and open gates"
-    }
-  ],
-  "revision_objects": [
-    {
-      "path": "docs/review_received_20260806.md",
-      "role": "review governing the revision"
-    },
-    {
-      "path": "docs/response_to_major_review.md",
-      "role": "point-by-point response"
-    },
-    {
-      "path": "docs/revision_assessment.md",
-      "role": "post-revision quality assessment"
-    }
+    {"path": "manuscript.pdf", "role": "authoritative rendered manuscript"},
+    {"path": "manuscript.tex", "role": "authoritative mathematical source"},
+    {"path": "manuscript.md", "role": "accessible text companion; TeX/PDF controls numbering"},
+    {"path": "CLAIM_EVIDENCE.json", "role": "successor claim-to-evidence map"},
+    {"path": "ASSURANCE.json", "role": "scoped assurance matrix"},
+    {"path": "review/route_a/01_RESPONSE_TO_REVIEWERS.md", "role": "R1-R9 and S1-S6 response"},
+    {"path": "review/route_a/06_STAGE4_CHECKPOINT.md", "role": "mandatory Stage 3 prime stopping boundary"}
   ],
   "verification_objects": [
-    {
-      "path": "outputs/release_verification.json",
-      "role": "scoped release verifier output"
-    },
-    {
-      "path": "outputs/independent_checks.json",
-      "role": "independent numerical checks"
-    },
-    {
-      "path": "outputs/negative_controls.json",
-      "role": "deliberate mutation and boundary controls"
-    },
-    {
-      "path": "outputs/software_validation.txt",
-      "role": "human-readable validation transcript"
-    },
-    {
-      "path": "outputs/pdf_inspection.txt",
-      "role": "PDF structural and visual inspection record"
-    },
-    {
-      "path": "REPLAY_RECEIPT.json",
-      "role": "normal and optimized scratch replay receipt"
-    },
-    {
-      "path": "docs/final_integrity_report_20260808.md",
-      "role": "citation, upstream-data and publication integrity audit"
-    }
+    {"path": "outputs/route_a_candidate_verification.json", "role": "integrated internal successor verification"},
+    {"path": "outputs/fixed_stem_uncertainty.json", "role": "frozen synthetic Route A result"},
+    {"path": "outputs/crabs_h2_h4_revision_summary.json", "role": "unchanged-ledger H2/H4 decomposition"},
+    {"path": "experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256", "role": "sealed historical Stage 2 result manifest"},
+    {"path": "review/route_a/ROUTE_A_CANDIDATE_MANIFEST.sha256", "role": "additive successor review manifest"}
+  ],
+  "open_external_objects": [
+    "review/route_a/03_EXTERNAL_PROCESS_REVIEW_REQUEST.md",
+    "review/route_a/04_INDEPENDENT_REPLAY_REQUEST.md",
+    "review/route_a/05_RIGHTS_REVIEW_CHECKLIST.md"
   ],
   "do_not_infer": [
-    "No crown-conditioned or random-origin finite-event equivalence claim.",
-    "No posterior-equality claim for likelihood-equivalent histories.",
-    "No simultaneous confidence coverage for the pulled signal.",
-    "No validated fossil preservation, observation or genus-to-species bridge.",
-    "No performance claim against the actual CRABS implementation.",
+    "No publication approval or peer-review acceptance.",
+    "No topology, dating, smoothing, model-selection or misspecification coverage.",
+    "No derivative coverage obtained by differentiating the F band.",
+    "No fossil observation or taxonomic-scale inference.",
+    "No general CRABS replacement, superiority, essential-complement or must-have claim.",
     "No exhaustive novelty or priority claim."
   ]
 }

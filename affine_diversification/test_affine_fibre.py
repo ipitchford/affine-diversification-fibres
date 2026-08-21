@@ -18,7 +18,9 @@ from affine_diversification.affine_fibre import (
     endpoint_deficit_cdf,
     evaluate_piecewise_linear_pulled_scale,
     fixed_stem_count_density,
+    fixed_stem_signal_band,
     fixed_stem_survival_density,
+    geometric_probability_interval,
     interval_feasibility_certificate,
     mass_extinction_atom,
     maximum_identification_factor,
@@ -31,6 +33,7 @@ from affine_diversification.affine_fibre import (
     required_samples_for_endpoint_tolerance,
     sharp_envelopes,
     survival_from_atom,
+    turnover_cap_decision_from_signal_band,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -247,6 +250,74 @@ class AffineFibreTests(unittest.TestCase):
             x[0], rho=1.0, origin_lineages=4790.0, diversity_lower=577.0
         )
         self.assertAlmostEqual(cmin, 0.93849197, places=7)
+
+    def test_18_geometric_interval_has_at_least_nominal_coverage(self) -> None:
+        alpha = 0.05
+        for p in (0.01, 0.05, 0.2, 0.5, 0.8):
+            coverage = 0.0
+            remaining = 1.0
+            n = 1
+            while remaining > 1e-14:
+                probability = p * (1.0 - p) ** (n - 1)
+                lo, hi = geometric_probability_interval(n, alpha=alpha)
+                if lo <= p <= hi:
+                    coverage += probability
+                remaining -= probability
+                n += 1
+            self.assertGreaterEqual(coverage + 2e-13, 1.0 - alpha)
+
+    def test_19_fixed_stem_band_maps_count_and_age_bands_to_F(self) -> None:
+        rate, stem_age = 0.08, 50.0
+        p_true = math.exp(-rate * stem_age)
+        n_tips = 55
+        quantiles = (np.arange(n_tips - 1) + 0.5) / (n_tips - 1)
+        branching_ages = -np.log(1.0 - quantiles * (1.0 - p_true)) / rate
+        evaluation = np.linspace(0.0, stem_age, 101)
+        band = fixed_stem_signal_band(
+            branching_ages, evaluation, stem_age=stem_age, alpha=0.05
+        )
+        truth = np.exp(rate * evaluation)
+        self.assertEqual(band.n_tips, n_tips)
+        self.assertTrue(np.all(band.F_lower <= truth + 1e-12))
+        self.assertTrue(np.all(truth <= band.F_upper + 1e-12))
+        self.assertAlmostEqual(band.F_lower[0], 1.0)
+        self.assertAlmostEqual(band.F_upper[0], 1.0)
+        self.assertAlmostEqual(band.F_lower[-1], 1.0 / band.p_upper)
+        self.assertAlmostEqual(band.F_upper[-1], 1.0 / band.p_lower)
+
+    def test_20_fixed_stem_single_tip_band_is_valid_but_uninformative_inside(self) -> None:
+        evaluation = np.array([0.0, 2.0, 4.0])
+        band = fixed_stem_signal_band([], evaluation, stem_age=4.0, alpha=0.05)
+        self.assertEqual(band.n_tips, 1)
+        self.assertEqual(band.dkw_radius, 1.0)
+        self.assertAlmostEqual(band.p_upper, 1.0)
+        self.assertAlmostEqual(band.F_lower[1], 1.0)
+        self.assertGreater(band.F_upper[1], 1.0)
+
+    def test_21_signal_band_yields_three_valued_cap_decisions(self) -> None:
+        common = {
+            "F_lower": 4.0,
+            "F_upper": 10.0,
+            "F_plugin": 6.0,
+            "rho": 1.0,
+            "origin_lineages": 2.0,
+            "diversity_lower": 1.0,
+        }
+        incompatible = turnover_cap_decision_from_signal_band(
+            **common, proposed_cap=0.5
+        )
+        unresolved = turnover_cap_decision_from_signal_band(
+            **common, proposed_cap=0.75
+        )
+        compatible = turnover_cap_decision_from_signal_band(
+            **common, proposed_cap=0.95
+        )
+        self.assertEqual(incompatible.status, "CERTIFIED_INCOMPATIBLE")
+        self.assertEqual(unresolved.status, "UNRESOLVED")
+        self.assertEqual(unresolved.plugin_status, "PLUGIN_INCOMPATIBLE")
+        self.assertEqual(compatible.status, "CERTIFIED_COMPATIBLE")
+        self.assertAlmostEqual(unresolved.minimum_cap_lower, 2.0 / 3.0)
+        self.assertAlmostEqual(unresolved.minimum_cap_upper, 8.0 / 9.0)
 
 
 if __name__ == "__main__":

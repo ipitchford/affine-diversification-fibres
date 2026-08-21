@@ -1,0 +1,24 @@
+Route A PDF inspection — 2026-08-21
+
+Artifact: manuscript.pdf
+Pages: 23
+Page size: A4
+PDF version: 1.7
+Fonts: all listed fonts embedded and subsetted
+Encryption: none
+JavaScript: none
+Tagged PDF: no
+
+Rendered at 110 dpi and visually inspected:
+- page 1: title, abstract, assurance boundary and previous-DOI warning render cleanly;
+- page 3: function-space proof continuation and measure-class material render cleanly;
+- pages 12–13: H4 gate, full transition table and clustered stratum plot are legible;
+- pages 17–18: mammal sensitivity, Route A Figure 9 and recognition tables render without clipping;
+- pages 19–21: assurance, limitations, declarations and reproduction commands render cleanly;
+- pages 22–23: bibliography renders completely with DOI links.
+
+Figure 9 was inspected at full rendered-page size. Its honest band, plug-in curve, propagated cap range and two decision markers are distinguishable. The caption states that the example is synthetic and not empirical validation.
+
+Known accessibility limitation: the PDF is not tagged. Source-level alt text for all nine PNG figures is supplied in figure_data/ALT_TEXT.json, and manuscript.md is the accessible text companion.
+
+Verdict: PASS_WITH_DISCLOSED_UNTAGGED_PDF_LIMITATION.

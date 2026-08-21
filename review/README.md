@@ -1,47 +1,29 @@
-# Affine diversification fibres 0.3.0-candidate final-review packet
+# Review packets
 
-**State:** ready for final expert review; not authorized for publication.
+## Current packet: Route A revision
 
-## Authoritative review documents
+The authoritative re-review packet is `review/route_a/` and describes candidate `0.3.0rc2` / `0.3.0-candidate-r2`.
 
-- `../manuscript.pdf` — rendered 18-page review manuscript
-- `../manuscript.tex` — authoritative editable source
-- `../docs/final_review_cover_memo_20260821.md` — editorial handoff and reviewer questions
-- `../docs/pre_review_integrity_20260821.md` — completed Stage 2.5 integrity audit
-- `CLAIM_EVIDENCE_0.3.0-candidate.json` — 11-claim evidence and assurance ledger
-- `FINAL_REVIEW_MANIFEST.sha256` — byte-level packet manifest
+- `../manuscript.pdf` — 23-page rendered revision.
+- `../manuscript.tex` — mathematical source of truth.
+- `../manuscript.md` — accessible text companion; TeX/PDF controls numbering.
+- `route_a/01_RESPONSE_TO_REVIEWERS.md` — R1–R9 and S1–S6 response.
+- `route_a/02_CHANGE_LOG.md` — stable revised locators.
+- `route_a/06_STAGE4_CHECKPOINT.md` — mandatory Stage 3′ stopping boundary.
+- `../outputs/route_a_candidate_verification.json` — passing internal integrated verification.
 
-The root `manuscript.md` belongs to the historical 0.2.1 candidate and is excluded from this review packet. It must not be used as the source for the successor draft.
-
-## New confirmatory evidence
-
-- `../experiments/affine_crabs_confirmatory/execution/RESEARCH_CHECKPOINT.json`
-- `../experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_EXECUTION_RECEIPT.json`
-- `../experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256`
-- `../experiments/affine_crabs_confirmatory/execution/H5_EXECUTION_RECEIPT.json`
-- `../experiments/affine_crabs_confirmatory/execution/H5_EXECUTION_RECEIPT_002.json`
-- `../figure_data/figure8_crabs_confirmatory_h4.csv`
-- `../figures/figure8_crabs_confirmatory_h4.png`
-
-## Local review checks
-
-Run from the repository root:
+Run from the repository root with the qualified environment:
 
 ```sh
-python3 review/validate_review_packet.py
-shasum -a 256 -c review/FINAL_REVIEW_MANIFEST.sha256
+PYTHONPATH=. /Users/admin/.venvs/analysis-py313/bin/python verification/verify_route_a_candidate.py
+shasum -a 256 -c review/route_a/ROUTE_A_CANDIDATE_MANIFEST.sha256
 latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript.tex
 ```
 
-The sealed 1,100-cell evidence manifest is independently checked with:
+## Preserved first-round packet
 
-```sh
-shasum -a 256 -c --status \
-  experiments/affine_crabs_confirmatory/execution/STOCHASTIC_STAGE2_MANIFEST.sha256
-```
+The files directly under `review/` and `review/stage3/` record the first-round 0.3.0-candidate packet and its Stage 3 review. `FINAL_REVIEW_MANIFEST.sha256` binds the first-round bytes from commit `a16c8af6f192fb62c656dc641ad69c8abda1f305`; it is not expected to validate revised root files. It is intentionally not rewritten.
 
 ## Decision boundary
 
-H4 failed: 532 of 3,840 evaluable query statuses changed (13.85%), below the frozen 20% gate, with zero false certificates. H1, H2, H3 and H5 passed within their stated scopes. The permitted headline is therefore “fast exact diagnostic complement,” not “essential” or “must-have complement.”
-
-Do not mint a DOI, alter the historical 0.2.1 archive, deploy, publish or begin outreach from this packet. Those actions require an explicit post-review decision and a separate Evidence Press successor-release workflow.
+H4 remains failed at 532/3,840 clustered status changes. External process review, unaffiliated full replay, Linux execution and independent rights review remain outstanding. Do not mint a DOI, deploy, publish or begin release outreach from this packet. The next step is mandatory Stage 3′ re-review.
